@@ -19,7 +19,7 @@ int main()
 				window.close();
 		}
 
-		window.clear(sf::Color::White);
+		window.clear(sf::Color::Blue);
 
 		sf::CircleShape circle(50);
 		circle.setFillColor(sf::Color::Green);
@@ -33,10 +33,22 @@ int main()
 		triangle.setFillColor(sf::Color::Blue);
 		triangle.setPosition(550, spaceY);
 
-		window.draw(circle);
-		window.draw(square);
-		window.draw(triangle);
+		sf::Texture file;
+		file.loadFromFile("assets/textures/outscal_logo.png");
+		sf::Sprite outscal;
+		outscal.setTexture(file);
+		outscal.setRotation(45);
+		outscal.setPosition(200, spaceY);
+		outscal.setScale(.5, .5);
+		window.draw(outscal);
 
+
+		sf::Font font;
+		font.loadFromFile("assets/fonts/OpenSans.ttf");
+		sf::Text sfml("sfml is awsome",font,50);
+		window.draw(sfml);
+
+		
 
 		window.display();
 
