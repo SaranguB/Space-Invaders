@@ -14,7 +14,7 @@ private:
 
 public:
 
-	int moveSpeed = 5;
+	int moveSpeed = 2;
 	sf::Texture playerTexture;
 	sf::Sprite playerSprite;
 
@@ -26,16 +26,21 @@ public:
 	{
 		playerScore += newScore;
 	}
+
+	int GetMoveSpeed()
+	{
+		return moveSpeed;
+	}
+
 	sf::Vector2f GetPosition()
 	{
 		return position;
 	}
-	void SetPosition()
+
+	void move(int offsetX)
 	{
-
+		position.x += offsetX;
 	}
-
-	void move();
 	void TakeDamage();
 	void Move();
 	void ShootBullets();
@@ -65,20 +70,20 @@ int main()
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		{
-			player.move();
+			player.move(-1.0f*player.GetMoveSpeed());
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 		{
-			player.move();
+			player.move(1.0f * player.GetMoveSpeed());
 		}
 
 		window.clear(sf::Color::Blue);
 
 		player.playerSprite.setPosition(player.GetPosition());
-		
+
 		window.draw(player.playerSprite);
 
-		
+
 
 		window.display();
 	}
