@@ -35,6 +35,7 @@ void GameService::render()
 
 bool GameService::isRunning()
 {
+	return false;
 	// Checks if the game is currently running.
 }
 

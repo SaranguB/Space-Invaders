@@ -1,8 +1,10 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "header/GameService.h"
+
 using namespace std;
 
-
+/*
 class Player
 {
 private:
@@ -46,9 +48,10 @@ public:
 	void ShootBullets();
 
 };
-
+*/
 int main()
 {
+	/*
 	sf::VideoMode videoMod(800, 600);
 	sf::RenderWindow window(videoMod, "space invader");
 
@@ -87,6 +90,7 @@ int main()
 
 		window.display();
 	}
+	*/
 
 
 	return 0;
