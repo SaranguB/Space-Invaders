@@ -26,8 +26,16 @@ public:
 	{
 		playerScore += newScore;
 	}
+	sf::Vector2f GetPosition()
+	{
+		return position;
+	}
+	void SetPosition()
+	{
 
+	}
 
+	void move();
 	void TakeDamage();
 	void Move();
 	void ShootBullets();
@@ -38,6 +46,11 @@ int main()
 {
 	sf::VideoMode videoMod(800, 600);
 	sf::RenderWindow window(videoMod, "space invader");
+
+	Player player;
+	player.playerTexture.loadFromFile("assets/textures/player_ship.png");
+	player.playerSprite.setTexture(player.playerTexture);
+	player.playerSprite.setScale(.5, .5);
 
 	while (window.isOpen())
 	{
@@ -50,9 +63,22 @@ int main()
 			}
 		}
 
-		Player player;
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+		{
+			player.move();
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		{
+			player.move();
+		}
 
 		window.clear(sf::Color::Blue);
+
+		player.playerSprite.setPosition(player.GetPosition());
+		
+		window.draw(player.playerSprite);
+
+		
 
 		window.display();
 	}
