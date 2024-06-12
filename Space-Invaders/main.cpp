@@ -92,6 +92,16 @@ int main()
 	}
 	*/
 
+	GameService game;
+
+	game.ignite();
+
+	while (game.isRunning())
+	{
+		game.update();
+		game.render();
+
+	}
 
 	return 0;
 }
