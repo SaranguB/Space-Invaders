@@ -92,14 +92,15 @@ int main()
 	}
 	*/
 
-	GameService game;
+	GameService* game = new GameService();
 
-	game.ignite();
 
-	while (game.isRunning())
+	game->ignite();
+
+	while (game->isRunning())
 	{
-		game.update();
-		game.render();
+		game->update();
+		game->render();
 
 	}
 

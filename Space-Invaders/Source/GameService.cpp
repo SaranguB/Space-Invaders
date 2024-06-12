@@ -1,46 +1,55 @@
 #include "../Header/GameService.h";
 
-void GameService::initialize()
+GameService::GameService()
 {
-	//to initialize
+	serviceLocator = nullptr;
+	gameWindow = nullptr;
 }
 
+GameService::~GameService()
+{
+	destroy();
+	//destructor
+}
+
+void GameService::ignite()
+{
+	serviceLocator = ServiceLocator::GetInstance();
+	initialize();
+	//starts the game
+}
+
+void GameService::initialize()
+{
+	serviceLocator->Initialize();
+	InitializeVariable();
+	//to initialize
+}
+void GameService::InitializeVariable()
+{
+	gameWindow = serviceLocator->GetGraphicService()->GetGameWindow();
+}
 void GameService::destroy()
 {
 	//clean up resources
 }
 
-GameService::GameService()
-{
-	//constructor
-}
-
-GameService::~GameService()
-{
-	//destructor
-}
-void GameService::ignite()
-{
-	//starts the game
-}
-
 void GameService::update()
 {
+	serviceLocator->Update();
 	// Updates the game logic and game state.
 }
 
 void GameService::render()
 {
+	gameWindow->clear(serviceLocator->GetGraphicService()->GetWindowColor());
+	serviceLocator->Render();
+	gameWindow->display();
+
 }
 
 bool GameService::isRunning()
 {
-	return false;
+	return serviceLocator->GetGraphicService()->IsGameWindowOpen();
 	// Checks if the game is currently running.
-}
-
-
-int main()
-{
-
 }
