@@ -36,7 +36,9 @@ void GameService::destroy()
 
 void GameService::update()
 {
+	serviceLocator->GetEventService()->ProcessEvents();
 	serviceLocator->Update();
+	
 	// Updates the game logic and game state.
 }
 

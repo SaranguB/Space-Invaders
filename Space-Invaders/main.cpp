@@ -1,6 +1,14 @@
-#include <iostream>
-#include <SFML/Graphics.hpp>
+
+#include<iostream>
+#include <SFML/Graphics.hpp> 
 #include "header/GameService.h"
+using namespace std;
+
+class Player
+{
+
+};
+
 
 using namespace std;
 
@@ -51,6 +59,7 @@ public:
 */
 int main()
 {
+
 	/*
 	sf::VideoMode videoMod(800, 600);
 	sf::RenderWindow window(videoMod, "space invader");
@@ -105,4 +114,10 @@ int main()
 	}
 
 	return 0;
+
+    sf::VideoMode videoMode = sf::VideoMode(800, 600);
+    
+
+    return 0;
+
 }
