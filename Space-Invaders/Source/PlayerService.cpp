@@ -1,6 +1,7 @@
 #include "../Header/PlayerService.h"
 #include "../Header/ServiceLocator.h"
 #include "../Header/EventService.h"
+#include "../Header/TimeService.h"
 #include <iostream>
 
 PlayerService::PlayerService()
@@ -40,11 +41,11 @@ void PlayerService::ProcessPlayerInput()
 	{
 		if (eventService->PressedLeftKey())
 		{
-			move(-1.0f * GetMoveSpeed());
+			MoveLeft();
 		}
 		if (eventService->PressedRightKey())
 		{
-			move(1.0f * GetMoveSpeed());
+			MoveRight();
 		}
 	}
 }
@@ -60,9 +61,14 @@ void PlayerService::InitializePlayerSprite()
 }
 
 
-void PlayerService::move(float offsetX)
+void PlayerService::MoveLeft()
 {
-	position.x += offsetX;
+	position.x -= movementSpeed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
+}
+
+void PlayerService::MoveRight()
+{
+	position.x += movementSpeed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
 }
 
 int PlayerService::GetMoveSpeed()
