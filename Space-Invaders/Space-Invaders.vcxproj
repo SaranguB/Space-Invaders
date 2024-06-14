@@ -148,7 +148,9 @@
     <ClInclude Include="header\GameService.h" />
     <ClInclude Include="header\GraphicService.h" />
     <ClInclude Include="Header\PlayerService.h" />
+    <ClInclude Include="Header\Player\PlayerController.h" />
     <ClInclude Include="Header\Player\PlayerModel.h" />
+    <ClInclude Include="Header\Player\PlayerView.h" />
     <ClInclude Include="header\ServiceLocator.h" />
     <ClInclude Include="Header\TimeService.h" />
   </ItemGroup>

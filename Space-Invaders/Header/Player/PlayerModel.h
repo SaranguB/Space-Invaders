@@ -30,9 +30,9 @@ public:
 
 	void Reset();
 	sf::Vector2f GetPlayerPosition();
-	void SetplayerPosition(sf::Vector2f position);
+	void SetPlayerPosition(sf::Vector2f position);
 
 	PlayerState GetPlayerState();
-	PlayerState SetPlayerState(PlayerState state);
+	void SetPlayerState(PlayerState state);
 
 };

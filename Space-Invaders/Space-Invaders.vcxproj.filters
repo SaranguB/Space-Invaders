@@ -68,5 +68,11 @@
     <ClInclude Include="Header\Player\PlayerModel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Header\Player\PlayerController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Player\PlayerView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

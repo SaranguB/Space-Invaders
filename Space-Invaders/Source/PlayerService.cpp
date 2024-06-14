@@ -6,77 +6,32 @@
 
 PlayerService::PlayerService()
 {
-	gameWindow = nullptr;
+	playerController = new PlayerController();
 }
 
 PlayerService::~PlayerService()
 {
+	delete(playerController);
+	playerController = nullptr;
 }
 
 void PlayerService::Initialize()
 {
 
-	gameWindow = ServiceLocator::GetInstance()->GetGraphicService()->GetGameWindow();
-	InitializePlayerSprite();
+	playerController->Initialize();
+	
 }
 
 void PlayerService::Update()
 {
 
-	ProcessPlayerInput();
-	playerSprite.setPosition(GetPosition());
+	playerController->Update();
+
 
 }
 
 void PlayerService::Render()
 {
-	gameWindow->draw(playerSprite);
-}
+	playerController->Render();
 
-void PlayerService::ProcessPlayerInput()
-{
-	EventService* eventService = ServiceLocator::GetInstance()->GetEventService();
-
-	if (eventService->IsKeayboardEvent())
-	{
-		if (eventService->PressedLeftKey())
-		{
-			MoveLeft();
-		}
-		if (eventService->PressedRightKey())
-		{
-			MoveRight();
-		}
-	}
-}
-
-void PlayerService::InitializePlayerSprite()
-{
-	
-	if (playerTexture.loadFromFile(playerTexturePath))
-	{
-
-		playerSprite.setTexture(playerTexture);
-	}
-}
-
-
-void PlayerService::MoveLeft()
-{
-	position.x -= movementSpeed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
-}
-
-void PlayerService::MoveRight()
-{
-	position.x += movementSpeed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
-}
-
-int PlayerService::GetMoveSpeed()
-{
-	return movementSpeed;
-}
-
-sf::Vector2f PlayerService::GetPosition()
-{
-	return position;
 }
