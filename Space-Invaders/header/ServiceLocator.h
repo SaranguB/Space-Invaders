@@ -2,7 +2,6 @@
 #include "../header/GraphicService.h"
 #include "../header/EventService.h"
 #include "../Header/PlayerService.h"
-#include "../Header/TimeService.h"
 
 
 class ServiceLocator
@@ -12,7 +11,6 @@ private:
     GraphicService* graphicService;
     EventService* eventService;
     PlayerService* playerService;
-    TimeService* timeService;
 
     ServiceLocator(); 
     
@@ -34,7 +32,7 @@ public:
     GraphicService* GetGraphicService();
     EventService* GetEventService();
     PlayerService* GetPlayerService();
-    TimeService* GetTimeService();
+    
 };
 
 
