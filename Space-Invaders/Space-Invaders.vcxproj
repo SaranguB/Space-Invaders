@@ -137,6 +137,9 @@
     <ClCompile Include="source\GameService.cpp" />
     <ClCompile Include="source\GraphicService.cpp" />
     <ClCompile Include="Source\PlayerService.cpp" />
+    <ClCompile Include="Source\Player\playerController.cpp" />
+    <ClCompile Include="Source\Player\PlayerModel.cpp" />
+    <ClCompile Include="Source\Player\PlayerView.cpp" />
     <ClCompile Include="source\ServiceLocator.cpp" />
     <ClCompile Include="Source\TimeService.cpp" />
   </ItemGroup>
@@ -145,6 +148,7 @@
     <ClInclude Include="header\GameService.h" />
     <ClInclude Include="header\GraphicService.h" />
     <ClInclude Include="Header\PlayerService.h" />
+    <ClInclude Include="Header\Player\PlayerModel.h" />
     <ClInclude Include="header\ServiceLocator.h" />
     <ClInclude Include="Header\TimeService.h" />
   </ItemGroup>

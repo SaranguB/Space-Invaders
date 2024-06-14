@@ -5,7 +5,6 @@ class PlayerService
 {
 private:
 
-	int health = 3;
 	int score = 0;
 	sf::Vector2f position = sf::Vector2f(200.0f, 100.0f);
 	float movementSpeed = 350.0f;
