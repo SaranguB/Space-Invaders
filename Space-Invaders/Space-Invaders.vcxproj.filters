@@ -27,10 +27,10 @@
     <ClCompile Include="source\GraphicService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\EventService.cpp">
+    <ClCompile Include="source\EventService..cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\PlayerService.cpp">
+    <ClCompile Include="header\EventService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -45,9 +45,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="header\EventService.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Header\PlayerService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

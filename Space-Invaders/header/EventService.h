@@ -23,8 +23,5 @@ public:
 	void ProcessEvents();
 	bool PressedEscapeKey();
 	bool IsKeayboardEvent();
-	bool PressedLeftKey();
-	bool PressedRightKey();
-
 
 };
