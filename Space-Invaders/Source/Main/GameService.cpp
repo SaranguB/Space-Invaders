@@ -3,6 +3,8 @@
 namespace Main
 {
 	using namespace Global;
+
+	GameState GameService::currentState = GameState::BOOT;
 	GameService::GameService()
 	{
 		serviceLocator = nullptr;
@@ -33,6 +35,7 @@ namespace Main
 	{
 		gameWindow = serviceLocator->GetGraphicService()->GetGameWindow();
 	}
+	
 	void GameService::destroy()
 	{
 		//clean up resources
@@ -58,5 +61,13 @@ namespace Main
 	{
 		return serviceLocator->GetGraphicService()->IsGameWindowOpen();
 		// Checks if the game is currently running.
+	}
+	void GameService::SetGameState(GameState newState)
+	{
+		currentState = newState;
+	}
+	GameState GameService::GetGameState()
+	{
+		return currentState;
 	}
 }
