@@ -1,4 +1,4 @@
-#include "../header/GraphicService.h"
+#include "../../Header/Graphic/GraphicService.h"
 
 GraphicService::GraphicService()
 {

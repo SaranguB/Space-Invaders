@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "../Player/PlayerController.h"
 
+class PlayerController;
 class PlayerView
 {
 private:
@@ -26,10 +26,9 @@ public:
 	PlayerView();
 	~PlayerView();
 
-	void Initialize();
+	void Initialize(PlayerController* controller);
 	void Update();
 	void Render();
 
-	void Initialize(PlayerController* controller);
 
 };

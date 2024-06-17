@@ -1,7 +1,7 @@
 
 #include<iostream>
 #include <SFML/Graphics.hpp> 
-#include "header/GameService.h"
+#include "../../Header/Main/GameService.h"
 using namespace std;
 
 class Player

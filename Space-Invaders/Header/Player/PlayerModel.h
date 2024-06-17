@@ -25,8 +25,8 @@ public:
 
 	void Initialize();
 
-	sf::Vector2f LeftMostPosition = sf::Vector2f(50.f,0.f);
-	sf::Vector2f RightMostPosition = sf::Vector2f(700.f,0.f);
+	const sf::Vector2f LeftMostPosition = sf::Vector2f(50.f,0.f);
+	const sf::Vector2f RightMostPosition = sf::Vector2f(700.f,0.f);
 
 	void Reset();
 	sf::Vector2f GetPlayerPosition();

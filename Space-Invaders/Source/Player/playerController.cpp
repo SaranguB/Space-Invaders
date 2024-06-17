@@ -1,5 +1,9 @@
 #include "../../Header/Player/PlayerController.h"
-#include "../../Header/ServiceLocator.h"
+#include "../../Header/Player/PlayerModel.h"
+#include "../../Header/Player/PlayerView.h"
+#include "../../Header/Global/ServiceLocator.h"
+#include <iostream>
+
 
 
 
@@ -49,10 +53,12 @@ void PlayerController::processPlayerInput()
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
+
 		MoveLeft();
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
+
 		MoveRight();
 	}
 
@@ -60,18 +66,20 @@ void PlayerController::processPlayerInput()
 
 void PlayerController::MoveLeft()
 {
+
 	sf::Vector2f currentPosition = playerModel->GetPlayerPosition();
 	currentPosition.x -= playerModel->PlayerMovementSpeed *
 		ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
 	currentPosition.x = std::max(currentPosition.x, playerModel->LeftMostPosition.x);
 	playerModel->SetPlayerPosition(currentPosition);
+	
 }
 
 void PlayerController::MoveRight()
 {
 
 	sf::Vector2f currentPosition = playerModel->GetPlayerPosition();
-	currentPosition.x = playerModel->PlayerMovementSpeed *
+	currentPosition.x += playerModel->PlayerMovementSpeed *
 		ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
 
 	currentPosition.x = std::min(currentPosition.x, playerModel->RightMostPosition.x);

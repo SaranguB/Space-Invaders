@@ -29,6 +29,7 @@ sf::Vector2f PlayerModel::GetPlayerPosition()
 void PlayerModel::SetPlayerPosition(sf::Vector2f position)
 {
 	playerPosition = position;
+	
 }
 
 PlayerState PlayerModel::GetPlayerState()

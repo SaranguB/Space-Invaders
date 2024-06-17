@@ -1,7 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "../Player/playerModel.h"
-#include "../Player/PlayerView.h"
+
+enum class PlayerState;
+class PlayerView;
+class PlayerModel;
 
 class PlayerController
 {
@@ -9,7 +11,7 @@ private:
 
 	PlayerModel* playerModel;
 	PlayerView* playerView;
-	ServiceLocator* serviceLocator;
+	
 	
 
 	void processPlayerInput();
