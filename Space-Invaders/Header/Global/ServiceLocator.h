@@ -4,37 +4,40 @@
 #include "../Player/PlayerService.h"
 #include "../Time/TimeService.h"
 
-
-class ServiceLocator
+namespace Global
 {
-private:
 
-    GraphicService* graphicService;
-    EventService* eventService;
-    PlayerService* playerService;
-    TimeService* timeService;
 
-    ServiceLocator(); 
-    
-  
-    ~ServiceLocator(); 	
+	class ServiceLocator
+	{
+	private:
 
-    
-    void CreateServices(); 			
-    void ClearAllServices(); 		
+		Graphic::GraphicService* graphicService;
+		Event::EventService* eventService;
+		Player::PlayerService* playerService;
+		Time::TimeService* timeService;
 
-public:
-    
-    static ServiceLocator* GetInstance();  // Provides a method to access the unique ServiceLocator instance (object). We will discuss this later.
+		ServiceLocator();
 
-    void Initialize(); 			//	Initializes the ServiceLocator.
-    void Update(); 				//	Updates all services.
-    void Render(); 				//	Renders using the services.
 
-    GraphicService* GetGraphicService();
-    EventService* GetEventService();
-    PlayerService* GetPlayerService();
-    TimeService* GetTimeService();
-};
+		~ServiceLocator();
 
+
+		void CreateServices();
+		void ClearAllServices();
+
+	public:
+
+		static ServiceLocator* GetInstance();  // Provides a method to access the unique ServiceLocator instance (object). We will discuss this later.
+
+		void Initialize(); 			//	Initializes the ServiceLocator.
+		void Update(); 				//	Updates all services.
+		void Render(); 				//	Renders using the services.
+
+		Graphic::GraphicService* GetGraphicService();
+		Event::EventService* GetEventService();
+		Player::PlayerService* GetPlayerService();
+		Time::TimeService* GetTimeService();
+	};
+}
 

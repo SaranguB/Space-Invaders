@@ -4,56 +4,59 @@
 #include <iostream>
 
 
-
-PlayerView::PlayerView()
+namespace Player
 {
-	gameWindow = nullptr;
-}
-
-PlayerView::~PlayerView()
-{
-
-}
-
-void PlayerView::Initialize(PlayerController* controller)
-{
-	playerController = controller;
-	gameWindow = ServiceLocator::GetInstance()->GetGraphicService()->GetGameWindow();
-	InitializePlayerSprite();
-}   
-
-void PlayerView::InitializePlayerSprite()
-{
-	
-	if (playerTexture.loadFromFile(playerTexturePath))
+	PlayerView::PlayerView()
 	{
-		
-		playerSprite.setTexture(playerTexture);
-		ScalePlayerSprite();
-		
+		gameWindow = nullptr;
 	}
-}
 
-void PlayerView::ScalePlayerSprite()
-{
+	PlayerView::~PlayerView()
+	{
 
-	playerSprite.setScale(
-		
-		static_cast<float>(playerSpriteWidth) / playerSprite.getTexture()->getSize().x,
-		static_cast<float>(playerSpriteHeight) / playerSprite.getTexture()->getSize().y
-	);
-}
+	}
+
+	void PlayerView::Initialize(PlayerController* controller)
+	{
+		using namespace Global;
+		playerController = controller;
+		gameWindow = ServiceLocator::GetInstance()->GetGraphicService()->GetGameWindow();
+		InitializePlayerSprite();
+	}
+
+	void PlayerView::InitializePlayerSprite()
+	{
+
+		if (playerTexture.loadFromFile(playerTexturePath))
+		{
+
+			playerSprite.setTexture(playerTexture);
+			ScalePlayerSprite();
+
+		}
+	}
+
+	void PlayerView::ScalePlayerSprite()
+	{
+
+		playerSprite.setScale(
+
+			static_cast<float>(playerSpriteWidth) / playerSprite.getTexture()->getSize().x,
+			static_cast<float>(playerSpriteHeight) / playerSprite.getTexture()->getSize().y
+		);
+	}
 
 
 
 
-void PlayerView::Update()
-{
-	playerSprite.setPosition(playerController->GetPlayerPosition());
-}
+	void PlayerView::Update()
+	{
+		playerSprite.setPosition(playerController->GetPlayerPosition());
+	}
 
-void PlayerView::Render()
-{
-	gameWindow->draw(playerSprite);
+	void PlayerView::Render()
+	{
+		gameWindow->draw(playerSprite);
+	}
 }
 

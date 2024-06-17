@@ -2,29 +2,32 @@
 #include <SFML/Graphics.hpp>
 #include "../../Header/Global/ServiceLocator.h"
 
-
-class GameService
+namespace Main
 {
-private:
 
-	ServiceLocator* serviceLocator;
-	sf::RenderWindow* gameWindow;
+	class GameService
+	{
+	private:
 
-	void initialize();
-	void destroy();
-public:
-	GameService();
-    ~GameService();
+		Global::ServiceLocator* serviceLocator;
+		sf::RenderWindow* gameWindow;
 
-	void ignite();
-	void update();
-	void render();
-	bool isRunning();
+		void initialize();
+		void destroy();
+	public:
+		GameService();
+		~GameService();
 
-	void InitializeVariable();
+		void ignite();
+		void update();
+		void render();
+		bool isRunning();
+
+		void InitializeVariable();
 
 
 
 
 
-};
+	};
+}

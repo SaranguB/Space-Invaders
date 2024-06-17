@@ -3,37 +3,39 @@
 #include "../../Header/Event/EventService.h"
 #include "../../Header/Time/TimeService.h"
 #include "../../Header/Player/PlayerController.h"
-
 #include <iostream>
 
-PlayerService::PlayerService()
+namespace Player
 {
-	playerController = new PlayerController();
-}
+	PlayerService::PlayerService()
+	{
+		playerController = new PlayerController();
+	}
 
-PlayerService::~PlayerService()
-{
-	delete(playerController);
-	playerController = nullptr;
-}
+	PlayerService::~PlayerService()
+	{
+		delete(playerController);
+		playerController = nullptr;
+	}
 
-void PlayerService::Initialize()
-{
+	void PlayerService::Initialize()
+	{
 
-	playerController->Initialize();
-	
-}
+		playerController->Initialize();
 
-void PlayerService::Update()
-{
+	}
 
-	playerController->Update();
+	void PlayerService::Update()
+	{
+
+		playerController->Update();
 
 
-}
+	}
 
-void PlayerService::Render()
-{
-	playerController->Render();
+	void PlayerService::Render()
+	{
+		playerController->Render();
 
+	}
 }
