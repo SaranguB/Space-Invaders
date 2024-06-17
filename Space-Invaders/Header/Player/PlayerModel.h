@@ -1,38 +1,41 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-enum class PlayerState
+namespace Player
 {
-	ALIVE,
-	DEAD,
-};
+	enum class PlayerState
+	{
+		ALIVE,
+		DEAD,
+	};
 
-class PlayerModel
-{
+	class PlayerModel
+	{
 
-private:
+	private:
 
-	const sf::Vector2f initialPlayerPosition = sf::Vector2f(500.f,500.0f);
-	sf::Vector2f playerPosition;
-	int PlayerScore;
-	PlayerState playerState;
+		const sf::Vector2f initialPlayerPosition = sf::Vector2f(500.f, 500.0f);
+		sf::Vector2f playerPosition;
+		int PlayerScore;
+		PlayerState playerState;
 
-public:
+	public:
 
-	const float PlayerMovementSpeed = 200.0f;
-	PlayerModel();
-	~PlayerModel();;
+		const float PlayerMovementSpeed = 200.0f;
+		PlayerModel();
+		~PlayerModel();;
 
-	void Initialize();
+		void Initialize();
 
-	const sf::Vector2f LeftMostPosition = sf::Vector2f(50.f,0.f);
-	const sf::Vector2f RightMostPosition = sf::Vector2f(700.f,0.f);
+		const sf::Vector2f LeftMostPosition = sf::Vector2f(50.f, 0.f);
+		const sf::Vector2f RightMostPosition = sf::Vector2f(700.f, 0.f);
 
-	void Reset();
-	sf::Vector2f GetPlayerPosition();
-	void SetPlayerPosition(sf::Vector2f position);
+		void Reset();
+		sf::Vector2f GetPlayerPosition();
+		void SetPlayerPosition(sf::Vector2f position);
 
-	PlayerState GetPlayerState();
-	void SetPlayerState(PlayerState state);
+		PlayerState GetPlayerState();
+		void SetPlayerState(PlayerState state);
 
-};
+	};
+}
