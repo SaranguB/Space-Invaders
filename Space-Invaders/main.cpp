@@ -3,11 +3,7 @@
 #include <SFML/Graphics.hpp> 
 #include "../../Header/Main/GameService.h"
 using namespace std;
-
-class Player
-{
-
-};
+using namespace Main;
 
 
 using namespace std;
