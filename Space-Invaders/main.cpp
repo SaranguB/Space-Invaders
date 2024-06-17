@@ -1,59 +1,119 @@
-#include <SFML/Graphics.hpp>
+
+#include<iostream>
+#include <SFML/Graphics.hpp> 
+#include "../../Header/Main/GameService.h"
+using namespace std;
+using namespace Main;
+
+
+using namespace std;
+
+/*
+class Player
+{
+private:
+
+	int playerHealth = 3;
+	int playerScore = 0;
+	sf::Vector2f position = sf::Vector2f(200.0f, 100.0f);
+
+
+public:
+
+	int moveSpeed = 2;
+	sf::Texture playerTexture;
+	sf::Sprite playerSprite;
+
+	int GetScore()
+	{
+		return playerScore;
+	}
+	void SetScore(int newScore)
+	{
+		playerScore += newScore;
+	}
+
+	int GetMoveSpeed()
+	{
+		return moveSpeed;
+	}
+
+	sf::Vector2f GetPosition()
+	{
+		return position;
+	}
+
+	void move(int offsetX)
+	{
+		position.x += offsetX;
+	}
+	void TakeDamage();
+	void Move();
+	void ShootBullets();
+
+};
+*/
 int main()
 {
 
-	sf::VideoMode video(800, 600);
-	sf::RenderWindow window(video, "SFML window");
-	window.setFramerateLimit(60);
+	/*
+	sf::VideoMode videoMod(800, 600);
+	sf::RenderWindow window(videoMod, "space invader");
 
-	int spaceY = 200;
+	Player player;
+	player.playerTexture.loadFromFile("assets/textures/player_ship.png");
+	player.playerSprite.setTexture(player.playerTexture);
+	player.playerSprite.setScale(.5, .5);
 
 	while (window.isOpen())
 	{
-
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
-
+			{
 				window.close();
+			}
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+		{
+			player.move(-1.0f*player.GetMoveSpeed());
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		{
+			player.move(1.0f * player.GetMoveSpeed());
 		}
 
 		window.clear(sf::Color::Blue);
 
-		sf::CircleShape circle(50);
-		circle.setFillColor(sf::Color::Green);
-		circle.setPosition(50, spaceY);
+		player.playerSprite.setPosition(player.GetPosition());
 
-		sf::CircleShape square(50, 4);
-		square.setFillColor(sf::Color::Red);
-		square.setPosition(300, spaceY);
-
-		sf::CircleShape triangle(50, 3);
-		triangle.setFillColor(sf::Color::Blue);
-		triangle.setPosition(550, spaceY);
-
-		sf::Texture file;
-		file.loadFromFile("assets/textures/outscal_logo.png");
-		sf::Sprite outscal;
-		outscal.setTexture(file);
-		outscal.setRotation(45);
-		outscal.setPosition(200, spaceY);
-		outscal.setScale(.5, .5);
-		window.draw(outscal);
+		window.draw(player.playerSprite);
 
 
-		sf::Font font;
-		font.loadFromFile("assets/fonts/OpenSans.ttf");
-		sf::Text sfml("sfml is awsome",font,50);
-		window.draw(sfml);
-
-		
 
 		window.display();
+	}
+	*/
 
+	GameService* game = new GameService();
+
+
+	game->ignite();
+
+	while (game->isRunning())
+	{
+		game->update();
+		game->render();
 
 	}
 
 	return 0;
+
+    sf::VideoMode videoMode = sf::VideoMode(800, 600);
+    
+
+    return 0;
+
 }
