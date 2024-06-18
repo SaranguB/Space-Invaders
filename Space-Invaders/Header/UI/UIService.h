@@ -9,7 +9,7 @@ namespace UI
 	{
 	private:
 
-		MainMenu::MainMenuUIController* mainMenuController;
+		MainMenu::MainMenuUIController* mainMenuUIController;
 
 		void CreateControllers();
 		void InitializeController();

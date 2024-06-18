@@ -14,7 +14,7 @@ namespace Global
 		eventService = nullptr;
 		playerService = nullptr;
 		timeService = nullptr;
-		uIService = nullptr;
+		uiService = nullptr;
 		CreateServices();
 	}
 
@@ -29,7 +29,7 @@ namespace Global
 		eventService = new EventService();
 		playerService = new PlayerService();
 		timeService = new TimeService();
-		uIService = new UIService();
+		uiService = new UIService();
 
 	}
 
@@ -43,8 +43,8 @@ namespace Global
 		playerService = nullptr;
 		delete(timeService);
 		timeService = nullptr;
-		delete(uIService);
-		uIService = nullptr;
+		delete(uiService);
+		uiService = nullptr;
 
 
 
@@ -62,7 +62,7 @@ namespace Global
 		eventService->Initialize();
 		playerService->Initialize();
 		timeService->Initialize();
-		uIService->Initialize();
+		uiService->Initialize();
 
 
 		//to initilize 
@@ -74,7 +74,7 @@ namespace Global
 		eventService->Update();
 		playerService->Update();
 		timeService->Update();
-		uIService->Update();
+		uiService->Update();
 
 		//to update
 	}
@@ -83,7 +83,7 @@ namespace Global
 	{
 		graphicService->Render();
 		playerService->Render();
-		uIService->Render();
+		uiService->Render();
 
 		// to render
 	}
@@ -110,7 +110,7 @@ namespace Global
 
 	UI::UIService* ServiceLocator::GetUIService()
 	{
-		return uIService;
+		return uiService;
 	}
 
 }

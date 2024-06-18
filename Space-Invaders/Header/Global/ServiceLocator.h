@@ -17,7 +17,7 @@ namespace Global
 		Event::EventService* eventService;
 		Player::PlayerService* playerService;
 		Time::TimeService* timeService;
-		UIService* uIService;
+		UI::UIService* uiService;
 
 
 		ServiceLocator();
