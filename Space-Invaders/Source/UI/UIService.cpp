@@ -1,6 +1,7 @@
 #include "../../Header/UI/UIService.h"
 #include "../../Header/UI/Main Menu/MainMenuUIController.h"
 #include "../../Header/Main/GameService.h"
+#include <iostream>
 
 
 namespace UI
@@ -33,11 +34,27 @@ namespace UI
 
 	void UI::UIService::Update()
 	{
+		//std::cout << "hi";
+		switch (GameService::GetGameState())
+		{
+			
+		case GameState::MAIN_MENU:
+			return mainMenuUIController->Update();
+			break;
+		}
 	}
 
 	void UI::UIService::Render()
 	{
-		mainMenuUIController->Render();
+		switch (GameService::GetGameState())
+		{
+			
+		case GameState::MAIN_MENU:
+			return mainMenuUIController->Render();
+			std::cout << "hi";
+			break;
+		}
+		
 	}
 
 

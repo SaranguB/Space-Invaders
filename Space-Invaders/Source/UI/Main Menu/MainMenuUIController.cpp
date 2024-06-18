@@ -2,6 +2,7 @@
 #include "../../Header/Main/GameService.h"
 #include "../../Header/Global/ServiceLocator.h"
 #include "../../Header/Graphic/GraphicService.h"
+#include<iostream>
 
 namespace UI
 {
@@ -89,6 +90,7 @@ namespace UI
 
 		void MainMenuUIController::Update()
 		{
+			ProcessButtonInteractions();
 		}
 
 		void MainMenuUIController::Render()
@@ -99,6 +101,49 @@ namespace UI
 			gameWindow->draw(quitButtonSprite);
 		}
 
+		void MainMenuUIController::ProcessButtonInteractions()
+		{
+			sf::Vector2f mousePosition = sf::Vector2f(sf::Mouse::getPosition(*gameWindow));
+
+			if (ClickedButton(&playButtonSprite, mousePosition))
+			{
+				std::cout << "ok";
+
+				GameService::SetGameState(GameState::GAMEPLAY);
+			}
+			if (ClickedButton(&quitButtonSprite, mousePosition))
+			{
+
+				gameWindow->close();
+			}
+
+			if (ClickedButton(&instructionsButtonSprite, mousePosition))
+			{
+				printf("clicked instructions");
+			}
+
+		}
+
+		bool MainMenuUIController::ClickedButton(sf::Sprite* buttonSprite, sf::Vector2f mousePosition)
+		{
+
+			EventService* eventService = ServiceLocator::GetInstance()->GetEventService();
+
+			if (buttonSprite->getGlobalBounds().contains(mousePosition))
+			{
+				//std::cout << "jo";
+			}
+			if (eventService->PressedLeftMouseButton())
+			{
+				//std::cout << "also";
+			}
+			if (eventService->PressedLeftMouseButton() && buttonSprite->getGlobalBounds().contains(mousePosition)) 
+			{
+				//std::cout << "justalso";
+
+				return eventService->PressedLeftMouseButton() && buttonSprite->getGlobalBounds().contains(mousePosition);
+			}
+		}
 
 
 	}

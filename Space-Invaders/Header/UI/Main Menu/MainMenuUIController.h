@@ -53,6 +53,8 @@ namespace UI
 			void Initialize();
 			void Update();
 			void Render();
+			void ProcessButtonInteractions();
+			bool ClickedButton(sf::Sprite* buttonSprite, sf::Vector2f mousePosition);
 
 			
 

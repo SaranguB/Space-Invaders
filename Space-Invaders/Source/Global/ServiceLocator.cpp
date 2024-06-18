@@ -1,4 +1,5 @@
 #include "../../Header/Global/ServiceLocator.h"
+#include<iostream>
 
 namespace Global
 {
@@ -75,6 +76,7 @@ namespace Global
 		playerService->Update();
 		timeService->Update();
 		uiService->Update();
+		//std::cout << "hello";
 
 		//to update
 	}

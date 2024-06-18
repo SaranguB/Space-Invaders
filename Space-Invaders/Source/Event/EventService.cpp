@@ -2,6 +2,7 @@
 #include "../../Header/Event/EventService.h"
 #include "../../Header/Main/GameService.h"
 #include "../../Header/Graphic/GraphicService.h"
+#include <iostream>
 
 namespace Event
 {
@@ -59,6 +60,22 @@ namespace Event
 	bool EventService::PressedRightKey()
 	{
 		return gameEvent.key.code == sf::Keyboard::Right;
+
+	}
+
+	bool EventService::PressedLeftMouseButton()
+	{
+		/*if (gameEvent.key.code == sf::Event::MouseButtonPressed && gameEvent.mouseButton.button == sf::Mouse::Left)
+		{
+			std::cout << "pressed";
+		}*/
+		return gameEvent.type == sf::Event::MouseButtonPressed && gameEvent.mouseButton.button == sf::Mouse::Left;
+	}
+
+	bool EventService::PressedRightMouseButton()
+	{
+	
+		return gameEvent.type == sf::Event::MouseButtonPressed && gameEvent.mouseButton.button == sf::Mouse::Right;
 
 	}
 

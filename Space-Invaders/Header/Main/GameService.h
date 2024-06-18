@@ -20,6 +20,8 @@ namespace Main
 		Global::ServiceLocator* serviceLocator;
 		sf::RenderWindow* gameWindow;
 
+		void ShowMainMenu();
+
 		void initialize();
 		void destroy();
 	public:

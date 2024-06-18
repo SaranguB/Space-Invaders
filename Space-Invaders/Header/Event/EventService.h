@@ -29,7 +29,8 @@ namespace Event
 		bool IsKeayboardEvent();
 		bool PressedLeftKey();
 		bool PressedRightKey();
-
+		bool PressedLeftMouseButton();
+		bool PressedRightMouseButton();
 
 	};
 }

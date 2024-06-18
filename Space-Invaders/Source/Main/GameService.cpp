@@ -25,17 +25,23 @@ namespace Main
 		//starts the game
 	}
 
+
+
 	void GameService::initialize()
 	{
 		serviceLocator->Initialize();
 		InitializeVariable();
+		ShowMainMenu();
 		//to initialize
 	}
 	void GameService::InitializeVariable()
 	{
 		gameWindow = serviceLocator->GetGraphicService()->GetGameWindow();
 	}
-	
+	void GameService::ShowMainMenu()
+	{
+		SetGameState(GameState::MAIN_MENU);
+	}
 	void GameService::destroy()
 	{
 		//clean up resources
