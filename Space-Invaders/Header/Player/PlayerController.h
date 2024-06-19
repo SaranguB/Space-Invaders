@@ -1,19 +1,21 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "../Event/EventService.h"
 
 namespace Player
 {
-
 	enum class PlayerState;
 	class PlayerView;
 	class PlayerModel;
-
+	
+	
 	class PlayerController
 	{
 	private:
 
 		PlayerModel* playerModel;
 		PlayerView* playerView;
+		Event::EventService* eventService;
 
 
 

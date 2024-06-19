@@ -2,6 +2,7 @@
 #include "../../Header/Player/PlayerModel.h"
 #include "../../Header/Player/PlayerView.h"
 #include "../../Header/Global/ServiceLocator.h"
+
 #include <iostream>
 
 
@@ -9,6 +10,8 @@
 
 namespace Player
 {
+	using namespace Global;
+	using namespace Event;
 	PlayerController::PlayerController()
 	{
 		playerView = new PlayerView();
@@ -52,12 +55,15 @@ namespace Player
 	void PlayerController::processPlayerInput()
 	{
 
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+
+		EventService* eventService = ServiceLocator::GetInstance()->GetEventService();
+
+		if (eventService->PressedLeftKey() || eventService->PressedAKey())
 		{
 
 			MoveLeft();
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		if (eventService->PressedRightKey() || eventService->PressedDKey())
 		{
 
 			MoveRight();

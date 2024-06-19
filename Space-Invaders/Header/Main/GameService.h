@@ -4,13 +4,23 @@
 
 namespace Main
 {
+	enum GameState
+	{
+		BOOT,
+		MAIN_MENU,
+		GAMEPLAY,
+	};
+
 
 	class GameService
 	{
 	private:
 
+		static GameState currentState;
 		Global::ServiceLocator* serviceLocator;
 		sf::RenderWindow* gameWindow;
+
+		void ShowMainMenu();
 
 		void initialize();
 		void destroy();
@@ -24,6 +34,8 @@ namespace Main
 		bool isRunning();
 
 		void InitializeVariable();
+		static void SetGameState(GameState newState);
+		static GameState GetGameState();
 
 
 

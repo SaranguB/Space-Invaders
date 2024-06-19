@@ -4,7 +4,12 @@
 
 namespace Event
 {
-
+	enum class ButtonState
+	{
+		PRESSED,
+		HELD,
+		RELEASED,
+	};
 
 	class EventService
 	{
@@ -16,6 +21,16 @@ namespace Event
 		bool IsGameWindowOpen();
 		bool GameWindowWasClosed();
 		bool HasQuitGame();
+
+		ButtonState	leftMouseButtonState;
+		ButtonState rightMouseButtonState;
+		ButtonState leftArrowButtonState;
+		ButtonState rightArrowButtonState;
+		ButtonState AButtonState;
+		ButtonState DButtonState;
+
+		void UpdateMouseButtonState(ButtonState& currentButtonState, sf::Mouse::Button mouseButton);
+		void updateKeyboardButtonsState(ButtonState& currentButtonState, sf::Keyboard::Key keyboardButton);
 
 	public:
 
@@ -29,7 +44,10 @@ namespace Event
 		bool IsKeayboardEvent();
 		bool PressedLeftKey();
 		bool PressedRightKey();
-
+		bool PressedLeftMouseButton();
+		bool PressedRightMouseButton();
+		bool PressedAKey();
+		bool PressedDKey();
 
 	};
 }
