@@ -20,6 +20,10 @@ namespace Enemy
 		void Initialize();
 		void Update();
 		void Render();
+		void Move();
+		void MoveLeft();
+		void MoveRight();
+		void MoveDown();
 
 		sf::Vector2f GetEnemyPosition();
 	};

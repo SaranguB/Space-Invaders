@@ -37,6 +37,7 @@ namespace Enemy
 
 	void EnemyService::Update()
 	{
+		enemyController->Update();
 	}
 
 	void EnemyService::Render()
