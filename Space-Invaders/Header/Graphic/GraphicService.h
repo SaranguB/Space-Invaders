@@ -14,7 +14,7 @@ namespace Graphic
 		const string gameWindowTitle = "Space Invaded";
 		const int gameWindowWidth = 1920;
 		const int gameWindowHeight = 1080;
-		const sf::Color windowColor = sf::Color::Black;
+		const sf::Color windowColor = sf::Color::Blue;
 		const int frameRate = 60;
 
 		sf::VideoMode* videoMode;
