@@ -9,8 +9,18 @@ namespace Enemy
 		{
 		private:
 
-		public:
+			const float verticalTravelDistance = 100.0f;
 
+			void Move() override;
+			void MoveLeft();
+			void MoveRight();
+			void MoveDown();
+
+		public:
+			ZapperController();
+			~ZapperController();
+
+			void Initialize() override;
 		};
 	}
 }

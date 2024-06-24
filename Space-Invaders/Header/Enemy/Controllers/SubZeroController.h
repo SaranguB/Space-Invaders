@@ -9,7 +9,16 @@ namespace Enemy
 		{
 		private:
 
+			float speed = 100.0f;
+
+			void Move() override;
+			void MoveDown();
+
 		public:
+			SubZeroController();
+			~SubZeroController();
+
+				void Initialize() override;
 
 		};
 	}
