@@ -107,7 +107,6 @@ namespace Global
 
 	void ServiceLocator::Render()
 	{
-		graphicService->Render();
 		if (GameService::GetGameState() == GameState::GAMEPLAY)
 		{
 			gameplayService->Render();
