@@ -3,6 +3,7 @@
 
 namespace Enemy
 {
+	class EnemyModel;
 	namespace Controller
 	{
 		class SubZeroController : public EnemyController
@@ -10,7 +11,7 @@ namespace Enemy
 		private:
 
 			float speed = 100.0f;
-
+			EnemyModel* enemyModel;
 			void Move() override;
 			void MoveDown();
 

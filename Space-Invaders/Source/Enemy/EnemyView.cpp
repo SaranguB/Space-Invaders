@@ -2,12 +2,14 @@
 #include "../../Header/Global/ServiceLocator.h"
 #include "../../Header/Graphic/GraphicService.h"
 #include "../../Header/Enemy/EnemyController.h"
+#include"../../Header/Enemy/EnemyConfig.h"
+#include "../../Header/Enemy/EnemyModel.h"
 
 namespace Enemy
 {
 	using namespace Graphic;
 	using namespace Global;
-	
+
 	Enemy::EnemyView::EnemyView()
 	{
 	}
@@ -20,16 +22,34 @@ namespace Enemy
 	{
 		enemyController = controller;
 		gameWindow = ServiceLocator::GetInstance()->GetGraphicService()->GetGameWindow();
-		InitializeEnemySprite();
+		InitializeEnemySprite(enemyModel->GetEnemyType());
 	}
 
 
-	void EnemyView::InitializeEnemySprite()
+	void EnemyView::InitializeEnemySprite(EnemyType type)
 	{
-		if (enemyTexture.loadFromFile(enemyTexturePath))
+		switch (type)
 		{
-			enemySprite.setTexture(enemyTexture);
-			ScaleEnemySprite();
+		case Enemy::EnemyType::ZAPPER:
+
+			if (enemyTexture.loadFromFile(zapperTexturePath))
+			{
+				enemySprite.setTexture(enemyTexture);
+				ScaleEnemySprite();
+				break;
+
+			}
+
+		case Enemy::EnemyType::SUBZERO:
+		{
+			if (enemyTexture.loadFromFile(subzeroTexturePath))
+			{
+				enemySprite.setTexture(enemyTexture);
+				ScaleEnemySprite();
+				break;
+
+			}
+		}
 		}
 	}
 
