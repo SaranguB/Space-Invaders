@@ -9,10 +9,11 @@ namespace Enemy
 	namespace Controller
 	{
 		using namespace Global;
-		ZapperController::ZapperController()
+		ZapperController::ZapperController(EnemyType type) : EnemyController(type) 
 		{
-
+			
 		}
+		
 		ZapperController::~ZapperController()
 		{
 		}

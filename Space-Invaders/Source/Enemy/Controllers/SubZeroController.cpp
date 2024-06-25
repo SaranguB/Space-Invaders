@@ -11,11 +11,8 @@ namespace Enemy
 	{
 		using namespace Global;
 
-		SubZeroController::SubZeroController()
+		SubZeroController::SubZeroController(EnemyType type) : EnemyController(type) {}
 		
-		{
-
-		}
 
 		SubZeroController::~SubZeroController()
 		{
@@ -23,6 +20,7 @@ namespace Enemy
 		}
 		void SubZeroController::Initialize()
 		{
+			printf("hi");
 			EnemyController::Initialize();
 			enemyModel->SetMovementDirection(MovementDirection::DOWN);
 

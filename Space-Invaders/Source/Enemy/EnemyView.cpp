@@ -22,7 +22,7 @@ namespace Enemy
 	{
 		enemyController = controller;
 		gameWindow = ServiceLocator::GetInstance()->GetGraphicService()->GetGameWindow();
-		InitializeEnemySprite(enemyModel->GetEnemyType());
+		InitializeEnemySprite(enemyController->GetEnemyType());
 	}
 
 

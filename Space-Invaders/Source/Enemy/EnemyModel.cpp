@@ -1,11 +1,14 @@
 #include "../../Header/Enemy/EnemyModel.h"
 #include "../../Header/Enemy/EnemyConfig.h"
+#include<iostream>
 
 namespace Enemy
 {
 
 	EnemyModel::EnemyModel(EnemyType type)
 	{
+		
+		
 		enemyType = type;
 	}
 
@@ -68,15 +71,6 @@ namespace Enemy
 	{
 		enemyType = type;
 	}
-
-
-
-
-
-
-
-
-
 
 }
 

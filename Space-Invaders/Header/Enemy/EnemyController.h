@@ -5,15 +5,19 @@ namespace Enemy
 {
 	class EnemyView;
 	class EnemyModel;
+	enum class EnemyState;
+	enum class EnemyType;
 
 	class EnemyController
 	{
-	private:
+	protected:
 		EnemyView* enemyView;
 		EnemyModel* enemyModel;
 
+		sf::Vector2f getRandomInitialPosition();
+			void handleOutOfBounds();
 	public:
-		 EnemyController();
+		 EnemyController(EnemyType type);
 		virtual ~EnemyController();
 
 
@@ -24,6 +28,9 @@ namespace Enemy
 		
 
 		sf::Vector2f GetEnemyPosition();
-		
+
+
+		EnemyType GetEnemyType();
+		EnemyState GetEnemyState();
 	};
 }

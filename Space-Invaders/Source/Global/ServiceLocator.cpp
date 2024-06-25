@@ -70,6 +70,7 @@ namespace Global
 
 	void ServiceLocator::Initialize()
 	{
+
 		graphicService->Initialize();
 		eventService->Initialize();
 		playerService->Initialize();
@@ -84,13 +85,15 @@ namespace Global
 
 	void ServiceLocator::Update()
 	{
+		//printf("hi");
+
 		graphicService->Update();
 		eventService->Update();
 		timeService->Update();
 
 		if (GameService::GetGameState() == GameState::GAMEPLAY)
 		{
-
+			//printf("hi");
 			playerService->Update();
 			enemyService->Update();
 			gameplayService->Update();
@@ -100,7 +103,7 @@ namespace Global
 		uiService->Update();
 
 
-		//std::cout << "hello";
+		std::cout << "hello";
 
 		//to update
 	}
