@@ -1,4 +1,7 @@
 #include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/Main/GameService.h"
+
+
 #include<iostream>
 
 namespace Global
@@ -8,6 +11,9 @@ namespace Global
 	using namespace Player;
 	using namespace Time;
 	using namespace UI;
+	using namespace Main;
+	using namespace Enemy;
+	using namespace Gameplay;
 
 	ServiceLocator::ServiceLocator()
 	{
@@ -16,6 +22,8 @@ namespace Global
 		playerService = nullptr;
 		timeService = nullptr;
 		uiService = nullptr;
+		enemyService = nullptr;
+		gameplayService = nullptr;
 		CreateServices();
 	}
 
@@ -31,7 +39,8 @@ namespace Global
 		playerService = new PlayerService();
 		timeService = new TimeService();
 		uiService = new UIService();
-
+		enemyService = new EnemyService();
+		gameplayService = new GameplayService();
 	}
 
 	void ServiceLocator::ClearAllServices()
@@ -46,6 +55,8 @@ namespace Global
 		timeService = nullptr;
 		delete(uiService);
 		uiService = nullptr;
+		delete(gameplayService);
+		gameplayService = nullptr;
 
 
 
@@ -59,11 +70,14 @@ namespace Global
 
 	void ServiceLocator::Initialize()
 	{
+
 		graphicService->Initialize();
 		eventService->Initialize();
 		playerService->Initialize();
+		enemyService->Initialize();
 		timeService->Initialize();
 		uiService->Initialize();
+		gameplayService->Initialize();
 
 
 		//to initilize 
@@ -71,11 +85,24 @@ namespace Global
 
 	void ServiceLocator::Update()
 	{
+		//printf("hi");
+
 		graphicService->Update();
 		eventService->Update();
-		playerService->Update();
 		timeService->Update();
+
+		if (GameService::GetGameState() == GameState::GAMEPLAY)
+		{
+			//printf("hi");
+			playerService->Update();
+			enemyService->Update();
+			gameplayService->Update();
+		}
+
+		
 		uiService->Update();
+
+
 		//std::cout << "hello";
 
 		//to update
@@ -83,8 +110,13 @@ namespace Global
 
 	void ServiceLocator::Render()
 	{
-		graphicService->Render();
-		playerService->Render();
+		if (GameService::GetGameState() == GameState::GAMEPLAY)
+		{
+			gameplayService->Render();
+			playerService->Render();
+			enemyService->Render();
+			
+		}
 		uiService->Render();
 
 		// to render
@@ -113,6 +145,16 @@ namespace Global
 	UI::UIService* ServiceLocator::GetUIService()
 	{
 		return uiService;
+	}
+
+	Enemy::EnemyService* ServiceLocator::GetEnemyService()
+	{
+		return enemyService;
+	}
+
+	Gameplay::GameplayService* ServiceLocator::GetGameplayService()
+	{
+		return gameplayService;
 	}
 
 }
