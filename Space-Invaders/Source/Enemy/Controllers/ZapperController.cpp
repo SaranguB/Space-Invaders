@@ -9,9 +9,8 @@ namespace Enemy
 	namespace Controller
 	{
 		using namespace Global;
-		ZapperController::ZapperController(EnemyType type) : EnemyController(type) 
-		{
-			
+		ZapperController::ZapperController(EnemyType type) : EnemyController(type)
+		{			
 		}
 		
 		ZapperController::~ZapperController()
@@ -19,6 +18,7 @@ namespace Enemy
 		}
 		void ZapperController::Initialize()
 		{
+			
 			EnemyController::Initialize();
 
 		}
@@ -51,13 +51,17 @@ namespace Enemy
 
 
 			sf::Vector2f currentPosition = enemyModel->GetEnemyPosition();
-			currentPosition.y -= verticalTravelDistance * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
+			currentPosition.y += verticalTravelDistance * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
 
 			if (currentPosition.y >= enemyModel->GetReferencePosition().y + verticalTravelDistance)
 			{
 				if (enemyModel->GetEnemyPosition().x <= enemyModel->LeftMostPosition.x)
 				{
 					enemyModel->SetMovementDirection(MovementDirection::RIGHT);
+				}
+				else
+				{
+					enemyModel->SetMovementDirection(MovementDirection::LEFT);
 				}
 			}
 			else
@@ -87,7 +91,7 @@ namespace Enemy
 		void ZapperController::MoveLeft()
 		{
 			sf::Vector2f currentPosition = enemyModel->GetEnemyPosition();
-			currentPosition.x -= enemyModel->enemyMovementSpeed;
+			currentPosition.x -= enemyModel->enemyMovementSpeed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
 
 			if (currentPosition.x <= enemyModel->LeftMostPosition.x)
 			{

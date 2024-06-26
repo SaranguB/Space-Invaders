@@ -13,6 +13,7 @@ namespace Enemy
 		EnemyController* enemyController;
 		sf::String zapperTexturePath ="assets/textures/zapper.png";
 		sf::String subzeroTexturePath = "assets/textures/subzero.png";
+		sf::String  thunderSnakePath = "assets/textures/thunder_snake.png";
 
 		const float enemySpriteHeight = 60.f;
 		const float enemySpriteWidth = 60.f;

@@ -7,8 +7,6 @@ namespace Enemy
 
 	EnemyModel::EnemyModel(EnemyType type)
 	{
-		
-		
 		enemyType = type;
 	}
 
@@ -45,6 +43,7 @@ namespace Enemy
 
 	void EnemyModel::SetMovementDirection(MovementDirection direction)
 	{
+
 		movementDirection = direction;
 	}
 

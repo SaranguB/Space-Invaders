@@ -44,12 +44,21 @@ namespace Enemy
 		{
 			if (enemyTexture.loadFromFile(subzeroTexturePath))
 			{
+				
 				enemySprite.setTexture(enemyTexture);
 				ScaleEnemySprite();
 				break;
 
 			}
 		}
+		case Enemy::EnemyType::THUNDER_SNAKE:
+			if (enemyTexture.loadFromFile(thunderSnakePath))
+			{
+				
+				enemySprite.setTexture(enemyTexture);
+				ScaleEnemySprite();
+				break;
+			}
 		}
 	}
 

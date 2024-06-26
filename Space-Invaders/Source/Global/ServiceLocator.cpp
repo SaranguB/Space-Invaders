@@ -103,7 +103,7 @@ namespace Global
 		uiService->Update();
 
 
-		std::cout << "hello";
+		//std::cout << "hello";
 
 		//to update
 	}

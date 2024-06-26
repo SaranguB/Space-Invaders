@@ -7,6 +7,8 @@ namespace Enemy
 		LEFT,
 		RIGHT,
 		DOWN,
+		DIAGONAL_LEFT,
+		DIAGONAL_RIGHT,
 	};
 
 	enum class EnemyType
@@ -14,7 +16,7 @@ namespace Enemy
 		ZAPPER ,
 		SUBZERO,
 		//UFO,   ..2
-		//THUNDER_SNAKE,   ..3
+		THUNDER_SNAKE,  
 	};
 	enum class EnemyState
 	{

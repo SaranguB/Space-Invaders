@@ -20,7 +20,7 @@ namespace Enemy
 		}
 		void SubZeroController::Initialize()
 		{
-			printf("hi");
+			//printf("hi");
 			EnemyController::Initialize();
 			enemyModel->SetMovementDirection(MovementDirection::DOWN);
 
@@ -37,7 +37,7 @@ namespace Enemy
 		void SubZeroController::MoveDown()
 		{
 			sf::Vector2f currentPosition = enemyModel->GetEnemyPosition();
-			currentPosition.y -= speed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
+			currentPosition.y += speed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
 
 			enemyModel->SetEnemyPosition(currentPosition);
 		}

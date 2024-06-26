@@ -5,6 +5,7 @@
 #include "../../Header/Enemy/EnemyConfig.h"
 #include "../../Header/Enemy/Controllers/SubZeroController.h"
 #include "../../Header/Enemy/Controllers/ZapperController.h"
+#include "../../Header/Enemy/Controllers/ThunderSnakeController.h"
 
 #include <vector>
 
@@ -17,7 +18,7 @@ namespace Enemy
 
 	Enemy::EnemyService::EnemyService()
 	{
-	
+		std::srand(static_cast<unsigned>(std::time(nullptr)));
 		for (int i = 0;i < enemyList.size(); i++)
 		{
 			enemyList[i] = nullptr;
@@ -71,18 +72,20 @@ namespace Enemy
 		case::Enemy::EnemyType::SUBZERO:
 			return new SubZeroController(Enemy::EnemyType::SUBZERO);
 
+		case::Enemy::EnemyType::THUNDER_SNAKE:
+			return new ThunderSnakeController(Enemy::EnemyType::THUNDER_SNAKE);
+
 			/*case::Enemy::EnemyType::UFO:
 			return new UFOController(Enemy::EnemyType::UFO);*/
 
-			/*case::Enemy::EnemyType::THUNDER_SNAKE:
-			return new ThunderSnakeController(Enemy::EnemyType::THUNDER_SNAKE);*/
+			
 		}
 
 
 	}
 	EnemyType EnemyService::GetRandomEnemyType()
 	{
-		int randomType = std::rand() % 2;
+		int randomType = std::rand() % 3;
 		return static_cast<Enemy::EnemyType>(randomType);
 	}
 	
