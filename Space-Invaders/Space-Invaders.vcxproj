@@ -176,6 +176,7 @@
     <ClInclude Include="Header\Gameplay\GameplayController.h" />
     <ClInclude Include="Header\Gameplay\GameplayService.h" />
     <ClInclude Include="Header\Gameplay\GameplayView.h" />
+    <ClInclude Include="Header\Global\Config.h" />
     <ClInclude Include="Header\Main\GameService.h" />
     <ClInclude Include="Header\Graphic\GraphicService.h" />
     <ClInclude Include="Header\Player\PlayerService.h" />
@@ -186,6 +187,7 @@
     <ClInclude Include="Header\Time\TimeService.h" />
     <ClInclude Include="Header\UI\Main Menu\MainMenuUIController.h" />
     <ClInclude Include="Header\UI\UIService.h" />
+    <ClInclude Include="Source\Global\Config.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

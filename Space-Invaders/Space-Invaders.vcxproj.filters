@@ -173,5 +173,11 @@
     <ClInclude Include="Header\Element\Bunker\BunkerController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Header\Global\Config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Global\Config.cpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
