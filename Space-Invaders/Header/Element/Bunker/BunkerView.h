@@ -16,7 +16,6 @@ namespace Element
 			BunkerController* bunkerController;
 			sf::RenderWindow* gameWindow;
 
-			sf::String BunkerPath = "assets/textures/bunker.png";
 
 			sf::Texture bunkerTexture;
 			sf::Sprite bunkerSprite;

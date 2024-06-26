@@ -4,6 +4,7 @@
 #include "../../Header/Enemy/EnemyController.h"
 #include"../../Header/Enemy/EnemyConfig.h"
 #include "../../Header/Enemy/EnemyModel.h"
+#include "../../Header/Global/Config.h"
 
 namespace Enemy
 {
@@ -32,7 +33,7 @@ namespace Enemy
 		{
 		case Enemy::EnemyType::ZAPPER:
 
-			if (enemyTexture.loadFromFile(zapperTexturePath))
+			if (enemyTexture.loadFromFile(Config::zapper_texture_path))
 			{
 				enemySprite.setTexture(enemyTexture);
 				ScaleEnemySprite();
@@ -42,7 +43,7 @@ namespace Enemy
 
 		case Enemy::EnemyType::SUBZERO:
 		{
-			if (enemyTexture.loadFromFile(subzeroTexturePath))
+			if (enemyTexture.loadFromFile(Config::subzero_texture_path))
 			{
 				
 				enemySprite.setTexture(enemyTexture);
@@ -52,7 +53,7 @@ namespace Enemy
 			}
 		}
 		case Enemy::EnemyType::THUNDER_SNAKE:
-			if (enemyTexture.loadFromFile(thunderSnakePath))
+			if (enemyTexture.loadFromFile(Config::thunder_snake_texture_path))
 			{
 				
 				enemySprite.setTexture(enemyTexture);
