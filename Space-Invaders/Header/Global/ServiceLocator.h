@@ -6,6 +6,7 @@
 #include "../UI/UIService.h"
 #include "../Enemy/EnemyService.h"
 #include "../Gameplay/GameplayService.h"
+#include "../../Header/Element/ElementService.h"
 
 
 namespace Global
@@ -23,6 +24,7 @@ namespace Global
 		UI::UIService* uiService;
 		Enemy::EnemyService* enemyService;
 		Gameplay::GameplayService* gameplayService;
+		Element::ElementService* elementService;
 
 
 		ServiceLocator();

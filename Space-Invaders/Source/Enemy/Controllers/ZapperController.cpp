@@ -55,7 +55,7 @@ namespace Enemy
 
 			if (currentPosition.y >= enemyModel->GetReferencePosition().y + verticalTravelDistance)
 			{
-				if (enemyModel->GetEnemyPosition().x <= enemyModel->LeftMostPosition.x)
+				if (enemyModel->GetReferencePosition().x <= enemyModel->LeftMostPosition.x)
 				{
 					enemyModel->SetMovementDirection(MovementDirection::RIGHT);
 				}
