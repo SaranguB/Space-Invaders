@@ -29,7 +29,7 @@ namespace Element
 			BunkerView();
 			~BunkerView();
 
-			void Intialize(BunkerController* controller);
+			void Initialize(BunkerController* controller);
 			void Update();
 			void Render();
 		};

@@ -13,7 +13,7 @@ namespace Element
 		BunkerView::~BunkerView()
 		{
 		}
-		void BunkerView::Intialize(BunkerController* controller)
+		void BunkerView::Initialize(BunkerController* controller)
 		{
 			bunkerController = controller;
 			gameWindow = ServiceLocator::GetInstance()->GetGraphicService()->GetGameWindow();

@@ -4,9 +4,10 @@
 
 namespace Element
 {
-	class BunkerView;
 	namespace Bunker
 	{
+		class BunkerView;
+
 		class BunkerController
 		{
 		private:
