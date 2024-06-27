@@ -20,6 +20,14 @@ namespace Bullet
 	void BulletController::Render()
 	{
 	}
+	sf::Vector2f BulletController::GetProjectilePosition()
+	{
+		return sf::Vector2f();
+	}
+	BulletType BulletController::GetBulletType()
+	{
+		return BulletType();
+	}
 	void BulletController::UpdateProjectilePosition()
 	{
 	}
