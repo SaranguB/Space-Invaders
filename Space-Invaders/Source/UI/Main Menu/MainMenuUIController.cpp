@@ -12,6 +12,7 @@ namespace UI
 		using namespace Main;
 		using namespace Graphic;
 		using namespace Event;
+		using namespace Sound;
 
 		MainMenuUIController::MainMenuUIController()
 		{
@@ -105,11 +106,13 @@ namespace UI
 		{
 			sf::Vector2f mousePosition = sf::Vector2f(sf::Mouse::getPosition(*gameWindow));
 
+
 			if (ClickedButton(&playButtonSprite, mousePosition))
 			{
-				std::cout << "ok";
-
+				//std::cout << "ok";
 				GameService::SetGameState(GameState::GAMEPLAY);
+				ServiceLocator::GetInstance()->GetSoundService()->PlayBackgroundMusic();
+				ServiceLocator::GetInstance()->GetSoundService()->PlaySound(SoundType::BUTTON_CLICK);
 			}
 			if (ClickedButton(&quitButtonSprite, mousePosition))
 			{
