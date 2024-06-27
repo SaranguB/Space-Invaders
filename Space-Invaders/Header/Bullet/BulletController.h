@@ -13,7 +13,7 @@ namespace Bullet
 	protected:
 
 		BulletView* bulletView;
-		BulletModel* bulletMode;
+		BulletModel* bulletModel;
 
 		void UpdateProjectilePosition() override;
 
