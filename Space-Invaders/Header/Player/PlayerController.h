@@ -22,6 +22,7 @@ namespace Player
 		void processPlayerInput();
 		void MoveLeft();
 		void MoveRight();
+		void FireBullet();
 
 
 	public:

@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+
 namespace Bullet
 {
 	enum class BulletType;

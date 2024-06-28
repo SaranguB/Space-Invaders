@@ -10,7 +10,7 @@ namespace Bullet
 
 		public:
 			LaserBulletController(BulletType type);
-			~LaserBulletController();
+			~LaserBulletController() ;
 
 			void Initialize(sf::Vector2f position, MovementDirection direction);
 

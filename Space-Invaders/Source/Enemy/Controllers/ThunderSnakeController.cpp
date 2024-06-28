@@ -2,6 +2,8 @@
 #include "../../Header/Enemy/EnemyModel.h"
 #include "../../Header/Global/ServiceLocator.h"
 #include "../../Header/Enemy/EnemyConfig.h"
+#include "../../Header/Bullet/BulletConfig.h"
+
 
 
 namespace Enemy
@@ -10,6 +12,7 @@ namespace Enemy
 	namespace Controller
 	{
 		using namespace Global;
+		
 		ThunderSnakeController::ThunderSnakeController(EnemyType type) : EnemyController(type)
 		{
 		}
@@ -23,6 +26,14 @@ namespace Enemy
 			EnemyController::Initialize();
 		}
 
+		void ThunderSnakeController::FireBullet()
+		{
+
+			ServiceLocator::GetInstance()->GetBulletServices()->SpawnBullet(Bullet::BulletType::TORPEDO,
+				enemyModel->GetEnemyPosition() + enemyModel->barrelPositionOffset,
+				Bullet::MovementDirection::DOWN);
+
+		}
 		void ThunderSnakeController::Move()
 		{
 			switch (enemyModel->GetMovementDirection())

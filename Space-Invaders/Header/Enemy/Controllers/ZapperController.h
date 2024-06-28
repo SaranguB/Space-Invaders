@@ -19,9 +19,13 @@ namespace Enemy
 			void MoveRight();
 			void MoveDown();
 
+			
+
 		public:
 			ZapperController(EnemyType type);
 			~ZapperController();
+
+			void FireBullet() override;
 
 			void Initialize() override;
 		};

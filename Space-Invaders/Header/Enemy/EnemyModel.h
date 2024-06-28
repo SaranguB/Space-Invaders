@@ -13,12 +13,12 @@ namespace Enemy
 
 
 	private:
-		sf::Vector2f referencePosition = sf::Vector2f(50.f,50.f );
+		sf::Vector2f referencePosition = sf::Vector2f(50.f, 50.f);
 		sf::Vector2f enemyPosition;
 		MovementDirection  movementDirection;
 		EnemyType enemyType;
 		EnemyState enemyState;
-		
+
 
 
 
@@ -33,10 +33,12 @@ namespace Enemy
 
 		const sf::Vector2f LeftMostPosition = sf::Vector2f(50.f, 50.f);
 		const sf::Vector2f RightMostPosition = sf::Vector2f(1800.f, 50.f);
+		sf::Vector2f barrelPositionOffset = sf::Vector2f(20.f, 50.f);
 
 
-		sf::Vector2f GetEnemyPosition();
-		void SetEnemyPosition(sf:: Vector2f position);
+
+			sf::Vector2f GetEnemyPosition();
+		void SetEnemyPosition(sf::Vector2f position);
 
 		sf::Vector2f GetReferencePosition();
 		void SetReferencePosition(sf::Vector2f position);
@@ -49,7 +51,7 @@ namespace Enemy
 
 		EnemyType GetEnemyType();
 		void SetEnemyType(EnemyType type);
-		
+
 
 	};
 }

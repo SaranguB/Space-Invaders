@@ -4,7 +4,6 @@
 
 namespace Projectile
 {
-	enum class MovementDirection;
 
 	class IProjectile
 	{
@@ -21,5 +20,6 @@ namespace Projectile
 		virtual ~IProjectile() = 0;
 
 	};
+	inline IProjectile::~IProjectile() {}
 }
 

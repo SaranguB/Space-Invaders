@@ -2,6 +2,7 @@
 #include"../../Header/Bullet/BulletModel.h"
 #include"../../Header/Bullet/BulletView.h"
 #include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/Bullet/BulletConfig.h"
 
 namespace Bullet
 {
@@ -36,6 +37,7 @@ namespace Bullet
 		case Bullet::MovementDirection::DOWN:
 			MoveDown();
 			break;
+
 		case Bullet::MovementDirection::UP:
 			MoveUP();
 			break;
@@ -43,17 +45,19 @@ namespace Bullet
 		}
 	}
 
+	
+
 	void BulletController::MoveUP()
 	{
 		sf::Vector2f currentPosition = bulletModel->GetbulletPosition();
-		currentPosition.y += bulletModel->GetMovementSpeed() * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
+		currentPosition.y -= bulletModel->GetMovementSpeed() * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
 		bulletModel->SetBulletPosition(currentPosition);
 	}
 
 	void BulletController::MoveDown()
 	{
 		sf::Vector2f currentPosition = bulletModel->GetbulletPosition();
-		currentPosition.y -= bulletModel->GetMovementSpeed() * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
+		currentPosition.y += bulletModel->GetMovementSpeed() * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
 		bulletModel->SetBulletPosition(currentPosition);
 	}
 
@@ -71,6 +75,7 @@ namespace Bullet
 
 	void BulletController::Render()
 	{
+		bulletView->Render();
 	}
 	sf::Vector2f BulletController::GetProjectilePosition()
 	{
@@ -78,7 +83,7 @@ namespace Bullet
 	}
 	BulletType BulletController::GetBulletType()
 	{
-		return BulletType();
+		return bulletModel->GetBulletType();
 	}
 
 

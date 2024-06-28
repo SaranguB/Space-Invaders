@@ -1,6 +1,5 @@
 #pragma once
 #include "../../Header/Projectile/IProjectile.h"
-#include "../../Header/Bullet/BulletConfig.h"
 
 namespace Bullet
 {
