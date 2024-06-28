@@ -13,12 +13,15 @@ namespace Enemy
 			float speed = 100.0f;
 			void Move() override;
 			void MoveDown();
+			const float subZeroRateofFire = 2;
 
 		public:
 			SubZeroController(EnemyType type);
 			~SubZeroController();
 
 				void Initialize() override;
+				void FireBullet() override;
+
 
 		};
 	}

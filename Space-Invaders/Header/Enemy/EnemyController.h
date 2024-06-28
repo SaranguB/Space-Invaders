@@ -16,6 +16,14 @@ namespace Enemy
 
 		sf::Vector2f getRandomInitialPosition();
 			void handleOutOfBounds();
+
+			float rateOfFire = 3.0f;
+			float elapsedFireDuration = 0.f;
+
+			void UpdateFireTime();
+			void ProcessBulletFire();
+			virtual void FireBullet() = 0;
+
 	public:
 		 EnemyController(EnemyType type);
 		virtual ~EnemyController();

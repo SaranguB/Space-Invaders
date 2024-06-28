@@ -19,6 +19,7 @@ namespace Player
 		int PlayerScore;
 		PlayerState playerState;
 
+
 	public:
 
 		const float PlayerMovementSpeed = 200.0f;
@@ -29,6 +30,8 @@ namespace Player
 
 		const sf::Vector2f LeftMostPosition = sf::Vector2f(50.f, 950.f);
 		const sf::Vector2f RightMostPosition = sf::Vector2f(1800.f, 950.f);
+		sf::Vector2f barrelPositionOffset = sf::Vector2f(20.f, 50.f);
+
 
 		void Reset();
 		sf::Vector2f GetPlayerPosition();

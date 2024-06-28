@@ -1,7 +1,9 @@
-#include "../../Header/Player/PlayerController.h"
+  #include "../../Header/Player/PlayerController.h"
 #include "../../Header/Player/PlayerModel.h"
 #include "../../Header/Player/PlayerView.h"
 #include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/Bullet/BulletConfig.h"
+
 
 #include <iostream>
 
@@ -68,6 +70,10 @@ namespace Player
 
 			MoveRight();
 		}
+		if (eventService->PressedLeftMouseButton())
+		{
+			FireBullet();
+		}
 
 	}
 
@@ -93,6 +99,12 @@ namespace Player
 
 		currentPosition.x = std::min(currentPosition.x, playerModel->RightMostPosition.x);
 		playerModel->SetPlayerPosition(currentPosition);
+	}
+	void PlayerController::FireBullet()
+	{
+		ServiceLocator::GetInstance()->GetBulletServices()->SpawnBullet(Bullet::BulletType::TORPEDO,
+			playerModel->GetPlayerPosition() + playerModel->barrelPositionOffset,
+			Bullet::MovementDirection::UP);
 	}
 }
 

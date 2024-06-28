@@ -3,6 +3,7 @@
 #include "../../Header/Enemy/EnemyView.h"
 #include "../../Header/Global/ServiceLocator.h"
 #include "../../Header/Enemy/EnemyConfig.h"
+#include "../../Header/Bullet/BulletConfig.h"
 
 
 namespace Enemy
@@ -40,7 +41,23 @@ namespace Enemy
 		enemyView->update();
 		Move();
 		handleOutOfBounds();
+		UpdateFireTime();
+		ProcessBulletFire();
 
+	}
+
+	void EnemyController::UpdateFireTime()
+	{
+		elapsedFireDuration += ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
+	}
+
+	void EnemyController::ProcessBulletFire()
+	{
+		if (elapsedFireDuration > rateOfFire)
+		{
+			FireBullet();
+			elapsedFireDuration = 0.f;
+		}
 	}
 
 	sf::Vector2f EnemyController::getRandomInitialPosition()
