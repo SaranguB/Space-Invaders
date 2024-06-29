@@ -20,8 +20,9 @@ namespace Powerup
 	{
 		powerupController = controller;
 		gameWindow = ServiceLocator::GetInstance()->GetGraphicService()->GetGameWindow();
-		InitializeImage(powerupController->GetpowerupType());
+		InitializeImage(powerupController->GetPowerupType());
 	}
+
 	void PowerupView::InitializeImage(PowerupType type)
 	{
 		switch (type)
@@ -65,7 +66,7 @@ namespace Powerup
 	}
 	void PowerupView::Update()
 	{
-		powerupSprite.setPosition(powerupController->GetCollectiblePosition(););
+		powerupSprite.setPosition(powerupController->GetCollectiblePosition());
 	}
 	void PowerupView::Render()
 	{

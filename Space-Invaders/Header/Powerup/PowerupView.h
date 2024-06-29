@@ -3,6 +3,7 @@
 
 namespace Powerup
 {
+	enum class PowerupType;
 	class PowerupController;
 	class PowerupView
 	{
@@ -18,7 +19,7 @@ namespace Powerup
 		sf::Texture powerupTexture;
 		sf::Sprite powerupSprite;
 
-		void InitializeImage(PowerupType );
+		void InitializeImage(PowerupType type);
 		void ScaleImage();
 	
 	public:

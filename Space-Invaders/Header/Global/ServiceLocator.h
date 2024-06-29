@@ -9,6 +9,7 @@
 #include "../../Header/Element/ElementService.h"
 #include "../../Header/Sound/SoundService.h"
 #include "../../Header/Bullet/BulletService.h"
+#include "../../Header/Powerup/PowerupService.h"
 
 
 namespace Global
@@ -29,6 +30,7 @@ namespace Global
 		Element::ElementService* elementService;
 		Sound::SoundService* soundService;
 		Bullet::BulletService* bulletService;
+		Powerup::PowerupService* powerupService;
 
 		ServiceLocator();
 
@@ -56,6 +58,7 @@ namespace Global
 		Gameplay::GameplayService* GetGameplayService();
 		Sound::SoundService* GetSoundService();
 		Bullet::BulletService* GetBulletServices();
+		Powerup::PowerupService* GetPowerupService();
 	};
 }
 

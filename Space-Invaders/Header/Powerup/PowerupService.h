@@ -5,14 +5,14 @@
 
 namespace Powerup
 {
-	enum class PowerType;
+	enum class PowerupType;
 	class PowerupController;
 
 	class PowerupService 
 	{
 	private:
 		std::vector <Collectible::ICollectible*> powerupList;
-		PowerupController* CreatePowerUp(PowerType type);
+		PowerupController* CreatePowerup(PowerupType powerupType);
 		void Destroy();
 	
 	public:
@@ -23,7 +23,7 @@ namespace Powerup
 		void Update();
 		void Render();
 	
-		PowerupController* SpawnPowerup(PowerType powerupType, sf::Vector2f position );
+		PowerupController* SpawnPowerup(PowerupType powerupType, sf::Vector2f position );
 		void DestroyPowerup(PowerupController* powerupController);
 
 

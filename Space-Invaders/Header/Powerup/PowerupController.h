@@ -27,7 +27,7 @@ namespace Powerup
 
 		void OnCollected() override;
 
-		PowerupType GetpowerupType();
+		PowerupType GetPowerupType();
 		sf::Vector2f GetCollectiblePosition() override;	
 
 	};

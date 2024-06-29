@@ -44,12 +44,12 @@ namespace Powerup
 	void PowerupController::HandleOutOfBonds()
 	{
 		sf::Vector2f powerupPosition = GetCollectiblePosition();
-		sf::Vector2f windowSize = ServiceLocator::GetInstance()->GetGraphicService()->GetGameWindow()->getSize();
+		sf::Vector2u windowSize = ServiceLocator::GetInstance()->GetGraphicService()->GetGameWindow()->getSize();
 
 		if (powerupPosition.x < 0 || powerupPosition.x > windowSize.x
 			|| powerupPosition.y<0 || powerupPosition.y > windowSize.y)
 		{
-			ServiceLocator::GetInstance()->GetPowerupServices()->DestroyPowerup(this);
+			ServiceLocator::GetInstance()->GetPowerupService()->DestroyPowerup(this);
 		}
 	}
 
@@ -62,7 +62,7 @@ namespace Powerup
 	{
 	}
 
-	PowerupType PowerupController::GetpowerupType()
+	PowerupType PowerupController::GetPowerupType()
 	{
 		return powerupModel->GetPowerupType();
 	}
