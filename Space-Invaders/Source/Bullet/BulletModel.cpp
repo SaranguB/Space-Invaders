@@ -16,15 +16,7 @@ namespace Bullet
 	{
 		bulletPosition = position;
 		movementDirection = direction;
-	}
-
-	void BulletModel::Update()
-	{
-	}
-
-	void BulletModel::Render()
-	{
-	}
+	}    
 
 	void BulletModel::SetBulletType(BulletType type)
 	{

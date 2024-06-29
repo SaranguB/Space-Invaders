@@ -7,7 +7,7 @@ namespace Collectible
 	{
 	public:
 		virtual ~ICollectible() = 0;
-		
+
 		virtual void OnCollected() = 0;
 
 		virtual void Initialize(sf::Vector2f position) = 0;
@@ -18,5 +18,5 @@ namespace Collectible
 
 	};
 
-	inline ICollectible::~ICollectible(){}
+	inline ICollectible::~ICollectible() {}
 }
