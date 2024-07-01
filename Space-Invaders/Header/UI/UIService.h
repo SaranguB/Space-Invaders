@@ -1,11 +1,12 @@
 #pragma once
 #include "../../Header/UI/Main Menu/MainMenuUIController.h"
+#include "../../Header/UI/Interface/IUIcontroller.h"
 
 
 namespace UI
 {
 
-	class UIService
+	class UIService 
 	{
 	private:
 
@@ -14,7 +15,7 @@ namespace UI
 		void CreateControllers();
 		void InitializeController();
 		void Destroy();
-
+		Interface::IUIcontroller* GetCurrentUIController();
 
 	public:
 
@@ -24,6 +25,7 @@ namespace UI
 		void Initialize();
 		void Update();
 		void Render();
+		void ShowScreen();
 
 
 	};

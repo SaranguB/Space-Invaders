@@ -1,5 +1,4 @@
 #include "../../Header/UI/UIService.h"
-#include "../../Header/UI/Main Menu/MainMenuUIController.h"
 #include "../../Header/Main/GameService.h"
 #include <iostream>
 
@@ -9,6 +8,8 @@ namespace UI
 
 	using namespace Main;
 	using namespace MainMenu;
+	using namespace Interface;
+
 	UI::UIService::UIService()
 	{
 		mainMenuUIController = nullptr;
@@ -34,27 +35,23 @@ namespace UI
 
 	void UI::UIService::Update()
 	{
+		IUIcontroller* uiController = GetCurrentUIController();
 		//std::cout << "hi";
-		switch (GameService::GetGameState())
-		{
-			
-		case GameState::MAIN_MENU:
-			return mainMenuUIController->Update();
-			break;
-		}
+		if (uiController)uiController->Update();
 	}
 
 	void UI::UIService::Render()
 	{
-		switch (GameService::GetGameState())
-		{
-			
-		case GameState::MAIN_MENU:
-			return mainMenuUIController->Render();
-			std::cout << "hi";
-			break;
-		}
-		
+		IUIcontroller* uiController = GetCurrentUIController();
+		if (uiController)uiController->Render();
+
+	}
+
+	void UIService::ShowScreen()
+	{
+		IUIcontroller* uiController = GetCurrentUIController();
+		if (uiController)uiController->Show();
+
 	}
 
 
@@ -69,4 +66,18 @@ namespace UI
 		mainMenuUIController = nullptr;
 
 	}
+
+	IUIcontroller* UIService::GetCurrentUIController()
+	{
+		switch (GameService::GetGameState())
+		{
+		case GameState::MAIN_MENU:
+			return mainMenuUIController;
+
+		default:
+			return nullptr;
+		}
+	}
+
+	
 }
