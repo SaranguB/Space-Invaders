@@ -132,6 +132,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Enemy\Controllers\UFOController.cpp" />
+    <ClCompile Include="Source\Powerup\Controllers\OutscalBombController.cpp" />
+    <ClCompile Include="Source\Powerup\Controllers\RapidFireController.cpp" />
+    <ClCompile Include="Source\Powerup\Controllers\ShieldController.cpp" />
+    <ClCompile Include="Source\Powerup\Controllers\TrippleLaserController.cpp" />
+    <ClCompile Include="Source\Powerup\PowerupController.cpp" />
+    <ClCompile Include="Source\Powerup\PowerupModel.cpp" />
+    <ClCompile Include="Source\Powerup\PowerupView.cpp" />
     <ClCompile Include="Source\Bullet\BulletController.cpp" />
     <ClCompile Include="Source\Bullet\BulletService.cpp" />
     <ClCompile Include="Source\Bullet\Controllers\FrostBulletController .cpp" />
@@ -163,6 +171,7 @@
     <ClCompile Include="Source\Player\PlayerModel.cpp" />
     <ClCompile Include="Source\Player\PlayerView.cpp" />
     <ClCompile Include="Source\Global\ServiceLocator.cpp" />
+    <ClCompile Include="Source\Powerup\PowerupService.cpp" />
     <ClCompile Include="Source\Sound\SoundService.cpp" />
     <ClCompile Include="Source\Time\TimeService.cpp" />
     <ClCompile Include="Source\UI\Main Menu\MainMenuUIController.cpp" />
@@ -177,12 +186,14 @@
     <ClInclude Include="Header\Bullet\Controllers\FrostBulletController .h" />
     <ClInclude Include="Header\Bullet\Controllers\LaserBulletController .h" />
     <ClInclude Include="Header\Bullet\Controllers\TorpedoeController.h" />
+    <ClInclude Include="Header\Collectible\Collectible.h" />
     <ClInclude Include="Header\Element\Bunker\BunkerController.h" />
     <ClInclude Include="Header\Element\Bunker\BunkerModel.h" />
     <ClInclude Include="Header\Element\Bunker\BunkerView.h" />
     <ClInclude Include="Header\Element\ElementService.h" />
     <ClInclude Include="Header\Enemy\Controllers\SubZeroController.h" />
     <ClInclude Include="Header\Enemy\Controllers\ThunderSnakeController.h" />
+    <ClInclude Include="Header\Enemy\Controllers\UFOController.h" />
     <ClInclude Include="Header\Enemy\Controllers\ZapperController.h" />
     <ClInclude Include="Header\Enemy\EnemyConfig.h" />
     <ClInclude Include="Header\Enemy\EnemyController.h" />
@@ -201,6 +212,15 @@
     <ClInclude Include="Header\Player\PlayerModel.h" />
     <ClInclude Include="Header\Player\PlayerView.h" />
     <ClInclude Include="Header\Global\ServiceLocator.h" />
+    <ClInclude Include="Header\Powerup\Controllers\OutscalBombController.h" />
+    <ClInclude Include="Header\Powerup\Controllers\RapidFireController.h" />
+    <ClInclude Include="Header\Powerup\Controllers\ShieldController.h" />
+    <ClInclude Include="Header\Powerup\Controllers\TrippleLaserController.h" />
+    <ClInclude Include="Header\Powerup\PowerupConfig.h" />
+    <ClInclude Include="Header\Powerup\PowerupController.h" />
+    <ClInclude Include="Header\Powerup\PowerUpModel.h" />
+    <ClInclude Include="Header\Powerup\PowerupService.h" />
+    <ClInclude Include="Header\Powerup\PowerupView.h" />
     <ClInclude Include="Header\Projectile\IProjectile.h" />
     <ClInclude Include="Header\Sound\SoundService.h" />
     <ClInclude Include="Header\Time\TimeService.h" />

@@ -17,6 +17,27 @@ namespace Bullet
 		Destroy();
 	}
 
+	void BulletService::Initialize()
+	{
+	}
+
+	void BulletService::Update()
+	{
+		for (int i = 0;i < bulletList.size();i++)
+		{
+			bulletList[i]->Update();
+		}
+	}
+
+	void BulletService::Render()
+	{
+		for (int i = 0;i < bulletList.size();i++)
+		{
+			bulletList[i]->Render();
+		}
+	}
+
+
 	BulletController* BulletService::SpawnBullet(BulletType bulletType, sf::Vector2f position, MovementDirection direction)
 	{
 		BulletController* bulletController = CreateBullet(bulletType);
@@ -55,22 +76,4 @@ namespace Bullet
 			delete(bulletList[i]);
 		}
 	}
-	void BulletService::Initialize()
-	{
-	}
-	void BulletService::Update()
-	{
-		for (int i = 0;i < bulletList.size();i++)
-		{
-			bulletList[i]->Update();
-		}
-	}
-	void BulletService::Render()
-	{
-		for (int i = 0;i < bulletList.size();i++)
-		{
-			bulletList[i]->Render();
-		}
-	}
-
 }

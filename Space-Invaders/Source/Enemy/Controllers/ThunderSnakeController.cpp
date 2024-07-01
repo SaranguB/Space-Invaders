@@ -64,7 +64,7 @@ namespace Enemy
 			
 			sf::Vector2f currentPosition = enemyModel->GetEnemyPosition();
 
-			currentPosition.x += verticalspeed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
+			currentPosition.x += verticalSpeed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
 
 			
 				if (enemyModel->GetEnemyPosition().x >= enemyModel->RightMostPosition.x)
@@ -82,7 +82,7 @@ namespace Enemy
 		void ThunderSnakeController::MoveLeft()
 		{
 			sf::Vector2f currentPosition = enemyModel->GetEnemyPosition();
-			currentPosition.x -= verticalspeed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
+			currentPosition.x -= verticalSpeed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
 
          
 			if (currentPosition.x <= enemyModel->LeftMostPosition.x)
@@ -101,8 +101,8 @@ namespace Enemy
 		void ThunderSnakeController::MoveDiagonalLeft()
 		{
 			sf::Vector2f currentPosition = enemyModel->GetEnemyPosition();
-			currentPosition.x -= verticalspeed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
-			currentPosition.y += horizontalspeed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
+			currentPosition.x -= verticalSpeed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
+			currentPosition.y += horizontalSpeed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
 
 			
 				if (enemyModel->GetEnemyPosition().x <= enemyModel->LeftMostPosition.x)
@@ -121,8 +121,8 @@ namespace Enemy
 		void ThunderSnakeController::MoveDiagonalRight()
 		{
 			sf::Vector2f currentPosition = enemyModel->GetEnemyPosition();
-			currentPosition.x += verticalspeed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
-			currentPosition.y += horizontalspeed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
+			currentPosition.x += verticalSpeed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
+			currentPosition.y += horizontalSpeed * ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
 
 			
 				if (enemyModel->GetEnemyPosition().x <= enemyModel->LeftMostPosition.x)

@@ -22,9 +22,6 @@ namespace Bullet
 		~BulletModel();
 
 		void Initialize(sf::Vector2f position, MovementDirection direction);
-
-		void Update();
-		void Render();
 		
 		void SetBulletType(BulletType type);
 		BulletType GetBulletType();

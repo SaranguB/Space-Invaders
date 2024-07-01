@@ -20,8 +20,8 @@ namespace Enemy
 
 		public:
 
-			const float verticalspeed = 200.f;
-			const float horizontalspeed = 50.f;
+			const float verticalSpeed = 200.f;
+			const float horizontalSpeed = 50.f;
 			void FireBullet() override;
 
 
