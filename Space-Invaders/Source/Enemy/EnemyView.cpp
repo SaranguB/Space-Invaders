@@ -10,80 +10,76 @@ namespace Enemy
 {
 	using namespace Graphic;
 	using namespace Global;
+	using namespace UI::UIElement;
 
 	Enemy::EnemyView::EnemyView()
 	{
+		CreateUIElement();
 	}
 
 	Enemy::EnemyView::~EnemyView()
 	{
+
 	}
 
 	void Enemy::EnemyView::Initialize(EnemyController* controller)
 	{
 		enemyController = controller;
-		gameWindow = ServiceLocator::GetInstance()->GetGraphicService()->GetGameWindow();
-		InitializeEnemySprite(enemyController->GetEnemyType());
+		InitializeEnemySprite();
 	}
 
 
-	void EnemyView::InitializeEnemySprite(EnemyType type)
+	void EnemyView::InitializeEnemySprite()
 	{
-		switch (type)
+		enemyImage->Initialize(GetEnemyTexturePath(),
+			enemySpriteWidth, enemySpriteHeight, enemyController->GetEnemyPosition());
+	}
+
+	void EnemyView::Destroy()
+	{
+		delete(enemyImage);
+	}
+
+	void EnemyView::CreateUIElement()
+	{
+		enemyImage = new ImageView();
+	}
+
+	sf::String EnemyView::GetEnemyTexturePath()
+	{
+
+		switch (enemyController->GetEnemyType())
 		{
+
 		case Enemy::EnemyType::ZAPPER:
+			return Config::zapper_texture_path;
 
-			if (enemyTexture.loadFromFile(Config::zapper_texture_path))
-			{
-				enemySprite.setTexture(enemyTexture);
-				ScaleEnemySprite();
-				break;
-
-			}
 
 		case Enemy::EnemyType::SUBZERO:
-		{
-			if (enemyTexture.loadFromFile(Config::subzero_texture_path))
-			{
-				
-				enemySprite.setTexture(enemyTexture);
-				ScaleEnemySprite();
-				break;
 
-			}
-		}
+			return Config::subzero_texture_path;
+
+
 		case Enemy::EnemyType::THUNDER_SNAKE:
-			if (enemyTexture.loadFromFile(Config::thunder_snake_texture_path))
-			{
-				
-				enemySprite.setTexture(enemyTexture);
-				ScaleEnemySprite();
-				break;
-			}
+
+			return Config::thunder_snake_texture_path;
+
+
 		case Enemy::EnemyType::UFO:
-			if (enemyTexture.loadFromFile(Config::ufo_texture_path))
-			{
-				enemySprite.setTexture(enemyTexture);
-				ScaleEnemySprite();
-				break;
-			}
+			return Config::ufo_texture_path;
+
 		}
 	}
 
-	void EnemyView::ScaleEnemySprite()
-	{
-		enemySprite.setScale(
-			static_cast<float>(enemySpriteWidth) / enemySprite.getTexture()->getSize().x,
-			static_cast<float>(enemySpriteHeight) / enemySprite.getTexture()->getSize().y
-		);
-	}
+
 	void Enemy::EnemyView::update()
 	{
-		enemySprite.setPosition(enemyController->GetEnemyPosition());
+		enemyImage->SetPosition(enemyController->GetEnemyPosition());
+		enemyImage->Update();
 	}
 
 	void Enemy::EnemyView::Render()
 	{
-		gameWindow->draw(enemySprite);
+		enemyImage->Render();
 	}
 }

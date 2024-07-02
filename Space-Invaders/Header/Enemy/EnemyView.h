@@ -1,5 +1,6 @@
 #pragma once
 #include<SFML/Graphics.hpp>
+#include "../../Header/UI/UIElement/ImageView.h"
 
 namespace Enemy
 {
@@ -17,13 +18,13 @@ namespace Enemy
 		const float enemySpriteWidth = 60.f;
 
 
-		sf::RenderWindow* gameWindow;
-		sf::Texture enemyTexture;
-		sf::Sprite enemySprite;
 		EnemyModel* enemyModel;
+		UI::UIElement::ImageView* enemyImage;
 
-		void InitializeEnemySprite(EnemyType type);
-		void ScaleEnemySprite();
+		void InitializeEnemySprite();
+		void Destroy();
+		void CreateUIElement();
+		sf::String GetEnemyTexturePath();
 
 
 	public:
