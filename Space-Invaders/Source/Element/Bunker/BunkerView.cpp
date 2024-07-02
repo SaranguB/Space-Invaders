@@ -17,6 +17,10 @@ namespace Element
 		{
 			Destroy();
 		}
+		void BunkerView::CreateUIElement()
+		{
+			bunkerImage = new ImageView();
+		}
 		void BunkerView::Initialize(BunkerController* controller)
 		{
 			bunkerController = controller;
@@ -24,16 +28,20 @@ namespace Element
 		}
 		void BunkerView::InitializeImage()
 		{
-			
+			bunkerImage->Initialize(Config::bunker_texture_path, bunkerWidth, bunkerHeight,
+				bunkerController->GetBunkerPosition());
+
 		}
 
-		
+
 
 		void BunkerView::Update()
 		{
+			bunkerImage->Update();
 		}
 		void BunkerView::Render()
 		{
+			bunkerImage->Render();
 		}
 	}
 }
