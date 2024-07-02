@@ -53,7 +53,8 @@ namespace UI
 		}
 		void ImageView::SetOriginAtCentre()
 		{
-			imageSprite.setOrigin(imageSprite.getLocalBounds().width / 2, imageSprite.getLocalBounds().height / 2);
+			imageSprite.setOrigin(imageSprite.getLocalBounds().width / 2, 
+				imageSprite.getLocalBounds().height / 2);
 		}
 
 		void ImageView::SetCentreAligned()

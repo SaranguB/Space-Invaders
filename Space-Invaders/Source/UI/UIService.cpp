@@ -1,5 +1,6 @@
 #include "../../Header/UI/UIService.h"
 #include "../../Header/Main/GameService.h"
+#include "../../Header/UI/UIElement/TextView.h"
 #include <iostream>
 
 
@@ -9,6 +10,7 @@ namespace UI
 	using namespace Main;
 	using namespace MainMenu;
 	using namespace Interface;
+	using namespace UIElement;
 
 	UI::UIService::UIService()
 	{
@@ -30,6 +32,8 @@ namespace UI
 
 	void UI::UIService::Initialize()
 	{
+		TextView::InitializeTextView();
+
 		InitializeController();
 	}
 

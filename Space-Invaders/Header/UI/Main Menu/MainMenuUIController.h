@@ -1,5 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "../../Header/UI/UIElement/ImageView.h"
+#include "../../header/UI/Interface/IUIController.h"
+#include "../../header/UI/UIElement/ButtonView.h"
+
 
 
 namespace UI
@@ -8,55 +12,49 @@ namespace UI
 	namespace MainMenu
 	{
 
-		class MainMenuUIController
+		class MainMenuUIController : public Interface::IUIcontroller
 		{
 		private:
-
-			const sf::String backgroundTexturePath = "assets/textures/space_invaders_bg.png";
-			const sf::String playButtonTexturePath = "assets/textures/play_button.png";
-			const sf::String instructionsButtonTexturePath = "assets/textures/instructions_button.png";
-			const sf::String quitButtonTexturePath = "assets/textures/quit_button.png";
 
 			const float buttonWidth = 400.f;
 			const float buttonHeight = 140.f;
 
-			sf::RenderWindow* gameWindow;
+			const float playButtonYposition = 500.f;
+			const float instructionButtonYPosition = 700.f;
+			const float quitButtonYPosition = 900.f;
 
-			sf::Texture backgroundTexture;
-			sf::Sprite backgroundSprite;
+			const float backgroundAlpha = 85.f;
 
-			sf::Texture playButtonTexture;
-			sf::Sprite playButtonSprite;
+			UIElement::ImageView* backgroundImage;
 
+			UIElement::ButtonView* playButton;
+			UIElement::ButtonView* instructionButton;
+			UIElement::ButtonView* quitButton;
 
-			sf::Texture instructionsButtonTexture;
-			sf::Sprite instructionsButtonSprite;
-
-			sf::Texture quitButtonTexture;
-			sf::Sprite quitButtonSprite;
-
+			void CreateImage();
+			void CreateButton();
 			void InitializeBackgroundImage();
-			void ScaleBackroundImage();
-
 			void InitializeButton();
-			bool LoadButtonTextureFromFile();
-			void SetButtonSprites();
+			void RegisterButtonCallback();
 
-			void ScaleAllButtons();
-			void ScaleButton(sf::Sprite* buttonToScale);
-			void PositionButtons();
+			void PlayeButtonCallback();
+			void InstructionButtonCallback();
+			void QuitButtonCallback();
 
+			void Destroy();
 
 		public:
 			MainMenuUIController();
+			~MainMenuUIController();
 
-			void Initialize();
-			void Update();
-			void Render();
-			void ProcessButtonInteractions();
-			bool ClickedButton(sf::Sprite* buttonSprite, sf::Vector2f mousePosition);
 
-			
+			void Initialize() ;
+			void Update() override;
+			void Render() override;
+			void Show();
+
+
+
 
 		};
 

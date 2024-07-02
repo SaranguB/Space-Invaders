@@ -7,7 +7,7 @@ namespace UI
 	{
 		class ImageView : public UIView
 		{
-		private:
+		protected:
 			sf::Texture imageTexture;
 			sf::Sprite imageSprite;
 
