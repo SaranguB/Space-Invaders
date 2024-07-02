@@ -6,7 +6,7 @@
 namespace UI
 {
 
-	class UIService : public IUIcontroller
+	class UIService 
 	{
 	private:
 

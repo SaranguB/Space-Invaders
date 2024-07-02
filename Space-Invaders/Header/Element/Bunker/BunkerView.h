@@ -21,7 +21,7 @@ namespace Element
 			UI::UIElement::ImageView* bunkerImage;
 			void InitializeImage();
 			void CreateUIElement();
-			sf::String GetBunkerTexturePath();
+	
 			void Destroy();
 
 		public:

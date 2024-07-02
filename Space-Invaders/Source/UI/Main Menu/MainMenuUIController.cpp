@@ -18,7 +18,8 @@ namespace UI
 
 		MainMenuUIController::MainMenuUIController()
 		{
-
+			CreateButton();
+			CreateImage();
 		}
 
 		MainMenuUIController::~MainMenuUIController()
@@ -31,12 +32,16 @@ namespace UI
 			delete(playButton);
 			delete(instructionButton);
 			delete(quitButton);
-			delete(playButton);
+			delete(backgroundImage);
+		}
+
+		void MainMenuUIController::CreateImage()
+		{
+			backgroundImage = new ImageView();
 		}
 
 		void MainMenuUIController::CreateButton()
 		{
-			backgroundImage = new ImageView();
 			playButton = new ButtonView();
 			instructionButton = new ButtonView();
 			quitButton = new ButtonView();
@@ -44,13 +49,24 @@ namespace UI
 
 		void MainMenuUIController::InitializeBackgroundImage()
 		{
-			sf::RenderWindow* gameWindow;
+			sf::RenderWindow* gameWindow = ServiceLocator::GetInstance()->GetGraphicService()->GetGameWindow();
+			
 			backgroundImage->Initialize(Config::background_texture_path, 
 				gameWindow->getSize().x,gameWindow->getSize().y,sf::Vector2f(0,0));
 			backgroundImage->SetImageAlpha(backgroundAlpha);
 		}
 
+
 		void MainMenuUIController::Initialize()
+		{
+			InitializeBackgroundImage();
+			InitializeButton();
+			RegisterButtonCallback();
+			Show();
+			
+		}
+
+		void MainMenuUIController::InitializeButton()
 		{
 			playButton->Initialize("Play Button", Config::play_button_texture_path,
 				buttonWidth, buttonHeight, sf::Vector2f(0, playButtonYposition));
@@ -64,8 +80,8 @@ namespace UI
 			playButton->SetCentreAligned();
 			instructionButton->SetCentreAligned();
 			quitButton->SetCentreAligned();
-
 		}
+
 
 		void MainMenuUIController::PlayeButtonCallback()
 		{
@@ -109,12 +125,25 @@ namespace UI
 
 		void MainMenuUIController::Render()
 		{
+			//printf("und");
 			backgroundImage->Render();
 			playButton->Render();
 			instructionButton->Render();
 			quitButton->Render();
 
 
+		}
+
+		void MainMenuUIController::Show()
+		{
+			printf("show und");
+
+			backgroundImage->Show();
+			playButton->Show();
+			quitButton->Show();
+			instructionButton->Show();
+
+			ServiceLocator::GetInstance()->GetSoundService()->PlayBackgroundMusic();
 		}
 
 		/* void MainMenuUIController::ProcessButtonInteractions()

@@ -42,6 +42,7 @@ namespace UI
 		IUIcontroller* uiController = GetCurrentUIController();
 		//std::cout << "hi";
 		if (uiController)uiController->Update();
+		
 	}
 
 	void UI::UIService::Render()
@@ -53,6 +54,7 @@ namespace UI
 
 	void UIService::ShowScreen()
 	{
+		printf("illa");
 		IUIcontroller* uiController = GetCurrentUIController();
 		if (uiController)uiController->Show();
 

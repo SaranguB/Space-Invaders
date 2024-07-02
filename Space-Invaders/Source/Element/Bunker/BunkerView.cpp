@@ -17,6 +17,10 @@ namespace Element
 		{
 			Destroy();
 		}
+		void BunkerView::Destroy()
+		{
+			delete(bunkerImage);
+		}
 		void BunkerView::CreateUIElement()
 		{
 			bunkerImage = new ImageView();
