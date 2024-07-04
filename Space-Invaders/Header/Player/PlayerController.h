@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "../Event/EventService.h"
 #include "../../Header/Entity/EntityConfig.h"
+#include "../../Header/Collision/ICollider.h"
 
 namespace Player
 {
@@ -10,7 +11,8 @@ namespace Player
 	class PlayerModel;
 	
 	
-	class PlayerController
+	class PlayerController : public Collision::ICollider
+
 	{
 	private:
 
@@ -18,13 +20,33 @@ namespace Player
 		PlayerView* playerView;
 		Event::EventService* eventService;
 
-		
+		float elapsedShieldDuration;
+		float elapsedRapidFireDuration;
+		float elapsedTripleLaserDuration;
+
+		float elapsedFireDuration;
+		float elapsedFreezDuration;
 
 		void processPlayerInput();
 		void MoveLeft();
 		void MoveRight();
-		void FireBullet();
 
+
+		void ProcessBulletCollision();
+		void ProcessPowerupCollision();
+		void ProcessEnemyCollision();
+		void UpdateFreezDuration();
+
+		void UpdateFireDuration();
+		void ProcessBulletFire();
+		void FireBullet(bool b_tripple_laser = false);
+		void FireBullet(sf::Vector2f position);
+
+		void UpdateFireupDuration();
+
+		void DisableShield();
+		void DisableRapidFire();
+		void DisableTrippleFire();
 
 	public:
 
@@ -35,9 +57,18 @@ namespace Player
 		void Update();
 		void Render();
 
+		void Reset();
 
 		sf::Vector2f GetPlayerPosition();
-		Entity::EntityType GetEntityType();
+		PlayerState GetPlayerState();
+
+		void EnableShield();
+		void EnableRapidFire();
+		void EnableTripleLaser();
+
+
+		const sf::Sprite& GetColliderSprite() override;
+		void OnCollision(ICollider* collider) override;
 	};
 }
 

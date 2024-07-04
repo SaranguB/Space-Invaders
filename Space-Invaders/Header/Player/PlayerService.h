@@ -26,6 +26,11 @@ namespace Player
 		void Update();
 		void Render();
 
+		void EnableShield();
+		void EnableRapidFire();
+		void EnableTrippleLaser();
+
+		void Reset();
 
 	};
 }

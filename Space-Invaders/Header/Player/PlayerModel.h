@@ -8,6 +8,7 @@ namespace Player
 	{
 		ALIVE,
 		DEAD,
+		FROZEN,
 	};
 
 	class PlayerModel
@@ -21,6 +22,10 @@ namespace Player
 		PlayerState playerState;
 		Entity::EntityType entityType;
 
+		bool bShield;
+		bool bRapidFire;
+		bool bTrippleLaser;
+
 
 	public:
 
@@ -33,7 +38,25 @@ namespace Player
 		const sf::Vector2f LeftMostPosition = sf::Vector2f(50.f, 950.f);
 		const sf::Vector2f RightMostPosition = sf::Vector2f(1800.f, 950.f);
 		sf::Vector2f barrelPositionOffset = sf::Vector2f(20.f, 50.f);
+		sf::Vector2f secondWeponPositionOffset = sf::Vector2f(45.f, 0.f);
+		sf::Vector2f thirdWeponPositionOffset = sf::Vector2f(-45.f, 0.f);
 
+		const float	shieldPowerupDuration = 10.f;
+		const float rapidFirePowerupDration = 10.f;
+		const float trippleLaserPowerupDuration = 10.f;
+
+		const float freezeDuration = 2.f;
+
+		const float	shieldCooldownDuration = 10.f;
+		const float rapidFireCooldownDration = 10.f;
+		const float trippleLaserCooldownDuration = 10.f;
+
+		float elapsedShieldDuration;
+		float elapsedRapidFIreDUration;
+		float elapsedTrippleLaserDuration;
+
+		float elapsedFireDuration;
+		float elapsedFreezeDuration;
 
 		void Reset();
 		sf::Vector2f GetPlayerPosition();
@@ -43,6 +66,14 @@ namespace Player
 		void SetPlayerState(PlayerState state);
 
 		Entity::EntityType GetEntityType();
+
+		bool IsShieldEnabled();
+		bool IsRapidFireEnabled();
+		bool IsTrippleLaserEnabled();
+
+		void SetShieldState(bool value);
+		void SetRapidFireState(bool value);
+		void SetTrippleFireState(bool value);
 
 	};
 }

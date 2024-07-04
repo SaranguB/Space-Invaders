@@ -15,10 +15,9 @@ namespace Collision
 	}
 	void CollisionService::Update()
 	{
+		ProcessCollision();	
 	}
-	void CollisionService::AddCollider(ICollider* collider)
-	{
-	}
+
 
 	void CollisionService::ProcessCollision()
 	{
@@ -49,8 +48,23 @@ namespace Collision
 		const sf::Sprite& colliderOneSprite = colliderList[indexI]->GetCollidorSprite();
 		const sf::Sprite& colliderTwoSprite = colliderList[indexJ]->GetCollidorSprite();
 
+		return colliderOneSprite.getGlobalBounds().intersects(colliderTwoSprite.getGlobalBounds());
+
 	}
 	bool CollisionService::AreActiveCollidors(int intexI, int intexJ)
 	{
+		return(intexI < colliderList.size() && intexJ < colliderList.size() &&
+			colliderList[intexI] != nullptr && colliderList[intexJ] != nullptr);
 	}
+
+	void CollisionService::AddCollider(ICollider* collider)
+	{
+		colliderList.push_back(collider);
+	}
+
+	void CollisionService::RemoveCollider(ICollider* collider)
+	{
+		colliderList.erase(std::remove(colliderList.begin(), colliderList.end(), collider), colliderList.end());
+	}
+
 }
