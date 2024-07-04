@@ -7,42 +7,45 @@ namespace Element
 {
 	namespace Bunker
 	{
+		using namespace UI::UIElement;
 		using namespace Global;
 		BunkerView::BunkerView()
 		{
+			CreateUIElement();
 		}
 		BunkerView::~BunkerView()
 		{
+			Destroy();
+		}
+		void BunkerView::Destroy()
+		{
+			delete(bunkerImage);
+		}
+		void BunkerView::CreateUIElement()
+		{
+			bunkerImage = new ImageView();
 		}
 		void BunkerView::Initialize(BunkerController* controller)
 		{
 			bunkerController = controller;
-			gameWindow = ServiceLocator::GetInstance()->GetGraphicService()->GetGameWindow();
 			InitializeImage();
 		}
 		void BunkerView::InitializeImage()
 		{
-			if (bunkerTexture.loadFromFile(Config::bunker_texture_path))
-			{
-				bunkerSprite.setTexture(bunkerTexture);
-			}
+			bunkerImage->Initialize(Config::bunker_texture_path, bunkerWidth, bunkerHeight,
+				bunkerController->GetBunkerPosition());
+
 		}
 
-		void BunkerView::ScaleSprite()
-		{
-			bunkerSprite.setScale(
-				static_cast<float>(bunkerWidth) / bunkerSprite.getTexture()->getSize().x,
-				static_cast<float>(bunkerHeight) / bunkerSprite.getTexture()->getSize().y
-			);
-		}
+
 
 		void BunkerView::Update()
 		{
-			bunkerSprite.setPosition(bunkerController->GetBunkerPosition());
+			bunkerImage->Update();
 		}
 		void BunkerView::Render()
 		{
-			gameWindow->draw(bunkerSprite);
+			bunkerImage->Render();
 		}
 	}
 }

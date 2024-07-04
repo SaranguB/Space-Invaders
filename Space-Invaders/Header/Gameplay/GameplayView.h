@@ -1,5 +1,6 @@
 #pragma once
 #include<SFML/Graphics.hpp>
+#include "../../Header/UI/UIElement/ImageView.h"
 
 namespace Gameplay
 {
@@ -7,16 +8,13 @@ namespace Gameplay
 	{
 	private:
 
-		const sf::String backgroundTexturePath = "assets/textures/space_invaders_bg.png";
 
+		UI::UIElement::ImageView* gameplayImage;
 		sf::RenderWindow* gameWindow;
 
-		sf::Texture backgroundTexture;
-
-		sf::Sprite backgroundSprite;
-
-		void scaleBackgroundSprite();
 		void InitializeBackgroundSprite();
+		void CreateUIElment();
+		void Destroy();
 
 	public:
 

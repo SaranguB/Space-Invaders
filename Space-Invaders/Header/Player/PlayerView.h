@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "../../Header/UI/UIElement/ImageView.h"
 
 namespace Player
 {
@@ -11,7 +12,6 @@ namespace Player
 
 		PlayerController* playerController;
 
-		const sf::String playerTexturePath = "assets/textures/player_ship.png";
 		sf::Texture playerTexture;
 		sf::Sprite playerSprite;
 
@@ -20,9 +20,13 @@ namespace Player
 
 		sf::RenderWindow* gameWindow;
 
-		void InitializePlayerSprite();
-		void ScalePlayerSprite();
+		UI::UIElement::ImageView* playerImage;
 
+
+		void CreateUIElement();
+		sf::String GetPlayerTexturePath();
+		void Destroy();
+		void InitializePlayerSprite();
 
 
 	public:
