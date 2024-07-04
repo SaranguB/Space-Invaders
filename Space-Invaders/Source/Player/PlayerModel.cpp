@@ -2,7 +2,7 @@
 
 namespace Player
 {
-	PlayerModel::PlayerModel()
+	PlayerModel::PlayerModel(Entity::EntityType entityType)
 	{
 	}
 
@@ -42,6 +42,10 @@ namespace Player
 	void PlayerModel::SetPlayerState(PlayerState state)
 	{
 		playerState = state;
+	}
+	Entity::EntityType PlayerModel::GetEntityType()
+	{
+		return Entity::EntityType();
 	}
 }
 

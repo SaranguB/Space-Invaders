@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "../Event/EventService.h"
+#include "../../Header/Entity/EntityConfig.h"
 
 namespace Player
 {
@@ -17,7 +18,7 @@ namespace Player
 		PlayerView* playerView;
 		Event::EventService* eventService;
 
-
+		
 
 		void processPlayerInput();
 		void MoveLeft();
@@ -27,7 +28,7 @@ namespace Player
 
 	public:
 
-		PlayerController();
+		PlayerController(Entity::EntityType entityType);
 		~PlayerController();
 
 		void Initialize();
@@ -36,6 +37,7 @@ namespace Player
 
 
 		sf::Vector2f GetPlayerPosition();
+		Entity::EntityType GetEntityType();
 	};
 }
 

@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "../../Header/Entity/EntityConfig.h"
 
 
 namespace Player
@@ -18,7 +19,7 @@ namespace Player
 
 	public:
 
-		PlayerService();
+		PlayerService(Entity::EntityType entityType);
 		~PlayerService();
 
 		void Initialize();

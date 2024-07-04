@@ -5,7 +5,7 @@
 namespace Enemy
 {
 
-	EnemyModel::EnemyModel(EnemyType type)
+	EnemyModel::EnemyModel(EnemyType type, Entity::EntityType entityType )
 	{
 		enemyType = type;
 	}

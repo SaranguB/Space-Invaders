@@ -7,9 +7,9 @@
 
 namespace Player
 {
-	PlayerService::PlayerService()
+	PlayerService::PlayerService(Entity::EntityType entityType)
 	{
-		playerController = new PlayerController();
+		playerController = new PlayerController(entityType);
 	}
 
 	PlayerService::~PlayerService()

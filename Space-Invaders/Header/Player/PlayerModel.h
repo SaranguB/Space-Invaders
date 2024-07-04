@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "../../Header/Entity/EntityConfig.h"
 
 namespace Player
 {
@@ -18,12 +19,13 @@ namespace Player
 		sf::Vector2f playerPosition;
 		int PlayerScore;
 		PlayerState playerState;
+		Entity::EntityType entityType;
 
 
 	public:
 
 		const float PlayerMovementSpeed = 200.0f;
-		PlayerModel();
+		PlayerModel(Entity::EntityType entityType);
 		~PlayerModel();;
 
 		void Initialize();
@@ -39,6 +41,8 @@ namespace Player
 
 		PlayerState GetPlayerState();
 		void SetPlayerState(PlayerState state);
+
+		Entity::EntityType GetEntityType();
 
 	};
 }

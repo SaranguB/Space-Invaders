@@ -14,7 +14,7 @@ namespace Player
 {
 	using namespace Global;
 	using namespace Event;
-	PlayerController::PlayerController()
+	PlayerController::PlayerController(Entity::EntityType entityType)
 	{
 		playerView = new PlayerView();
 		playerModel = new PlayerModel();
@@ -52,6 +52,11 @@ namespace Player
 	sf::Vector2f PlayerController::GetPlayerPosition()
 	{
 		return playerModel->GetPlayerPosition();
+	}
+
+	Entity::EntityType PlayerController::GetEntityType()
+	{
+		return Entity::EntityType();
 	}
 
 	void PlayerController::processPlayerInput()

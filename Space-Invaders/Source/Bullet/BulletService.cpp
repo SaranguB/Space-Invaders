@@ -38,9 +38,10 @@ namespace Bullet
 	}
 
 
-	BulletController* BulletService::SpawnBullet(BulletType bulletType, sf::Vector2f position, MovementDirection direction)
+	BulletController* BulletService::SpawnBullet(BulletType bulletType, sf::Vector2f position, 
+		MovementDirection direction, Entity::EntityType ownerType)
 	{
-		BulletController* bulletController = CreateBullet(bulletType);
+		BulletController* bulletController = CreateBullet(bulletType, ownerType);
 
 		bulletController->Initialize(position, direction);
 		bulletList.push_back(bulletController);
@@ -53,7 +54,7 @@ namespace Bullet
 		delete(bulletController);
 	}
 
-	BulletController* BulletService::CreateBullet(BulletType bulletType)
+	BulletController* BulletService::CreateBullet(BulletType bulletType, Entity::EntityType ownerType)
 	{
 
 		switch (bulletType)

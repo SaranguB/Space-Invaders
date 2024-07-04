@@ -62,7 +62,6 @@ namespace UI
 			InitializeBackgroundImage();
 			InitializeButton();
 			RegisterButtonCallback();
-			Show();
 			
 		}
 

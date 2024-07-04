@@ -53,7 +53,7 @@ namespace Enemy
 		SpawnEnemy();
 	}
 
-	EnemyController* EnemyService::SpawnEnemy()
+	EnemyController* EnemyService::SpawnEnemy(Entity::EntityType entityType)
 	{
 		EnemyController* enemyController = createEnemy(GetRandomEnemyType());
 

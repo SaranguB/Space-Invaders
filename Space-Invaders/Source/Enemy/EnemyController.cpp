@@ -12,12 +12,12 @@ namespace Enemy
 
 
 
-	Enemy::EnemyController::EnemyController(EnemyType type)
+	Enemy::EnemyController::EnemyController(EnemyType type, Entity::EntityType entityType)
 	{
 		//printf("hi");
 	
 		enemyView = new EnemyView();
-		enemyModel = new EnemyModel(type);
+		enemyModel = new EnemyModel(type, entityType);
 		
 	}
 
@@ -124,6 +124,11 @@ namespace Enemy
 	EnemyState EnemyController::GetEnemyState()
 	{
 		return enemyModel->GetEnemyState();
+	}
+
+	Entity::EntityType Enemy::EnemyController::GetEntityType()
+	{
+		return Entity::EntityType();
 	}
 
 }

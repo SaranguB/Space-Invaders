@@ -1,5 +1,6 @@
 #pragma once
 #include<vector>
+#include "../../Header/Entity/EntityConfig.h"
 
 namespace Enemy
 {
@@ -39,6 +40,6 @@ namespace Enemy
 
 		void DestroyEnemy(EnemyController* enemyController);
 
-		EnemyController* SpawnEnemy();
+		EnemyController* SpawnEnemy(Entity::EntityType entityType);
 	};
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "../../Header/Entity/EntityConfig.h"
 
 namespace Enemy
 {
@@ -17,6 +18,7 @@ namespace Enemy
 		sf::Vector2f getRandomInitialPosition();
 			void handleOutOfBounds();
 
+
 			float rateOfFire = 3.0f;
 			float elapsedFireDuration = 0.f;
 
@@ -25,7 +27,7 @@ namespace Enemy
 			virtual void FireBullet() = 0;
 
 	public:
-		 EnemyController(EnemyType type);
+		 EnemyController(EnemyType type, Entity::EntityType entityType);
 		virtual ~EnemyController();
 
 
@@ -40,5 +42,7 @@ namespace Enemy
 
 		EnemyType GetEnemyType();
 		EnemyState GetEnemyState();
+
+		Entity::EntityType GetEntityType();
 	};
 }
