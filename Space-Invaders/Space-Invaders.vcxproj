@@ -132,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Bullet\BulletConfig.cpp" />
     <ClCompile Include="Source\Collision\CollisionService.cpp" />
     <ClCompile Include="Source\Collision\ICollider.cpp" />
     <ClCompile Include="Source\Enemy\Controllers\UFOController.cpp" />

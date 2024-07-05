@@ -2,8 +2,9 @@
 
 namespace Player
 {
-	PlayerModel::PlayerModel(Entity::EntityType entityType)
+	PlayerModel::PlayerModel()
 	{
+		entityType = Entity::EntityType::PLAYER;
 	}
 
 	PlayerModel::~PlayerModel()
@@ -20,6 +21,10 @@ namespace Player
 		playerState = PlayerState::ALIVE;
 		playerPosition = initialPlayerPosition;
 		PlayerScore = 0;
+
+		bShield = false;
+		bRapidFire = false;
+		bTrippleLaser = false;
 
 	}
 
@@ -45,7 +50,31 @@ namespace Player
 	}
 	Entity::EntityType PlayerModel::GetEntityType()
 	{
-		return Entity::EntityType();
+		return entityType;
+	}
+	bool PlayerModel::IsShieldEnabled()
+	{
+		return bShield;
+	}
+	bool PlayerModel::IsRapidFireEnabled()
+	{
+		return bRapidFire;
+	}
+	bool PlayerModel::IsTrippleLaserEnabled()
+	{
+		return bTrippleLaser;
+	}
+	void PlayerModel::SetShieldState(bool value)
+	{
+		bShield = value;
+	}
+	void PlayerModel::SetRapidFireState(bool value)
+	{
+		bRapidFire = value;
+	}
+	void PlayerModel::SetTrippleFireState(bool value)
+	{
+		bTrippleLaser = value;
 	}
 }
 

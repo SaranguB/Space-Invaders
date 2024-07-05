@@ -30,7 +30,7 @@ namespace Player
 	public:
 
 		const float PlayerMovementSpeed = 200.0f;
-		PlayerModel(Entity::EntityType entityType);
+		PlayerModel();
 		~PlayerModel();;
 
 		void Initialize();
@@ -42,17 +42,17 @@ namespace Player
 		sf::Vector2f thirdWeponPositionOffset = sf::Vector2f(-45.f, 0.f);
 
 		const float	shieldPowerupDuration = 10.f;
-		const float rapidFirePowerupDration = 10.f;
+		const float rapidFirePowerupDuration = 10.f;
 		const float trippleLaserPowerupDuration = 10.f;
 
 		const float freezeDuration = 2.f;
 
-		const float	shieldCooldownDuration = 10.f;
-		const float rapidFireCooldownDration = 10.f;
-		const float trippleLaserCooldownDuration = 10.f;
+		const float	fireCooldownDuration = .2f;
+		const float rapidFireCooldownDration = 0.05f;
+		const float trippleLaserCooldownDuration = 30.f;
 
 		float elapsedShieldDuration;
-		float elapsedRapidFIreDUration;
+		float elapsedRapidFIreDuration;
 		float elapsedTrippleLaserDuration;
 
 		float elapsedFireDuration;

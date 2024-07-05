@@ -15,10 +15,14 @@ namespace Bullet
 	private:
 
 		std::vector <Projectile::IProjectile*> bulletList;
+		std::vector <Projectile::IProjectile*> flaggedBulletList;
 
 		BulletController* CreateBullet(BulletType bulletType, Entity::EntityType ownerType);
 
 		void Destroy();
+		bool IsValidBullet(int indexI, std::vector<Projectile::IProjectile*>& bullet_list);
+		void DestroyFlaggedBullet();
+		void Reset();
 
 	public:
 		BulletService();

@@ -1,16 +1,23 @@
 #include "../../Header/Bullet/BulletController.h"
-#include"../../Header/Bullet/BulletModel.h"
-#include"../../Header/Bullet/BulletView.h"
-#include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/Bullet/BulletView.h"
+#include "../../Header/Bullet/BulletModel.h"
 #include "../../Header/Bullet/BulletConfig.h"
-
+#include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/Player/PlayerController.h"
+#include "../../Header/Enemy/EnemyController.h"
+#include "../../header/Element/Bunker/BunkerController.h"
 namespace Bullet
 {
 	using namespace Global;
+	using namespace Entity;
+	using namespace Player;
+	using namespace Enemy;
+	using namespace Element::Bunker;
+
 	BulletController::BulletController(BulletType type, Entity::EntityType ownerType)
 	{
 		bulletView = new BulletView();
-		bulletModel = new BulletModel(type);
+		bulletModel = new BulletModel(type, ownerType);
 	}
 	BulletController::~BulletController()
 	{
@@ -45,7 +52,7 @@ namespace Bullet
 		}
 	}
 
-	
+
 
 	void BulletController::MoveUP()
 	{
@@ -73,6 +80,56 @@ namespace Bullet
 		}
 	}
 
+	const sf::Sprite& BulletController::GetColliderSprite()
+	{
+		return bulletView->GetPlayerSprite();
+	}
+
+	void BulletController::OnCollision(ICollider* otherCollider)
+	{
+		ProcessBulletCollision(otherCollider);
+		ProcessBunkerCollision(otherCollider);
+		ProcessEnemyCollision(otherCollider);
+		ProcessPlayerCollision(otherCollider);
+	}
+
+	void BulletController::ProcessBulletCollision(ICollider* otherCollider)
+	{
+		BulletController* bulletController = dynamic_cast<BulletController*>(otherCollider);
+
+		if (bulletController)
+		{
+			ServiceLocator::GetInstance()->GetBulletServices()->DestroyBullet(this);
+		}
+	}
+
+	void BulletController::ProcessEnemyCollision(ICollider* otherCollider)
+	{
+		EnemyController* enemyController = dynamic_cast<EnemyController*>(otherCollider);
+
+		if (enemyController && GetOwnerEntityType() != EntityType::ENEMY)
+		{
+			ServiceLocator::GetInstance()->GetBulletServices()->DestroyBullet(this);
+		}
+	}
+
+	void BulletController::ProcessPlayerCollision(ICollider* otherCollider)
+	{
+		PlayerController* playerController = dynamic_cast<PlayerController*>(otherCollider);
+
+		if (playerController && GetOwnerEntityType() != EntityType::ENEMY)
+			ServiceLocator::GetInstance()->GetBulletServices()->DestroyBullet(this);
+
+	}
+
+	void BulletController::ProcessBunkerCollision(ICollider* otherCollider)
+	{
+		BunkerController* bunkerController = dynamic_cast<BunkerController*>(otherCollider);
+		if (bunkerController)
+			ServiceLocator::GetInstance()->GetBulletServices()->DestroyBullet(this);
+
+	}
+
 	void BulletController::Render()
 	{
 		bulletView->Render();
@@ -90,6 +147,8 @@ namespace Bullet
 	{
 		return Entity::EntityType();
 	}
+
+
 
 
 

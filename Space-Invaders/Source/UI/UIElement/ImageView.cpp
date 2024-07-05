@@ -72,5 +72,9 @@ namespace UI
 			imageSprite.setColor(color);
 
 		}
+		const sf::Sprite& ImageView::GetSprite()
+		{
+			return imageSprite;
+		}
 	}
 }

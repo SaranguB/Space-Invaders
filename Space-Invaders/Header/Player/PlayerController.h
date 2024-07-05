@@ -32,21 +32,22 @@ namespace Player
 		void MoveRight();
 
 
-		void ProcessBulletCollision();
-		void ProcessPowerupCollision();
-		void ProcessEnemyCollision();
+		bool ProcessBulletCollision(ICollider* otherCollider);
+		bool ProcessPowerupCollision(ICollider* otherCollider);
+		bool ProcessEnemyCollision(ICollider* otherCollider);
 		void UpdateFreezDuration();
 
 		void UpdateFireDuration();
 		void ProcessBulletFire();
-		void FireBullet(bool b_tripple_laser = false);
+		void FireBullet(bool bTrippleLaser = false);
 		void FireBullet(sf::Vector2f position);
 
-		void UpdateFireupDuration();
+		void UpdateFireDuration();
+		void UpdatePowerupDuration();
 
 		void DisableShield();
 		void DisableRapidFire();
-		void DisableTrippleFire();
+		void DisableTrippleLaser();
 
 	public:
 
@@ -68,7 +69,7 @@ namespace Player
 
 
 		const sf::Sprite& GetColliderSprite() override;
-		void OnCollision(ICollider* collider) override;
+		void OnCollision(ICollider* otherCollider) override;
 	};
 }
 
