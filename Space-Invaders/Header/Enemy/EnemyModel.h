@@ -54,6 +54,8 @@ namespace Enemy
 		EnemyType GetEnemyType();
 		void SetEnemyType(EnemyType type);
 
+		Entity::EntityType GetEntityType();
+
 
 	};
 }

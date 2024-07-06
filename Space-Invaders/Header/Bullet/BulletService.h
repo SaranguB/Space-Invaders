@@ -22,7 +22,6 @@ namespace Bullet
 		void Destroy();
 		bool IsValidBullet(int indexI, std::vector<Projectile::IProjectile*>& bullet_list);
 		void DestroyFlaggedBullet();
-		void Reset();
 
 	public:
 		BulletService();
@@ -31,6 +30,7 @@ namespace Bullet
 		void Initialize();
 		void Update();
 		void Render();
+		void Reset();
 
 		BulletController* SpawnBullet(BulletType bulletType, sf::Vector2f position, 
 			MovementDirection direction, Entity::EntityType ownerType);

@@ -145,7 +145,7 @@ namespace Bullet
 
 	Entity::EntityType BulletController::GetOwnerEntityType()
 	{
-		return Entity::EntityType();
+		return bulletModel->GetOwnerEntityType();
 	}
 
 

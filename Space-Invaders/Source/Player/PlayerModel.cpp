@@ -2,6 +2,10 @@
 
 namespace Player
 {
+
+	int PlayerModel::playerLives;
+	int PlayerModel::enemiesKilled;
+
 	PlayerModel::PlayerModel()
 	{
 		entityType = Entity::EntityType::PLAYER;
@@ -25,6 +29,9 @@ namespace Player
 		bShield = false;
 		bRapidFire = false;
 		bTrippleLaser = false;
+
+		playerLives = maxPlayerLives;
+		enemiesKilled = 0;
 
 	}
 

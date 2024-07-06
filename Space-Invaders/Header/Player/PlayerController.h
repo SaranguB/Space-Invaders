@@ -3,14 +3,15 @@
 #include "../Event/EventService.h"
 #include "../../Header/Entity/EntityConfig.h"
 #include "../../Header/Collision/ICollider.h"
+#include "../../Header/Player/PlayerModel.h"
+
 
 namespace Player
 {
 	enum class PlayerState;
 	class PlayerView;
-	class PlayerModel;
-	
-	
+		
+
 	class PlayerController : public Collision::ICollider
 
 	{
@@ -37,7 +38,6 @@ namespace Player
 		bool ProcessEnemyCollision(ICollider* otherCollider);
 		void UpdateFreezDuration();
 
-		void UpdateFireDuration();
 		void ProcessBulletFire();
 		void FireBullet(bool bTrippleLaser = false);
 		void FireBullet(sf::Vector2f position);
@@ -49,9 +49,11 @@ namespace Player
 		void DisableRapidFire();
 		void DisableTrippleLaser();
 
+		
+
 	public:
 
-		PlayerController(Entity::EntityType entityType);
+		PlayerController();
 		~PlayerController();
 
 		void Initialize();
@@ -67,6 +69,8 @@ namespace Player
 		void EnableRapidFire();
 		void EnableTripleLaser();
 
+		void DecreasePlayerLives();
+		inline void IncreasesEnemiesKilled(int val) { PlayerModel::enemiesKilled += val; }
 
 		const sf::Sprite& GetColliderSprite() override;
 		void OnCollision(ICollider* otherCollider) override;

@@ -8,6 +8,7 @@ namespace Enemy
 	EnemyModel::EnemyModel(EnemyType type)
 	{
 		enemyType = type;
+		entityType = Entity::EntityType::ENEMY;
 	}
 
 	EnemyModel::~EnemyModel()
@@ -69,6 +70,11 @@ namespace Enemy
 	void EnemyModel::SetEnemyType(EnemyType type)
 	{
 		enemyType = type;
+	}
+
+	Entity::EntityType EnemyModel::GetEntityType()
+	{
+		return entityType;
 	}
 
 }

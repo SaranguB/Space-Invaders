@@ -1,6 +1,7 @@
 #pragma once
 #include<vector>
 #include "../../Header/Entity/EntityConfig.h"
+#include "../../Header/Projectile/IProjectile.h"
 
 namespace Enemy
 {

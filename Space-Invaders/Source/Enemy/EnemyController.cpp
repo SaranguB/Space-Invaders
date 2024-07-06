@@ -161,6 +161,7 @@ namespace Enemy
 
 	void EnemyController::Destroy()
 	{
+		ServiceLocator::GetInstance()->GetPlayerService()->IncreaseEnemiesKilled(1);
 		ServiceLocator::GetInstance()->GetEnemyService()->DestroyEnemy(this);
 	}
 

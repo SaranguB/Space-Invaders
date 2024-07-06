@@ -25,7 +25,7 @@ namespace Player
 	using namespace Enemy;
 	using namespace Powerup;
 
-	PlayerController::PlayerController(Entity::EntityType entityType)
+	PlayerController::PlayerController()
 	{
 		playerView = new PlayerView();
 		playerModel = new PlayerModel();
@@ -133,7 +133,7 @@ namespace Player
 		EnemyController* enemyController = dynamic_cast<EnemyController*> (otherCollider);
 		if (enemyController)
 		{
-			ServiceLocator::GetInstance()->GetGameplayService()->Restart();
+			DecreasePlayerLives();;
 			return true;
 		}
 		return false;
@@ -212,6 +212,16 @@ namespace Player
 		playerModel->SetTrippleFireState(false);
 	}
 
+	void PlayerController::DecreasePlayerLives()
+	{
+		PlayerModel::playerLives -= 1;
+		
+		if (playerModel->playerLives <= 0)
+		{
+			Reset();
+		}
+	}
+
 	void PlayerController::processPlayerInput()
 	{
 
@@ -258,8 +268,6 @@ namespace Player
 		currentPosition.x = std::min(currentPosition.x, playerModel->RightMostPosition.x);
 		playerModel->SetPlayerPosition(currentPosition);
 	}
-
-
 
 	void PlayerController::UpdateFireDuration()
 	{

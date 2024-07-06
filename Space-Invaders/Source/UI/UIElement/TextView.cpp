@@ -15,7 +15,7 @@ namespace UI
 		TextView::~TextView() = default;
 
 
-		void TextView::Intialize(sf::String textValue, sf::Vector2f position,
+		void TextView::Initialize(sf::String textValue, sf::Vector2f position,
 			FontType fontType, int fontSize, sf::Color color)
 		{
 			UIView::Initialize();

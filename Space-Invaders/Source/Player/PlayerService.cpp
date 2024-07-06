@@ -7,9 +7,9 @@
 
 namespace Player
 {
-	PlayerService::PlayerService(Entity::EntityType entityType)
+	PlayerService::PlayerService()
 	{
-		playerController = new PlayerController(entityType);
+		playerController = new PlayerController();
 	}
 
 	PlayerService::~PlayerService()
@@ -51,6 +51,12 @@ namespace Player
 	{
 		playerController->EnableTripleLaser();
 	}
+
+	void PlayerService::IncreaseEnemiesKilled(int val)
+	{
+		playerController->IncreasesEnemiesKilled(val);
+	}
+
 	void PlayerService::Reset()
 	{
 		playerController->Reset();

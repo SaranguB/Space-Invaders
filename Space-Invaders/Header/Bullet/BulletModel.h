@@ -37,6 +37,6 @@ namespace Bullet
 		float GetMovementSpeed();
 		void SetMovementSpeed(float speed);
 		
-		Entity::EntityType GetOwnerEntityType;
+		Entity::EntityType GetOwnerEntityType();
 	};
 }

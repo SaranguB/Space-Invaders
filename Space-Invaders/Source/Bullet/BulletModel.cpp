@@ -6,6 +6,7 @@ namespace Bullet
 	BulletModel::BulletModel(BulletType type, Entity::EntityType ownerType)
 	{
 		bulletType = type;
+		this->ownerType = ownerType;
 	}
 
 	BulletModel::~BulletModel()
@@ -57,4 +58,11 @@ namespace Bullet
 	{
 		movementSpeed = speed;
 	}
+
+	Entity::EntityType BulletModel::GetOwnerEntityType()
+	{
+		return ownerType;
+	}
+	
+
 }

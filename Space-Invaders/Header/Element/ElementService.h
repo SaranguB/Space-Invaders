@@ -33,6 +33,8 @@ namespace Element
 		void Update();
 		void Render();
 
+		void Reset();
+
 
 
 	};

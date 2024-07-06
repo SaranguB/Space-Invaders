@@ -11,10 +11,12 @@ namespace UI
 	using namespace MainMenu;
 	using namespace Interface;
 	using namespace UIElement;
+	using namespace GameplayUI;
 
 	UI::UIService::UIService()
 	{
 		mainMenuUIController = nullptr;
+		gameplayUIController = nullptr;
 		CreateControllers();
 
 	}
@@ -23,6 +25,7 @@ namespace UI
 	void UI::UIService::CreateControllers()
 	{
 		mainMenuUIController = new MainMenuUIController();
+		gameplayUIController = new GameplayUIController();
 	}
 
 	UI::UIService::~UIService()

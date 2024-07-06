@@ -38,7 +38,7 @@ namespace Enemy
 				return;
 			}
 
-		}S
+		}
 
 		void UFOController::Move()
 		{

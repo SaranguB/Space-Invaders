@@ -19,7 +19,7 @@ namespace Player
 
 	public:
 
-		PlayerService(Entity::EntityType entityType);
+		PlayerService();
 		~PlayerService();
 
 		void Initialize();
@@ -30,6 +30,7 @@ namespace Player
 		void EnableRapidFire();
 		void EnableTrippleLaser();
 
+		void IncreaseEnemiesKilled(int val);
 		void Reset();
 
 	};

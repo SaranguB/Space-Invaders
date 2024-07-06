@@ -46,5 +46,9 @@ namespace Element
 		}
 
 	}
+	void ElementService::Reset()
+	{
+		Destroy();
+	}
 }
 
