@@ -1,15 +1,21 @@
-#include "../../Header/UI/GameplayUI/GameplayUIController.h"
-#include "../../Header/Global/Config.h"
-#include "../../Header/Player/PlayerModel.h"
-#include "../../Header/Global/ServiceLocator.h"
+#include "../../header/UI/GameplayUI/GameplayUIController.h"
+#include "../../header/Global/Config.h"
+#include "../../header/Global/ServiceLocator.h"
+#include "../../header/Gameplay/GameplayService.h"
+#include "../../header/Sound/SoundService.h"
+#include "../../header/Main/GameService.h"
+#include "../../header/Player/PlayerModel.h"
 
 namespace UI
 {
 	namespace GameplayUI
 	{
+
+		using namespace Main;
+		using namespace Sound;
 		using namespace Global;
-		using namespace UI::UIElement;
 		using namespace Player;
+		using namespace UI::UIElement;
 
 
 		GameplayUIController::GameplayUIController()
@@ -57,7 +63,7 @@ namespace UI
 		}
 
 
-		void GameplayUIController::UpdateEnimiesKilledText()
+		void GameplayUIController::UpdateEnemiesKilledText()
 		{
 			sf::String enemiesKilledString = "Enemies Killed :" + std::to_string(PlayerModel::enemiesKilled);
 			enemiesKilledText->setText(enemiesKilledString);
@@ -77,11 +83,12 @@ namespace UI
 
 		void GameplayUIController::Update()
 		{
-			UpdateEnimiesKilledText();
+			UpdateEnemiesKilledText();
 		}
 
 		void GameplayUIController::Render()
 		{
+			printf("Render");
 			enemiesKilledText->Render();
 			DrawplayerLives();
 		}

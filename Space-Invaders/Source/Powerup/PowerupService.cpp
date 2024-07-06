@@ -84,6 +84,7 @@ namespace Powerup
 
 		ServiceLocator::GetInstance()->GetCollisionService()
 			->AddCollider(dynamic_cast<ICollider*> (powerupController));
+
 		powerupList.push_back(powerupController);
 		return powerupController;
 	}
@@ -97,7 +98,6 @@ namespace Powerup
 
 		powerupList.erase(std::remove(powerupList.begin(), 
 			powerupList.end(), powerupController), powerupList.end());
-		delete(powerupController);
 	}
 
 	

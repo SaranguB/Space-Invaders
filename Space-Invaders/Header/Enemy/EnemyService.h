@@ -14,7 +14,7 @@ namespace Enemy
 	private:
 
 		std::vector<EnemyController*> enemyList;
-		std::vector <Projectile::IProjectile*> flaggedEnemyList;
+		std::vector <EnemyController*> flaggedEnemyList;
 		 
 		const float spawnIntervel = 2.f;
 		float spawnTimer;

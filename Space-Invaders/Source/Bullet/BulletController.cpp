@@ -127,6 +127,7 @@ namespace Bullet
 	void BulletController::ProcessBunkerCollision(ICollider* otherCollider)
 	{
 		BunkerController* bunkerController = dynamic_cast<BunkerController*>(otherCollider);
+
 		if (bunkerController)
 			ServiceLocator::GetInstance()->GetBulletServices()->DestroyBullet(this);
 

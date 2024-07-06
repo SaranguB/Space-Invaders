@@ -112,10 +112,9 @@ namespace Enemy
 		processEnemySpawn();
 
 		for (EnemyController* enemy : enemyList)
-		{
 			enemy->Update();
 
-		}
+		DestroyFlaggedEnemy();
 	}
 	void EnemyService::updateSpawnTimer()
 	{
@@ -149,8 +148,10 @@ namespace Enemy
 
 	void EnemyService::DestroyEnemy(EnemyController* enemyController)
 	{
+		dynamic_cast<ICollider*>(enemyController)->DisableCollision();
+		flaggedEnemyList.push_back(enemyController);
 		enemyList.erase(std::remove(enemyList.begin(), enemyList.end(), enemyController), enemyList.end());
-		delete(enemyController);
+		
 	}
 
 

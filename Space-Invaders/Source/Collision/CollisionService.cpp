@@ -1,11 +1,13 @@
 #include "../../Header/Collision/CollisionService.h"
 #include "../../Header/Collision/ICollider.h"
+#include <iostream>
 
 namespace Collision
 {
 
 	CollisionService::CollisionService()
 	{
+		//std::cout << colliderList.size();
 	}
 	CollisionService::~CollisionService()
 	{
@@ -26,7 +28,7 @@ namespace Collision
 			for (int j = i + 1; j < colliderList.size();j++)
 			{
 				DoCollision(i, j);
-				printf("i=%d, j=%d", i, j);
+				//printf("i=%d, j=%d", i, j);
 			}
 		}
 	}
@@ -49,10 +51,24 @@ namespace Collision
 
 	bool CollisionService::HasCollisionOccured(int indexI, int indexJ)
 	{
-		ICollider* collider = colliderList[indexI];
-		ICollider* collider2 = colliderList[indexJ];
+
+		//ICollider* collider1 = colliderList[indexI];
+		//ICollider* collider2 = colliderList[indexJ];
+
+		//if (collider1 == nullptr || collider2 == nullptr)
+		//{
+		//	// Log an error message if any collider is null
+		//	printf("Null collider detected: indexI=%d, indexJ=%d\n", indexI, indexJ);
+		//	return false;
+		//}
+		//else
+		//{
+		//	printf("not null");
+		//}
+
 
 		const sf::Sprite& colliderOneSprite = colliderList[indexI]->GetColliderSprite();
+		
 		
 		const sf::Sprite& colliderTwoSprite = colliderList[indexJ]->GetColliderSprite();
 		//printf("hooo");
@@ -68,7 +84,9 @@ namespace Collision
 
 	void CollisionService::AddCollider(ICollider* collider)
 	{
-		colliderList.push_back(collider);
+
+			colliderList.push_back(collider);
+		
 	}
 
 	void CollisionService::RemoveCollider(ICollider* collider)

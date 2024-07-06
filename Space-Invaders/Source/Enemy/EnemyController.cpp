@@ -138,7 +138,7 @@ namespace Enemy
 
 	const sf::Sprite& EnemyController::GetColliderSprite()
 	{
-		printf("mmi");
+		//printf("mmi");
 		return enemyView->GetEnemySprite();
 	}
 

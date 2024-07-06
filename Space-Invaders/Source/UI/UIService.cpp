@@ -57,7 +57,7 @@ namespace UI
 
 	void UIService::ShowScreen()
 	{
-		printf("illa");
+		//printf("illa");
 		IUIcontroller* uiController = GetCurrentUIController();
 		if (uiController)uiController->Show();
 
@@ -67,12 +67,14 @@ namespace UI
 	void UI::UIService::InitializeController()
 	{
 		mainMenuUIController->Initialize();
+		gameplayUIController->Initialize();
 	}
 
 	void UI::UIService::Destroy()
 	{
 		delete(mainMenuUIController);
-		mainMenuUIController = nullptr;
+		delete(gameplayUIController);
+		
 
 	}
 
@@ -82,7 +84,8 @@ namespace UI
 		{
 		case GameState::MAIN_MENU:
 			return mainMenuUIController;
-
+		case GameState::GAMEPLAY:
+			return gameplayUIController;
 		default:
 			return nullptr;
 		}

@@ -19,7 +19,7 @@ namespace Player
 
 		friend class PlayerController;
 
-		friend void UI::GameplayUI::GameplayUIController::UpdateEnimiesKilledText();
+		friend void UI::GameplayUI::GameplayUIController::UpdateEnemiesKilledText();
 		friend void UI::GameplayUI::GameplayUIController::DrawplayerLives();
 
 

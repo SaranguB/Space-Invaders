@@ -24,6 +24,8 @@ namespace Bullet
 
 	void BulletService::Initialize()
 	{
+		bulletList.clear();
+		flaggedBulletList.clear();
 	}
 
 	void BulletService::Update()
@@ -32,6 +34,7 @@ namespace Bullet
 		{
 			bulletList[i]->Update();
 		}
+		DestroyFlaggedBullet();
 	}
 
 	void BulletService::Render()
@@ -65,14 +68,14 @@ namespace Bullet
 
 			bulletList.erase(std::remove(bulletList.begin(),
 				bulletList.end(), bulletController), bulletList.end());
-			delete(bulletController);
 		}
 	}
 
 	bool BulletService::IsValidBullet(int indexI, std::vector<Projectile::IProjectile*>& bullet_list)
 	{
-		return indexI > 0 && indexI < bulletList.size() && bulletList[indexI] != nullptr;
+		return indexI >= 0 && indexI < bulletList.size() && bulletList[indexI] != nullptr;
 	}
+
 	void BulletService::DestroyFlaggedBullet()
 	{
 		for (int i = 0;i < flaggedBulletList.size();i++)
@@ -83,7 +86,7 @@ namespace Bullet
 				->RemoveCollider(dynamic_cast<ICollider*>(flaggedBulletList[i]));
 			delete(flaggedBulletList[i]);
 		}
-
+		flaggedBulletList.clear();
 	}
 
 	void BulletService::Reset()
@@ -117,7 +120,7 @@ namespace Bullet
 			return new FrostBulletController(Bullet::BulletType::FROST_BULLET, ownerType);
 
 		case BulletType::TORPEDO:
-			return new FrostBulletController(Bullet::BulletType::TORPEDO, ownerType);
+			return new TorpedoeController(Bullet::BulletType::TORPEDO, ownerType);
 		}
 
 	}

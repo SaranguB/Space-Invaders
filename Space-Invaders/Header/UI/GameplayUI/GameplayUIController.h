@@ -48,7 +48,7 @@ namespace UI
 			void Render() override;
 			void Show() override;
 
-			void UpdateEnimiesKilledText();
+			void UpdateEnemiesKilledText();
 			void DrawplayerLives();
 
 		};

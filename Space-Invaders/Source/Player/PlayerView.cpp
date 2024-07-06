@@ -13,7 +13,12 @@ namespace Player
 	PlayerView::PlayerView()
 	{
 		CreateUIElement();
-		gameWindow = nullptr;
+		
+	}
+
+	PlayerView::~PlayerView()
+	{
+		Destroy();
 	}
 
 
@@ -33,10 +38,6 @@ namespace Player
 	}
 
 
-	PlayerView::~PlayerView()
-	{
-		Destroy();
-	}
 
 	void PlayerView::Initialize(PlayerController* controller)
 	{
