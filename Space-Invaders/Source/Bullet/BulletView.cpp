@@ -70,6 +70,7 @@ namespace Bullet
 
 	const sf::Sprite& BulletView::GetPlayerSprite()
 	{
+		///printf("f");
 		return bulletImage->GetSprite();
 	}
 

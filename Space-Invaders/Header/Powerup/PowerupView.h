@@ -34,6 +34,6 @@ namespace Powerup
 		void Update();
 		void Render();
 
-		sf::Sprite getSprite();
+		const sf::Sprite& GetPowerupSprite();
 	};
 }

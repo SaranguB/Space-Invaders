@@ -29,8 +29,8 @@ namespace Enemy
 		{
 			EnemyController::OnCollision(otherCollider);
 
-			BulletController* bulletCOntroller = dynamic_cast<BulletController*>(otherCollider);
-			if (bulletCOntroller && bulletCOntroller->GetOwnerEntityType() != Entity::EntityType::ENEMY)
+			BulletController* bulletController = dynamic_cast<BulletController*>(otherCollider);
+			if (bulletController && bulletController->GetOwnerEntityType() != Entity::EntityType::ENEMY)
 			{
 				ServiceLocator::GetInstance()->GetPowerupService()
 					->SpawnPowerup(GetRandomPowerupType(), enemyModel->GetEnemyPosition());

@@ -26,6 +26,7 @@ namespace Collision
 			for (int j = i + 1; j < colliderList.size();j++)
 			{
 				DoCollision(i, j);
+				printf("i=%d, j=%d", i, j);
 			}
 		}
 	}
@@ -35,22 +36,30 @@ namespace Collision
 		if (colliderList[indexI]->GetCollisionState() == CollisionState::DISABLED ||
 			colliderList[indexJ]->GetCollisionState() == CollisionState::DISABLED)return;
 
-		if (AreActiveCollidors(indexI, indexJ))
+		if (HasCollisionOccured(indexI, indexJ))
 		{
+			
+			if(AreActiveCollidors(indexI, indexJ))
 			colliderList[indexI]->OnCollision(colliderList[indexJ]);
 
+			if (AreActiveCollidors(indexI, indexJ))
 			colliderList[indexJ]->OnCollision(colliderList[indexI]);
 		}
 	}
 
 	bool CollisionService::HasCollisionOccured(int indexI, int indexJ)
 	{
-		const sf::Sprite& colliderOneSprite = colliderList[indexI]->GetColliderSprite();
-		const sf::Sprite& colliderTwoSprite = colliderList[indexJ]->GetColliderSprite();
+		ICollider* collider = colliderList[indexI];
+		ICollider* collider2 = colliderList[indexJ];
 
+		const sf::Sprite& colliderOneSprite = colliderList[indexI]->GetColliderSprite();
+		
+		const sf::Sprite& colliderTwoSprite = colliderList[indexJ]->GetColliderSprite();
+		//printf("hooo");
 		return colliderOneSprite.getGlobalBounds().intersects(colliderTwoSprite.getGlobalBounds());
 
 	}
+
 	bool CollisionService::AreActiveCollidors(int intexI, int intexJ)
 	{
 		return(intexI < colliderList.size() && intexJ < colliderList.size() &&

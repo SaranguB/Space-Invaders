@@ -69,8 +69,10 @@ namespace Powerup
 	{
 		powerupImage->Render();
 	}
-	sf::Sprite PowerupView::getSprite()
+	const sf::Sprite& PowerupView::GetPowerupSprite()
 	{
+		//printf("hi");
 		return powerupImage->GetSprite();
 	}
+	
 }

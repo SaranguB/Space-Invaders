@@ -35,7 +35,7 @@ namespace Enemy
 		void update();
 		void Render();
 
-		const sf::Sprite GetEnemySprite();
+		const sf::Sprite& GetEnemySprite();
 
 	};
 }

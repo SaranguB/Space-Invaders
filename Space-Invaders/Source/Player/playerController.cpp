@@ -88,6 +88,7 @@ namespace Player
 
 	const sf::Sprite& PlayerController::GetColliderSprite()
 	{
+		printf("l");
 		return playerView->GetPlayerSprite();
 	}
 

@@ -3,9 +3,9 @@
 
 namespace Bullet
 {
-	BulletModel::BulletModel(BulletType type, Entity::EntityType ownerType)
+	BulletModel::BulletModel(BulletType bulletType, Entity::EntityType ownerType)
 	{
-		bulletType = type;
+		this->bulletType = bulletType;
 		this->ownerType = ownerType;
 	}
 

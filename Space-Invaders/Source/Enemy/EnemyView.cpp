@@ -82,7 +82,7 @@ namespace Enemy
 	{
 		enemyImage->Render();
 	}
-	const sf::Sprite EnemyView::GetEnemySprite()
+	const sf::Sprite& EnemyView::GetEnemySprite()
 	{
 		return enemyImage->GetSprite();
 	}

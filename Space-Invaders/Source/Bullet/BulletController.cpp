@@ -6,6 +6,7 @@
 #include "../../Header/Player/PlayerController.h"
 #include "../../Header/Enemy/EnemyController.h"
 #include "../../header/Element/Bunker/BunkerController.h"
+
 namespace Bullet
 {
 	using namespace Global;
@@ -82,6 +83,7 @@ namespace Bullet
 
 	const sf::Sprite& BulletController::GetColliderSprite()
 	{
+		//printf("j");
 		return bulletView->GetPlayerSprite();
 	}
 

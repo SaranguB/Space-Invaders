@@ -115,6 +115,7 @@ namespace Bullet
 
 		case BulletType::FROST_BULLET:
 			return new FrostBulletController(Bullet::BulletType::FROST_BULLET, ownerType);
+
 		case BulletType::TORPEDO:
 			return new FrostBulletController(Bullet::BulletType::TORPEDO, ownerType);
 		}
