@@ -45,8 +45,8 @@ namespace Collision
 
 	bool CollisionService::HasCollisionOccured(int indexI, int indexJ)
 	{
-		const sf::Sprite& colliderOneSprite = colliderList[indexI]->GetCollidorSprite();
-		const sf::Sprite& colliderTwoSprite = colliderList[indexJ]->GetCollidorSprite();
+		const sf::Sprite& colliderOneSprite = colliderList[indexI]->GetColliderSprite();
+		const sf::Sprite& colliderTwoSprite = colliderList[indexJ]->GetColliderSprite();
 
 		return colliderOneSprite.getGlobalBounds().intersects(colliderTwoSprite.getGlobalBounds());
 

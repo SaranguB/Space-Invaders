@@ -33,5 +33,7 @@ namespace Powerup
 		void Initialize(PowerupController* Controller);
 		void Update();
 		void Render();
+
+		sf::Sprite getSprite();
 	};
 }

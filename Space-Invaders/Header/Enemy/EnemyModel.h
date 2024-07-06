@@ -25,7 +25,7 @@ namespace Enemy
 
 
 	public:
-		EnemyModel(EnemyType type, Entity::EntityType entityType);
+		EnemyModel(EnemyType type);
 		~EnemyModel();
 
 		void Initialize();

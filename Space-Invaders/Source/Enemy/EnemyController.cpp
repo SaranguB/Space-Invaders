@@ -1,24 +1,32 @@
-#include "../../Header/Enemy/EnemyController.h"
-#include "../../Header/Enemy/EnemyModel.h"
-#include "../../Header/Enemy/EnemyView.h"
-#include "../../Header/Global/ServiceLocator.h"
-#include "../../Header/Enemy/EnemyConfig.h"
-#include "../../Header/Bullet/BulletConfig.h"
-
+#include "../../header/Enemy/EnemyController.h"
+#include "../../header/Enemy/EnemyView.h"
+#include "../../header/Enemy/EnemyModel.h"
+#include "../../header/Enemy/EnemyConfig.h"
+#include "../../header/Global/ServiceLocator.h"
+#include "../../header/Bullet/BulletConfig.h"
+#include "../../header/Entity/EntityConfig.h"
+#include "../../header/Bullet/BulletController.h"
+#include "../../header/Player/PlayerController.h"
+#include "../../header/Sound/SoundService.h"
 
 namespace Enemy
 {
 	using namespace Global;
+	using namespace Time;
+	using namespace Bullet;
+	using namespace Collision;
+	using namespace Entity;
+	using namespace Player;
+	using namespace Sound;
 
 
-
-	Enemy::EnemyController::EnemyController(EnemyType type, Entity::EntityType entityType)
+	Enemy::EnemyController::EnemyController(EnemyType type)
 	{
 		//printf("hi");
-	
+
 		enemyView = new EnemyView();
-		enemyModel = new EnemyModel(type, entityType);
-		
+		enemyModel = new EnemyModel(type);
+
 	}
 
 	Enemy::EnemyController::~EnemyController()
@@ -59,6 +67,8 @@ namespace Enemy
 			elapsedFireDuration = 0.f;
 		}
 	}
+
+
 
 	sf::Vector2f EnemyController::getRandomInitialPosition()
 	{
@@ -126,9 +136,33 @@ namespace Enemy
 		return enemyModel->GetEnemyState();
 	}
 
-	Entity::EntityType Enemy::EnemyController::GetEntityType()
+	const sf::Sprite& EnemyController::GetColliderSprite()
 	{
-		return Entity::EntityType();
+		return enemyView->GetEnemySprite();
 	}
+
+	void EnemyController::OnCollision(ICollider* otherCollider)
+	{
+		BulletController* bulletController = dynamic_cast<BulletController*>(otherCollider);
+
+		if (bulletController && bulletController->GetOwnerEntityType() != EntityType::ENEMY)
+		{
+			Destroy();
+			return;
+		}
+		PlayerController* playerController = dynamic_cast<PlayerController*>(otherCollider);
+
+		if (playerController)
+		{
+			Destroy();
+			return;
+		}
+	}
+
+	void EnemyController::Destroy()
+	{
+		ServiceLocator::GetInstance()->GetEnemyService()->DestroyEnemy(this);
+	}
+
 
 }

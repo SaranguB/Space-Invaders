@@ -2,6 +2,7 @@
 #include "../../Header/Enemy/EnemyController.h"
 #include "../../Header/Powerup/PowerupConfig.h"
 
+
 namespace Enemy
 {
 	namespace Controller
@@ -23,6 +24,8 @@ namespace Enemy
 			float verticalSpeed = 50.f;
 
 			void Initialize() override;
+			void OnCollision(ICollider* otherCollider) override;
+			
 		};
 	}
 }

@@ -13,6 +13,8 @@ namespace Powerup
 			virtual ~TrippleLaserController();
 
 			void Oncollected();
+			void ApplyPowerup() override;
+
 		};
 	}
 }

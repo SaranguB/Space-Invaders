@@ -13,7 +13,8 @@ namespace Enemy
 	private:
 
 		std::vector<EnemyController*> enemyList;
-
+		std::vector <Projectile::IProjectile*> flaggedEnemyList;
+		 
 		const float spawnIntervel = 2.f;
 		float spawnTimer;
 
@@ -21,12 +22,13 @@ namespace Enemy
 
 		void updateSpawnTimer();
 		void processEnemySpawn();
-		void Destroy();
 
 		EnemyType GetRandomEnemyType();
 		EnemyController* createEnemy(EnemyType enemyType);
 
-		
+		void DestroyFlaggedEnemy();
+		void Destroy();
+
 	public:
 		
 
@@ -38,8 +40,10 @@ namespace Enemy
 		void Update();
 		void Render();
 
+		void Reset();
+
 		void DestroyEnemy(EnemyController* enemyController);
 
-		EnemyController* SpawnEnemy(Entity::EntityType entityType);
+		EnemyController* SpawnEnemy();
 	};
 }
