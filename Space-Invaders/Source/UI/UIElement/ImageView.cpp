@@ -67,6 +67,7 @@ namespace UI
 		}
 		void ImageView::SetImageAlpha(float alpha)
 		{
+
 			sf::Color color = imageSprite.getColor();
 			color.a = alpha;
 			imageSprite.setColor(color);

@@ -88,7 +88,7 @@ namespace UI
 
 		void GameplayUIController::Render()
 		{
-			printf("Render");
+			//printf("Render");
 			enemiesKilledText->Render();
 			DrawplayerLives();
 		}
