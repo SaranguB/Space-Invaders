@@ -27,10 +27,7 @@ namespace Player
 		playerImage = new ImageView();
 	}
 
-	sf::String PlayerView::GetPlayerTexturePath()
-	{
-		return Config::player_texture_path;
-	}
+
 
 	void PlayerView::Destroy()
 	{
@@ -48,7 +45,7 @@ namespace Player
 	void PlayerView::InitializePlayerSprite()
 	{
 
-		playerImage->Initialize(GetPlayerTexturePath(),
+		playerImage->Initialize(Config::player_texture_path,
 			playerSpriteWidth, playerSpriteHeight, playerController->GetPlayerPosition());
 	}
 

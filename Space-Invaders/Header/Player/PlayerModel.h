@@ -62,11 +62,11 @@ namespace Player
 		const float trippleLaserCooldownDuration = 30.f;
 
 		float elapsedShieldDuration;
-		float elapsedRapidFIreDuration;
+		float elapsedRapidFireDuration;
 		float elapsedTrippleLaserDuration;
 
 		float elapsedFireDuration;
-		float elapsedFreezeDuration;
+		float elapsedFreezDuration;
 
 		void Reset();
 		sf::Vector2f GetPlayerPosition();

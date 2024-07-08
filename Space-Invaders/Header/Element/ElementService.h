@@ -8,10 +8,10 @@
 namespace Element
 {
 	class ElementService
-	{
+	{	
 
 	private:
-		const std::vector<Bunker::BunkerData> bunkerDataList = 
+		const std::vector<Bunker::BunkerData> bunkerDataList =
 		{
 			Bunker::BunkerData(sf::Vector2f(130.f,800.f)),
 			Bunker::BunkerData(sf::Vector2f(430.0f,800.f)),
@@ -22,8 +22,11 @@ namespace Element
 		};
 
 		std::vector<Bunker::BunkerController*> bunkerList;
+		std::vector<Bunker::BunkerController*> flaggedBunkerList;
 
 		void Destroy();
+		void SpawnBunkers();
+		void DestroyFlaggedBunkers();
 
 	public:
 		ElementService();
@@ -35,7 +38,7 @@ namespace Element
 
 		void Reset();
 
-
+		void DestroyBunker(Bunker::BunkerController* bunkerController);
 
 	};
 }

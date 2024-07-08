@@ -119,7 +119,7 @@ namespace Bullet
 	{
 		PlayerController* playerController = dynamic_cast<PlayerController*>(otherCollider);
 
-		if (playerController && GetOwnerEntityType() != EntityType::ENEMY)
+		if (playerController && GetOwnerEntityType() != EntityType::PLAYER)
 			ServiceLocator::GetInstance()->GetBulletServices()->DestroyBullet(this);
 
 	}

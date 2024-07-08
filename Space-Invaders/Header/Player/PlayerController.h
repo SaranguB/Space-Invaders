@@ -23,10 +23,10 @@ namespace Player
 
 		float elapsedShieldDuration;
 		float elapsedRapidFireDuration;
-		float elapsedTripleLaserDuration;
+		float elapsedTrippleLaserDuration;
 
 		float elapsedFireDuration;
-		float elapsedFreezDuration;
+		float elapsedFreezeDuration;
 
 		void processPlayerInput();
 		void MoveLeft();

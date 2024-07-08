@@ -1,10 +1,21 @@
 #include "../../Header/Element/Bunker/BunkerController.h"
 #include "../../Header/Element/Bunker/BunkerView.h"
+#include "../../Header/Bullet/BulletController.h"
+#include "../../Header/Global/ServiceLocator.h"
+#include "../../../header/Bullet/BulletController.h"
+#include "../../../header/Entity/EntityConfig.h"
+#include "../../header/Global/ServiceLocator.h"
+#include "../../../header/Bullet/BulletConfig.h"
+
 
 namespace Element
 {
 	namespace Bunker
 	{
+		using namespace Bullet;
+		using namespace Global;
+		using namespace Entity;
+
 		BunkerController::BunkerController()
 		{
 			bunkerView = new BunkerView();
@@ -28,9 +39,27 @@ namespace Element
 			bunkerView->Render();
 
 		}
+
+		const sf::Sprite& BunkerController::GetColliderSprite()
+		{
+			return bunkerView->GetBunkerSprite();
+		}
+
+		void BunkerController::OnCollision(ICollider* otherCollider)
+		{
+			BulletController* bulletController = dynamic_cast<BulletController*> (otherCollider);
+
+			if (bulletController && bulletController->GetBulletType() == BulletType::TORPEDO)
+			{
+				ServiceLocator::GetInstance()->GetElementService()->DestroyBunker(this);
+			}
+
+		}
+
 		sf::Vector2f BunkerController::GetBunkerPosition()
 		{
 			return bunkerData.position;
 		}
+		
 	}
 }

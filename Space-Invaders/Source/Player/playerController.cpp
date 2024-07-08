@@ -8,6 +8,7 @@
 #include "../../header/Bullet/BulletController.h"
 #include "../../header/Enemy/EnemyController.h"
 #include "../../header/Powerup/PowerupController.h"
+#include "../../Header/Sound/SoundService.h"
 
 
 #include <iostream>
@@ -88,7 +89,7 @@ namespace Player
 
 	const sf::Sprite& PlayerController::GetColliderSprite()
 	{
-		printf("l");
+		//printf("l");
 		return playerView->GetPlayerSprite();
 	}
 
@@ -117,10 +118,16 @@ namespace Player
 			if (bulletController->GetBulletType() == BulletType::FROST_BULLET)
 			{
 				playerModel->SetPlayerState(PlayerState::FROZEN);
-				playerModel->elapsedFreezeDuration = playerModel->freezeDuration;
+				playerModel->elapsedFreezDuration = playerModel->freezeDuration;
 
 			}
-			else ServiceLocator::GetInstance()->GetGameplayService()->Restart();
+			if (bulletController->GetBulletType() == BulletType::LASER_BULLET ||
+				bulletController->GetBulletType() == BulletType::TORPEDO)
+			{
+				DecreasePlayerLives();
+			}
+
+
 			return true;
 		}
 		return false;
@@ -163,16 +170,16 @@ namespace Player
 				DisableShield();
 		}
 
-		if (playerModel->elapsedRapidFIreDuration > 0)
+		if (playerModel->elapsedRapidFireDuration > 0)
 		{
 			elapsedRapidFireDuration -= ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
-			if (playerModel->elapsedRapidFIreDuration < 0)
+			if (playerModel->elapsedRapidFireDuration < 0)
 				DisableRapidFire();
 
 		}
 		if (playerModel->elapsedTrippleLaserDuration > 0)
 		{
-			elapsedTripleLaserDuration -= ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
+			playerModel->elapsedTrippleLaserDuration -= ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
 			if (playerModel->elapsedTrippleLaserDuration < 0)
 				DisableTrippleLaser();
 		}
@@ -192,7 +199,7 @@ namespace Player
 
 	void PlayerController::EnableRapidFire()
 	{
-		playerModel->elapsedRapidFIreDuration = playerModel->rapidFirePowerupDuration;
+		playerModel->elapsedRapidFireDuration = playerModel->rapidFirePowerupDuration;
 		playerModel->SetRapidFireState(true);
 	}
 
@@ -280,11 +287,11 @@ namespace Player
 
 	void PlayerController::UpdateFreezDuration()
 	{
-		if (playerModel->elapsedFreezeDuration > 0)
+		if (playerModel->elapsedFreezDuration > 0)
 		{
-			elapsedFreezDuration -= ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
+			playerModel->elapsedFreezDuration -= ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
 
-			if (playerModel->elapsedFreezeDuration <= 0)
+			if (playerModel->elapsedFreezDuration <= 0)
 			{
 				playerModel->SetPlayerState(PlayerState::ALIVE);
 			}
@@ -318,6 +325,7 @@ namespace Player
 		 bulletPosition = playerModel->GetPlayerPosition() + playerModel->thirdWeponPositionOffset;
 
 		}
+		ServiceLocator::GetInstance()->GetSoundService()->PlaySound(Sound::SoundType::BUTTON_CLICK);
 	}
 
 	void PlayerController::FireBullet(sf::Vector2f position)

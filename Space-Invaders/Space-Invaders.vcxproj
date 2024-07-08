@@ -218,8 +218,8 @@
     <ClInclude Include="Header\Global\Config.h" />
     <ClInclude Include="Header\Main\GameService.h" />
     <ClInclude Include="Header\Graphic\GraphicService.h" />
-    <ClInclude Include="Header\Player\PlayerService.h" />
     <ClInclude Include="Header\Player\PlayerController.h" />
+    <ClInclude Include="Header\Player\PlayerService.h" />
     <ClInclude Include="Header\Player\PlayerModel.h" />
     <ClInclude Include="Header\Player\PlayerView.h" />
     <ClInclude Include="Header\Global\ServiceLocator.h" />

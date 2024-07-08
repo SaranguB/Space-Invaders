@@ -79,7 +79,7 @@ namespace Powerup
 
 	const sf::Sprite& PowerupController::GetColliderSprite()
 	{
-		printf("hi");
+		//printf("hi");
 		return powerupView->GetPowerupSprite();
 	}
 
