@@ -15,6 +15,7 @@ namespace Powerup
 	using namespace Global;
 	using namespace Controller;
 	using namespace Collectible;
+	using namespace Collision;
 	PowerupService::PowerupService()
 	{
 	}
@@ -29,6 +30,14 @@ namespace Powerup
 			delete(powerupList[i]);
 		}
 	}
+	void PowerupService::DestroyFlaggedPowerup()
+	{
+		for (Collectible::ICollectible* powerup : flaggedPowerupList)
+			delete(powerup);
+
+		flaggedPowerupList.clear();
+	}
+
 	void PowerupService::Initialize()
 	{
 	}
@@ -39,6 +48,7 @@ namespace Powerup
 		{
 			powerupList[i]->Update();
 		}
+		DestroyFlaggedPowerup();
 	}
 
 	void PowerupService::Render()
@@ -71,14 +81,23 @@ namespace Powerup
 	{
 		PowerupController* powerupController = CreatePowerup(powerupType);
 		powerupController->Initialize(position);
+
+		ServiceLocator::GetInstance()->GetCollisionService()
+			->AddCollider(dynamic_cast<ICollider*> (powerupController));
+
 		powerupList.push_back(powerupController);
 		return powerupController;
 	}
 
 	void PowerupService::DestroyPowerup(PowerupController* powerupController)
 	{
-		powerupList.erase(std::remove(powerupList.begin(), powerupList.end(), powerupController), powerupList.end());
-		delete(powerupController);
+		ServiceLocator::GetInstance()->GetCollisionService()
+			->RemoveCollider(dynamic_cast<ICollider*>(powerupController));
+
+		flaggedPowerupList.push_back(powerupController);
+
+		powerupList.erase(std::remove(powerupList.begin(), 
+			powerupList.end(), powerupController), powerupList.end());
 	}
 
 	

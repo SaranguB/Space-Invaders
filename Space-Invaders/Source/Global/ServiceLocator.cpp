@@ -18,6 +18,7 @@ namespace Global
 	using namespace Sound;
 	using namespace Bullet;
 	using namespace Powerup;
+	using namespace Collision;
 
 	ServiceLocator::ServiceLocator()
 	{
@@ -32,6 +33,7 @@ namespace Global
 		soundService = nullptr;
 		bulletService = nullptr;
 		powerupService = nullptr;
+		collisionService = nullptr;
 		CreateServices();
 	}
 
@@ -53,6 +55,7 @@ namespace Global
 		soundService = new SoundService();
 		bulletService = new BulletService();
 		powerupService = new PowerupService();
+		collisionService = new CollisionService();
 	}
 
 	void ServiceLocator::ClearAllServices()
@@ -74,6 +77,7 @@ namespace Global
 		delete(soundService);
 		delete(bulletService);
 		delete(powerupService);
+		delete(collisionService);
 
 
 
@@ -99,6 +103,7 @@ namespace Global
 		soundService->Initialize();
 		bulletService->Initialize();
 		powerupService->Initialize();
+		collisionService->Intialize();
 
 
 		//to initilize 
@@ -122,6 +127,7 @@ namespace Global
 			elementService->Update();
 			bulletService->Update();
 			powerupService->Update();
+			collisionService->Update();
 
 		}
 
@@ -144,6 +150,7 @@ namespace Global
 			elementService->Render();
 			bulletService->Render();
 			powerupService->Render();
+
 
 
 
@@ -201,6 +208,16 @@ namespace Global
 	Powerup::PowerupService* ServiceLocator::GetPowerupService()
 	{
 		return powerupService;
+	}
+
+	Element::ElementService* ServiceLocator::GetElementService()
+	{
+		return elementService;
+	}
+
+	Collision::CollisionService* ServiceLocator::GetCollisionService()
+	{
+		return 	collisionService;
 	}
 
 

@@ -16,6 +16,7 @@ namespace Enemy
 	using namespace Global;
 	using namespace Time;
 	using namespace Controller;
+	using namespace Collision;
 
 	Enemy::EnemyService::EnemyService()
 	{
@@ -34,16 +35,28 @@ namespace Enemy
 
 
 
+	void EnemyService::DestroyFlaggedEnemy()
+	{
+		for (int i = 0;i < flaggedEnemyList.size();i++)
+		{
+			ServiceLocator::GetInstance()->GetCollisionService()
+				->RemoveCollider(dynamic_cast<ICollider*>(flaggedEnemyList[i]));
+			delete(flaggedEnemyList[i]);
+		}
+		flaggedEnemyList.clear();
+	}
+
 	void Enemy::EnemyService::Destroy()
 	{
 
 		for (int i = 0;i < enemyList.size(); i++)
 		{
+			ServiceLocator::GetInstance()->GetCollisionService()
+				->RemoveCollider(dynamic_cast<ICollider*>(enemyList[i]));
 			delete(enemyList[i]);
-			enemyList[i] = nullptr;
 
 		}
-
+		enemyList.clear();
 	}
 
 	void EnemyService::Initialize()
@@ -56,8 +69,10 @@ namespace Enemy
 	EnemyController* EnemyService::SpawnEnemy()
 	{
 		EnemyController* enemyController = createEnemy(GetRandomEnemyType());
-
 		enemyController->Initialize();
+
+		ServiceLocator::GetInstance()->GetCollisionService()
+			->AddCollider(dynamic_cast<ICollider*>(enemyController));
 		enemyList.push_back(enemyController);
 
 		return enemyController;
@@ -96,11 +111,10 @@ namespace Enemy
 		updateSpawnTimer();
 		processEnemySpawn();
 
-		for (int i = 0;i < enemyList.size(); i++)
-		{
-			enemyList[i]->Update();
+		for (EnemyController* enemy : enemyList)
+			enemy->Update();
 
-		}
+		DestroyFlaggedEnemy();
 	}
 	void EnemyService::updateSpawnTimer()
 	{
@@ -126,10 +140,18 @@ namespace Enemy
 		}
 	}
 
+	void EnemyService::Reset()
+	{
+		Destroy();
+		spawnTimer = 0.0f;
+	}
+
 	void EnemyService::DestroyEnemy(EnemyController* enemyController)
 	{
+		dynamic_cast<ICollider*>(enemyController)->DisableCollision();
+		flaggedEnemyList.push_back(enemyController);
 		enemyList.erase(std::remove(enemyList.begin(), enemyList.end(), enemyController), enemyList.end());
-		delete(enemyController);
+		
 	}
 
 

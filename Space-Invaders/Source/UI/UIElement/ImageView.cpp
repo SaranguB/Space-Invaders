@@ -38,9 +38,9 @@ namespace UI
 		void ImageView::SetScale(float width, float height)
 		{
 			float scaleX = width / imageSprite.getTexture()->getSize().x;
-			float scalY = height / imageSprite.getTexture()->getSize().y;
+			float scaleY = height / imageSprite.getTexture()->getSize().y;
 
-			imageSprite.setScale(scaleX, scalY);
+			imageSprite.setScale(scaleX, scaleY);
 
 		}
 		void ImageView::SetPosition(sf::Vector2f position)
@@ -53,7 +53,7 @@ namespace UI
 		}
 		void ImageView::SetOriginAtCentre()
 		{
-			imageSprite.setOrigin(imageSprite.getLocalBounds().width / 2, 
+			imageSprite.setOrigin(imageSprite.getLocalBounds().width / 2,
 				imageSprite.getLocalBounds().height / 2);
 		}
 
@@ -67,9 +67,16 @@ namespace UI
 		}
 		void ImageView::SetImageAlpha(float alpha)
 		{
+
 			sf::Color color = imageSprite.getColor();
 			color.a = alpha;
 			imageSprite.setColor(color);
+
+		}
+		const sf::Sprite& ImageView::GetSprite()
+		{
+			//printf("undee");
+			return imageSprite;
 
 		}
 	}

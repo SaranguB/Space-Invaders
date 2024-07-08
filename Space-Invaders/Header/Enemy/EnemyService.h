@@ -1,5 +1,7 @@
 #pragma once
 #include<vector>
+#include "../../Header/Entity/EntityConfig.h"
+#include "../../Header/Projectile/IProjectile.h"
 
 namespace Enemy
 {
@@ -12,7 +14,8 @@ namespace Enemy
 	private:
 
 		std::vector<EnemyController*> enemyList;
-
+		std::vector <EnemyController*> flaggedEnemyList;
+		 
 		const float spawnIntervel = 2.f;
 		float spawnTimer;
 
@@ -20,12 +23,13 @@ namespace Enemy
 
 		void updateSpawnTimer();
 		void processEnemySpawn();
-		void Destroy();
 
 		EnemyType GetRandomEnemyType();
 		EnemyController* createEnemy(EnemyType enemyType);
 
-		
+		void DestroyFlaggedEnemy();
+		void Destroy();
+
 	public:
 		
 
@@ -36,6 +40,8 @@ namespace Enemy
 		void Initialize();
 		void Update();
 		void Render();
+
+		void Reset();
 
 		void DestroyEnemy(EnemyController* enemyController);
 

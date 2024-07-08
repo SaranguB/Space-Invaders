@@ -33,5 +33,6 @@ namespace Bullet
 		void Update();
 		void Render();
 
+		const sf::Sprite& GetPlayerSprite();
 	};
 }

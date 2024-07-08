@@ -62,7 +62,6 @@ namespace UI
 			InitializeBackgroundImage();
 			InitializeButton();
 			RegisterButtonCallback();
-			Show();
 			
 		}
 
@@ -87,6 +86,7 @@ namespace UI
 		{
 			ServiceLocator::GetInstance()->GetSoundService()->PlaySound(SoundType::BUTTON_CLICK);
 			GameService::SetGameState(GameState::GAMEPLAY);
+			ServiceLocator::GetInstance()->GetSoundService()->PlayBackgroundMusic();
 		}
 
 		void MainMenuUIController::InstructionButtonCallback()

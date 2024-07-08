@@ -35,7 +35,7 @@ namespace UI
 
 			static void InitializeTextView();
 
-			virtual void Intialize(sf::String textValue, sf::Vector2f position,
+			virtual void Initialize(sf::String textValue, sf::Vector2f position,
 				FontType fontType = FontType::BUBBLE_BOBBLE, int fontSize = defualtFontSize,
 				sf::Color color = sf::Color::White);
 			virtual void Update() override;

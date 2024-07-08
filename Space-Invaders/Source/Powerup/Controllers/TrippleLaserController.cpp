@@ -1,4 +1,6 @@
 #include "../../Header/Powerup/Controllers/TrippleLaserController.h"
+#include "../../Header/Global/ServiceLocator.h"
+
 
 namespace Powerup
 {
@@ -13,6 +15,10 @@ namespace Powerup
 		}
 		void TrippleLaserController::Oncollected()
 		{
+		}
+		void TrippleLaserController::ApplyPowerup()
+		{
+			Global::ServiceLocator::GetInstance()->GetPlayerService()->EnableTrippleLaser();
 		}
 	}
 }

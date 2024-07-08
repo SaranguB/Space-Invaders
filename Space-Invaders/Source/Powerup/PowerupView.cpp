@@ -42,7 +42,7 @@ namespace Powerup
 		switch (powerupController->GetPowerupType())
 		{
 		case PowerupType::TRIPPLE_LASER:
-			return Config::laser_bullet_texture_path;
+			return Config::tripple_laser_texture_path;
 
 		case PowerupType::OUTSCAL_BOMB:
 			return Config::outscal_bomb_texture_path;
@@ -69,4 +69,10 @@ namespace Powerup
 	{
 		powerupImage->Render();
 	}
+	const sf::Sprite& PowerupView::GetPowerupSprite()
+	{
+		//printf("hi");
+		return powerupImage->GetSprite();
+	}
+	
 }

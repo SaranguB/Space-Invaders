@@ -24,7 +24,6 @@ namespace Player
 
 
 		void CreateUIElement();
-		sf::String GetPlayerTexturePath();
 		void Destroy();
 		void InitializePlayerSprite();
 
@@ -37,6 +36,7 @@ namespace Player
 		void Update();
 		void Render();
 
+		const sf::Sprite& GetPlayerSprite();
 
 	};
 }

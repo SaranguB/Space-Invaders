@@ -13,7 +13,12 @@ namespace Player
 	PlayerView::PlayerView()
 	{
 		CreateUIElement();
-		gameWindow = nullptr;
+		
+	}
+
+	PlayerView::~PlayerView()
+	{
+		Destroy();
 	}
 
 
@@ -22,10 +27,7 @@ namespace Player
 		playerImage = new ImageView();
 	}
 
-	sf::String PlayerView::GetPlayerTexturePath()
-	{
-		return Config::player_texture_path;
-	}
+
 
 	void PlayerView::Destroy()
 	{
@@ -33,10 +35,6 @@ namespace Player
 	}
 
 
-	PlayerView::~PlayerView()
-	{
-		Destroy();
-	}
 
 	void PlayerView::Initialize(PlayerController* controller)
 	{
@@ -47,7 +45,7 @@ namespace Player
 	void PlayerView::InitializePlayerSprite()
 	{
 
-		playerImage->Initialize(GetPlayerTexturePath(),
+		playerImage->Initialize(Config::player_texture_path,
 			playerSpriteWidth, playerSpriteHeight, playerController->GetPlayerPosition());
 	}
 
@@ -63,6 +61,10 @@ namespace Player
 	void PlayerView::Render()
 	{
 		playerImage->Render();
+	}
+	const sf::Sprite& PlayerView::GetPlayerSprite()
+	{
+		return playerImage->GetSprite();
 	}
 }
 

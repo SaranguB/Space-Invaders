@@ -57,7 +57,7 @@ namespace Main
 
 	void GameService::render()
 	{
-		gameWindow->clear(serviceLocator->GetGraphicService()->GetWindowColor());
+		gameWindow->clear();
 		serviceLocator->Render();
 		gameWindow->display();
 

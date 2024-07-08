@@ -9,6 +9,7 @@ namespace Bullet
 	using namespace Global;
 	using namespace UI::UIElement;
 	
+	
 	BulletView::BulletView()
 	{
 		CreateUIElement();
@@ -32,13 +33,12 @@ namespace Bullet
 		switch (bulletController->GetBulletType())
 		{
 		case BulletType::LASER_BULLET:
-			return Config::laser_bullet_texture_path;
-
+			return BulletConfig::laser_bullet_texture_path;
 		case BulletType::FROST_BULLET:
-			return Config::frost_beam_texture_path;
+			return BulletConfig::frost_beam_texture_path;
 			
 		case BulletType::TORPEDO:
-			return Config::torpedoe_texture_path;
+			return BulletConfig::torpedoe_texture_path;
 		}
 	}
 
@@ -66,6 +66,12 @@ namespace Bullet
 	void BulletView::Render()
 	{
 		bulletImage->Render();
+	}
+
+	const sf::Sprite& BulletView::GetPlayerSprite()
+	{
+		///printf("f");
+		return bulletImage->GetSprite();
 	}
 
 

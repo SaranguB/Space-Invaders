@@ -1,9 +1,14 @@
-#include "../../Header/Player/PlayerModel.h"
+	#include "../../Header/Player/PlayerModel.h"
 
 namespace Player
 {
+
+	int PlayerModel::playerLives;
+	int PlayerModel::enemiesKilled;
+
 	PlayerModel::PlayerModel()
 	{
+		entityType = Entity::EntityType::PLAYER;
 	}
 
 	PlayerModel::~PlayerModel()
@@ -20,6 +25,13 @@ namespace Player
 		playerState = PlayerState::ALIVE;
 		playerPosition = initialPlayerPosition;
 		PlayerScore = 0;
+
+		bShield = false;
+		bRapidFire = false;
+		bTrippleLaser = false;
+
+		playerLives = maxPlayerLives;
+		enemiesKilled = 0;
 
 	}
 
@@ -42,6 +54,34 @@ namespace Player
 	void PlayerModel::SetPlayerState(PlayerState state)
 	{
 		playerState = state;
+	}
+	Entity::EntityType PlayerModel::GetEntityType()
+	{
+		return entityType;
+	}
+	bool PlayerModel::IsShieldEnabled()
+	{
+		return bShield;
+	}
+	bool PlayerModel::IsRapidFireEnabled()
+	{
+		return bRapidFire;
+	}
+	bool PlayerModel::IsTrippleLaserEnabled()
+	{
+		return bTrippleLaser;
+	}
+	void PlayerModel::SetShieldState(bool value)
+	{
+		bShield = value;
+	}
+	void PlayerModel::SetRapidFireState(bool value)
+	{
+		bRapidFire = value;
+	}
+	void PlayerModel::SetTrippleFireState(bool value)
+	{
+		bTrippleLaser = value;
 	}
 }
 

@@ -1,5 +1,6 @@
 #pragma once
 #include "../../Header/Collectible/Collectible.h"
+#include "../../Header/Collision/ICollider.h"
 
 namespace Powerup
 {
@@ -7,7 +8,7 @@ namespace Powerup
 	class PowerupModel;
 	class PowerupView;
 
-	class PowerupController : public Collectible::ICollectible
+	class PowerupController : public Collectible::ICollectible, public Collision::ICollider
 	{
 
 	protected:
@@ -29,6 +30,10 @@ namespace Powerup
 
 		PowerupType GetPowerupType();
 		sf::Vector2f GetCollectiblePosition() override;	
+		virtual void ApplyPowerup() = 0;
+
+		const sf::Sprite& GetColliderSprite() override; 
+		void OnCollision(ICollider* otherCollider) override;
 
 	};
 }

@@ -1,6 +1,8 @@
 #pragma once
 #include<SFML/Graphics.hpp>
 #include "../../Header/Element/Bunker/BunkerModel.h"
+#include "../../Header/Collision/ICollider.h"
+
 
 namespace Element
 {
@@ -8,7 +10,7 @@ namespace Element
 	{
 		class BunkerView;
 
-		class BunkerController
+		class BunkerController :public Collision::ICollider
 		{
 		private:
 
@@ -26,6 +28,9 @@ namespace Element
 			void Render();
 
 			sf::Vector2f GetBunkerPosition();
+
+			const sf::Sprite& GetColliderSprite() override;
+			void OnCollision(ICollider* otherCollider) override;
 		};
 	}
 }
