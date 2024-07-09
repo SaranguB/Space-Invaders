@@ -6,7 +6,6 @@
 #include "../../header/Global/Config.h"
 
 
-
 namespace UI
 {
 	namespace SplashScreen
@@ -19,7 +18,7 @@ namespace UI
 
 		SplashScreenUIController::SplashScreenUIController()
 		{
-			outscalLogoView = new AnimatedImageView();
+			outscalLogoView = new ImageView();
 		}
 
 		SplashScreenUIController::~SplashScreenUIController()
@@ -40,21 +39,22 @@ namespace UI
 
 		void SplashScreenUIController::Update()
 		{
-			outscalLogoView->Update();
+			UpdateTimer();
+			ShowMainMenu();
 		}
 
 
-		void SplashScreenUIController::FadeInAnimationCallback()
+		void SplashScreenUIController::UpdateTimer()
 		{
-			
-			outscalLogoView->PlayAnimation(AnimationType::FADE_OUT,
-				logoAnimationDuration, std::bind(&SplashScreenUIController::FadeOutAnimationCallback, this));
+			elapsedDuration += ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
 		}
-		void SplashScreenUIController::FadeOutAnimationCallback()
+		void SplashScreenUIController::ShowMainMenu()
 		{
-
-			ServiceLocator::GetInstance()->GetSoundService()->PlayBackgroundMusic();
-			GameState::MAIN_MENU;
+			if (elapsedDuration >= splashScreenDuration)
+			{
+				ServiceLocator::GetInstance()->GetSoundService()->PlayBackgroundMusic();
+				GameService::SetGameState(GameState::MAIN_MENU);
+			}
 		}
 
 		void SplashScreenUIController::Render()
@@ -64,19 +64,16 @@ namespace UI
 
 		sf::Vector2f SplashScreenUIController::GetLogoPosition()
 		{
-			sf::RenderWindow* gameWindow = ServiceLocator::
-				GetInstance()->GetGraphicService()->GetGameWindow();
+			sf::RenderWindow* gameWindow = ServiceLocator::GetInstance()->GetGraphicService()->GetGameWindow();
 
 			float xPosition = (gameWindow->getSize().x - logoWidth) / 2.f;
-			float yPosition = (gameWindow->getSize().y - logoHeight) / 2.f;
+			float yPosition = (gameWindow->getSize().x - logoHeight) / 2.f;
 
 			return sf::Vector2f(xPosition, yPosition);
 		}
 
 		void SplashScreenUIController::Show()
 		{
-			outscalLogoView->PlayAnimation(AnimationType::FADE_IN, logoAnimationDuration,
-				std::bind(&SplashScreenUIController::FadeInAnimationCallback, this));
 		}
 	}
 }

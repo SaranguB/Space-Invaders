@@ -179,8 +179,6 @@
     <ClCompile Include="Source\Time\TimeService.cpp" />
     <ClCompile Include="Source\UI\GameplayUI\GameplayUIController.cpp" />
     <ClCompile Include="Source\UI\Main Menu\MainMenuUIController.cpp" />
-    <ClCompile Include="Source\UI\SplashScreen\SplashScreenUIController.cpp" />
-    <ClCompile Include="Source\UI\UIElement\AnimatedImageView.cpp" />
     <ClCompile Include="Source\UI\UIElement\ButtonView.cpp" />
     <ClCompile Include="Source\UI\UIElement\ImageView.cpp" />
     <ClCompile Include="Source\UI\UIElement\TextView.cpp" />
@@ -245,8 +243,6 @@
     <ClInclude Include="Header\UI\UIElement\TextView.h" />
     <ClInclude Include="Header\UI\UIElement\UIView.h" />
     <ClInclude Include="Header\UI\UIService.h" />
-    <ClInclude Include="Header\UI\SplashScreen\SplashScreenUIController.h" />
-    <ClInclude Include="Header\UI\UIElement\AnimatedImageView.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -8,6 +8,7 @@ namespace Main
 	GameService::GameService()
 	{
 		serviceLocator = nullptr;
+		gameWindow = nullptr;
 	}
 
 	GameService::~GameService()

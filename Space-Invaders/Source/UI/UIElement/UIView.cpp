@@ -18,7 +18,6 @@ namespace UI
 		}
 		void UIView::Update()
 		{
-
 		}
 		void UIView::Render()
 		{

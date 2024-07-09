@@ -30,12 +30,12 @@ namespace UI
 
 			AnimationType animationType;
 			float animationDuration;
-			float elapsedDuration;
+			float ElapsedDuration;
 
 			sf::Clock clock;
 			
 			virtual void Reset();
-			void SetAnimationDuration(float duration);
+			void SetAnimationDuration(float Duration);
 			void SetAnimationType(AnimationType type);
 
 
