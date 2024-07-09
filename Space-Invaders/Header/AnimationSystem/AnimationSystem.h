@@ -10,7 +10,7 @@ namespace Animation
 	private:
 		AnimationSystemConfig animationSystemConfig;
 		sf::Vector2f animationPosition;
-		UI::UIElement::ImageView* animationView;
+		UI::UIElement::ImageView* animationImage;
 
 		void CreateUIElement();
 		void InitializeImage();
