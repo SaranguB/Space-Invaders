@@ -115,7 +115,7 @@ namespace UI
 
 		void MainMenuUIController::Update()
 		{
-			printf("update");
+			
 			backgroundImage->Update();
 			playButton->Update();
 			instructionButton->Update();
