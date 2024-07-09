@@ -54,7 +54,7 @@ namespace UI
 		{
 
 			ServiceLocator::GetInstance()->GetSoundService()->PlayBackgroundMusic();
-			GameState::MAIN_MENU;
+			GameService::SetGameState(GameState::MAIN_MENU);
 		}
 
 		void SplashScreenUIController::Render()
