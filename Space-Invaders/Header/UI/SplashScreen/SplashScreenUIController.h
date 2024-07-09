@@ -1,6 +1,7 @@
 #pragma once
 #include "../../Header/UI/Interface/IUIcontroller.h"
-#include "../../Header/UI/UIElement/ImageView.h"
+#include "../../Header/UI/UIElement/AnimatedImageView.h"
+
 namespace UI
 {
 	namespace SplashScreen
@@ -9,16 +10,15 @@ namespace UI
 		{
 
 		private:
-			const float splashScreenDuration = 2.0f;
-			float elapsedDuration = 0.0f;
+			const float logoAnimationDuration = 2.0f;
 			const float logoWidth = 600.f;
 			const float logoHeight = 134.f;
 
-			UIElement::ImageView* outscalLogoView;
+			UIElement::AnimatedImageView* outscalLogoView;
 
 			void InitialiseOutscalLogo();
-			void UpdateTimer();
-			void ShowMainMenu();
+			void FadeOutAnimationCallback();
+			void FadeInAnimationCallback();
 			sf::Vector2f GetLogoPosition();
 
 		public:

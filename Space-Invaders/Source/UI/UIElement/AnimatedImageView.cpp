@@ -26,6 +26,7 @@ namespace UI
 
 		void AnimatedImageView::Update()
 		{
+			ImageView::Update();
 			if (uiState == UIState::VISIBLE)
 			{
 				UpdateElapsedDuration();
@@ -43,9 +44,10 @@ namespace UI
 			float duration, CallbackFunction animationEndCallback)
 		{
 			ImageView::Show();
+
 			Reset();
-			animationType = type;
-			animationDuration = duration;
+			SetAnimationType(type);
+			SetAnimationDuration(duration);
 			RegisterCallbackFunction(animationEndCallback);
 		}
 
@@ -58,7 +60,7 @@ namespace UI
 
 		void AnimatedImageView::HandleAnimationProgress()
 		{
-			if (elapsedDuration > animationDuration && callbackFunction)
+			if (elapsedDuration >= animationDuration && callbackFunction)
 			{
 				callbackFunction();
 			}
@@ -81,6 +83,10 @@ namespace UI
 
 		void AnimatedImageView::Reset()
 		{
+			animationDuration = defaultAnimationDuration;
+			animationType = AnimationType::FADE_IN;
+			clock.restart();
+			elapsedDuration = 0.0f;
 		}
 
 		void AnimatedImageView::SetAnimationDuration(float duration)
@@ -101,7 +107,7 @@ namespace UI
 
 		void AnimatedImageView::FadeOut()
 		{
-			float alpha = std::min(0.0f, 1.0f - (elapsedDuration / animationDuration));
+			float alpha = std::max(0.0f, 1.0f - (elapsedDuration / animationDuration));
 			imageSprite.setColor(sf::Color(255, 255, 255, static_cast<sf::Uint8>(alpha * 255)));
 		}
 
