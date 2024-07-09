@@ -115,6 +115,7 @@ namespace UI
 
 		void MainMenuUIController::Update()
 		{
+			
 			backgroundImage->Update();
 			playButton->Update();
 			instructionButton->Update();
