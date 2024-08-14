@@ -16,7 +16,7 @@ namespace UI
 
 			void PrintButtonClicked();
 
-		protected:
+
 			sf::String buttonTitle;
 			virtual void HandleButtonInteraction();
 			virtual bool ClickedButton(sf::Sprite* buttonSprite, sf::Vector2f mousePosition);
@@ -25,8 +25,9 @@ namespace UI
 			ButtonView();
 			virtual ~ButtonView();
 
-			virtual void Initialize(sf::String title, sf::String texturePath, 
+			virtual void Initialize(sf::String title, sf::String texturePath,
 				float buttonWidth, float buttonHeight, sf::Vector2f position);
+
 			virtual void Update() override;
 			virtual void Render() override;
 

@@ -65,6 +65,31 @@ namespace Player
 	}
 
 
+	void PlayerController::processPlayerInput()
+	{
+
+
+		EventService* eventService = ServiceLocator::GetInstance()->GetEventService();
+
+		if (eventService->PressedLeftKey() || eventService->PressedAKey())
+		{
+
+			MoveLeft();
+		}
+		if (eventService->PressedRightKey() || eventService->PressedDKey())
+		{
+
+			MoveRight();
+		}
+		if (eventService->PressedLeftMouseButton())
+		{
+			FireBullet();
+		}
+
+	}
+
+
+
 
 	void PlayerController::Render()
 	{
@@ -228,29 +253,6 @@ namespace Player
 		{
 			Reset();
 		}
-	}
-
-	void PlayerController::processPlayerInput()
-	{
-
-
-		EventService* eventService = ServiceLocator::GetInstance()->GetEventService();
-
-		if (eventService->PressedLeftKey() || eventService->PressedAKey())
-		{
-
-			MoveLeft();
-		}
-		if (eventService->PressedRightKey() || eventService->PressedDKey())
-		{
-
-			MoveRight();
-		}
-		if (eventService->PressedLeftMouseButton())
-		{
-			FireBullet();
-		}
-
 	}
 
 	void PlayerController::MoveLeft()

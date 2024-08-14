@@ -34,6 +34,10 @@ namespace UI
 			{
 				imageSprite.setTexture(imageTexture);
 			}
+			else
+			{
+				printf("not");
+			}
 		}
 
 		void ImageView::SetTextureRect(sf::IntRect textureRect)

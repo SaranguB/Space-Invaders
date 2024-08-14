@@ -23,6 +23,7 @@ namespace Enemy
 
 		void updateSpawnTimer();
 		void processEnemySpawn();
+		
 
 		EnemyType GetRandomEnemyType();
 		EnemyController* createEnemy(EnemyType enemyType);

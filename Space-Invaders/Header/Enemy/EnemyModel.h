@@ -14,7 +14,7 @@ namespace Enemy
 
 
 	private:
-		sf::Vector2f referencePosition = sf::Vector2f(50.f, 50.f);
+		sf::Vector2f referencePosition =	sf::Vector2f(0.f,0.f);
 		sf::Vector2f enemyPosition;
 		MovementDirection  movementDirection;
 		EnemyType enemyType;

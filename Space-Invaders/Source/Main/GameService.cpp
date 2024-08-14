@@ -31,7 +31,7 @@ namespace Main
 		serviceLocator->Initialize();
 		InitializeVariable();
 		ShowSplashScreen();
-		
+
 		//to initialize
 	}
 	void GameService::InitializeVariable()

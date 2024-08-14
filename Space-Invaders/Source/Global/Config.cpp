@@ -37,7 +37,8 @@ namespace Global
 	const sf::String Config::quit_button_texture_path = "assets/textures/quit_button.png";
 
 	const sf::String Config::menu_button_texture_path = "assets/textures/menu_button.png";
-
+	const sf::String Config::instruction_texture_path = "source/assets/textures/Instructions.png";
+	 
 
 	const sf::String Config::bubble_bobble_font_path = "assets/fonts/bubbleBobble.ttf";
 
