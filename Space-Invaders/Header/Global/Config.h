@@ -15,7 +15,8 @@ namespace Global
 		static const sf::String subzero_texture_path;
 		static const sf::String ufo_texture_path;
 		static const sf::String bunker_texture_path;
-
+		static const sf::String explosion_texture_path;
+		
 		static const sf::String shield_texture_path;
 		static const sf::String tripple_laser_texture_path;
 		static const sf::String rapid_fire_texture_path;
@@ -26,6 +27,7 @@ namespace Global
 		static const sf::String instructions_button_texture_path;
 		static const sf::String quit_button_texture_path;
 		static const sf::String menu_button_texture_path;
+		static const sf::String instruction_texture_path;
 
 		static const sf::String bubble_bobble_font_path;
 		static const sf::String DS_DIGIB_font_path;

@@ -19,6 +19,7 @@ namespace Global
 	using namespace Bullet;
 	using namespace Powerup;
 	using namespace Collision;
+	using namespace Animation;
 
 	ServiceLocator::ServiceLocator()
 	{
@@ -34,6 +35,8 @@ namespace Global
 		bulletService = nullptr;
 		powerupService = nullptr;
 		collisionService = nullptr;
+		animationService = nullptr;
+
 		CreateServices();
 	}
 
@@ -56,6 +59,7 @@ namespace Global
 		bulletService = new BulletService();
 		powerupService = new PowerupService();
 		collisionService = new CollisionService();
+		animationService = new AnimationService();
 	}
 
 	void ServiceLocator::ClearAllServices()
@@ -78,6 +82,7 @@ namespace Global
 		delete(bulletService);
 		delete(powerupService);
 		delete(collisionService);
+		delete(animationService);
 
 
 
@@ -106,12 +111,11 @@ namespace Global
 		collisionService->Intialize();
 
 
-		//to initilize 
+		
 	}
 
 	void ServiceLocator::Update()
 	{
-		//printf("hi");
 
 		graphicService->Update();
 		eventService->Update();
@@ -120,7 +124,7 @@ namespace Global
 
 		if (GameService::GetGameState() == GameState::GAMEPLAY)
 		{
-			//printf("hi");
+			
 			playerService->Update();
 			enemyService->Update();
 			gameplayService->Update();
@@ -128,16 +132,11 @@ namespace Global
 			bulletService->Update();
 			powerupService->Update();
 			collisionService->Update();
+			animationService->Update();
 
 		}
-
-
 		uiService->Update();
 
-
-		//std::cout << "hello";
-
-		//to update
 	}
 
 	void ServiceLocator::Render()
@@ -150,14 +149,10 @@ namespace Global
 			elementService->Render();
 			bulletService->Render();
 			powerupService->Render();
-
-
-
-
+			animationService->Render();
 		}
 		uiService->Render();
 
-		// to render
 	}
 
 	GraphicService* ServiceLocator::GetGraphicService()
@@ -218,6 +213,11 @@ namespace Global
 	Collision::CollisionService* ServiceLocator::GetCollisionService()
 	{
 		return 	collisionService;
+	}
+
+	Animation::AnimationService* ServiceLocator::GetAnimationService()
+	{
+		return animationService;
 	}
 
 

@@ -92,6 +92,7 @@ namespace UI
 		void MainMenuUIController::InstructionButtonCallback()
 		{
 			ServiceLocator::GetInstance()->GetSoundService()->PlaySound(SoundType::BUTTON_CLICK);
+			GameService::SetGameState(GameState::INSTRUCTIONS);
 
 		}
 
@@ -115,6 +116,7 @@ namespace UI
 
 		void MainMenuUIController::Update()
 		{
+			
 			backgroundImage->Update();
 			playButton->Update();
 			instructionButton->Update();

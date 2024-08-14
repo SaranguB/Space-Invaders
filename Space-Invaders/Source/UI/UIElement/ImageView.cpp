@@ -34,7 +34,17 @@ namespace UI
 			{
 				imageSprite.setTexture(imageTexture);
 			}
+			else
+			{
+				printf("not");
+			}
 		}
+
+		void ImageView::SetTextureRect(sf::IntRect textureRect)
+		{
+			imageSprite.setTextureRect(textureRect);
+		}
+
 		void ImageView::SetScale(float width, float height)
 		{
 			float scaleX = width / imageSprite.getTexture()->getSize().x;
@@ -43,6 +53,15 @@ namespace UI
 			imageSprite.setScale(scaleX, scaleY);
 
 		}
+
+		void ImageView::SetScale(float width, float height, float tileWidth, float tileHeight)
+		{
+			float scaleX = width / tileWidth;
+			float scaleY = height / tileHeight;
+
+			imageSprite.setScale(scaleX, scaleY	);
+		}
+
 		void ImageView::SetPosition(sf::Vector2f position)
 		{
 			imageSprite.setPosition(position);

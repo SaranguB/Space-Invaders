@@ -8,7 +8,6 @@ namespace Main
 	GameService::GameService()
 	{
 		serviceLocator = nullptr;
-		gameWindow = nullptr;
 	}
 
 	GameService::~GameService()
@@ -31,7 +30,8 @@ namespace Main
 	{
 		serviceLocator->Initialize();
 		InitializeVariable();
-		ShowMainMenu();
+		ShowSplashScreen();
+
 		//to initialize
 	}
 	void GameService::InitializeVariable()
@@ -45,6 +45,12 @@ namespace Main
 	void GameService::destroy()
 	{
 		//clean up resources
+	}
+
+	void GameService::ShowSplashScreen()
+	{
+		SetGameState(GameState::SPLASH_SCREEN);
+		ServiceLocator::GetInstance()->GetUIService()->ShowScreen();
 	}
 
 	void GameService::update()

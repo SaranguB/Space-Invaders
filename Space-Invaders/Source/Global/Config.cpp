@@ -20,6 +20,7 @@ namespace Global
 
 	const sf::String Config::bunker_texture_path = "assets/textures/bunker.png";
 
+	const sf::String Config::explosion_texture_path = "assets/textures/explosion.png";\
 
 	const sf::String Config::shield_texture_path = "assets/textures/shield.png";
 
@@ -36,7 +37,8 @@ namespace Global
 	const sf::String Config::quit_button_texture_path = "assets/textures/quit_button.png";
 
 	const sf::String Config::menu_button_texture_path = "assets/textures/menu_button.png";
-
+	const sf::String Config::instruction_texture_path = "source/assets/textures/Instructions.png";
+	 
 
 	const sf::String Config::bubble_bobble_font_path = "assets/fonts/bubbleBobble.ttf";
 
